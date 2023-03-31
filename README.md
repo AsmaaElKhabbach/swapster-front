@@ -15,7 +15,18 @@ yarn
 # lance le serveur de developpement
 yarn start 
 
-# rdv sur http://localhost:3000/
+# rdv sur http://localhost:8080/
 
 # LISTE DES DÉPENDANCES 
 
+yarn add react-redux
+yarn add @reduxjs/toolkit
+yarn add react-router-dom
+
+# RECUPERER LA BRANCHE MAIN SUR SA BRANCHE
+
+se rendre sur la branche main : git checkout main
+recupérer les données du main : git pull
+
+se rendre sur sa branche : git checkout "sabranche"
+recuperer les données du main : git pull main
