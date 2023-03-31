@@ -23,10 +23,15 @@ yarn add react-redux
 yarn add @reduxjs/toolkit
 yarn add react-router-dom
 
-# RECUPERER LA BRANCHE MAIN SUR SA BRANCHE
+# RECUPERER LA BRANCHE DEV SUR SA BRANCHE
 
-se rendre sur la branche main : git checkout main
-recupérer les données du main : git pull
+se rendre sur la branche main : git checkout dev
+recupérer les données du main : git pull dev
 
 se rendre sur sa branche : git checkout "sabranche"
-recuperer les données du main : git pull main
+recuperer les données du main : git merge dev
+
+# RECUPERER LA BRANCHE DEV SUR LA BRANCHE MAIN => DEPLOIEMENT 
+
+on se rend sur la branche main : git checkout main 
+on recupère les données de la branche dev : git merge dev 
