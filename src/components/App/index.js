@@ -1,12 +1,12 @@
 // == Import
 import HomePage from '../HomePage';
-import reactLogo from './react-logo.svg';
 import './styles.css';
 
-// == Composant
+// == Component
 function App() {
   return (
     <div className="app">
+      <HomePage />
     </div>
   );
 }

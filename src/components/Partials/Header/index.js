@@ -1,8 +1,9 @@
-function header() {
+function Header() {
   return (
-    <div>header</div>
-  )
-  
+    <div>
+      header
+    </div>
+  );
 }
 
-export default header
+export default Header;

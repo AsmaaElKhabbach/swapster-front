@@ -1,7 +1,13 @@
+// == Import
+
+// == Component
 function Footer() {
   return (
-    <div>Footer</div>
-  )
+    <div>
+      Footer
+    </div>
+  );
 }
 
-export default Footer
+// == Export
+export default Footer;
