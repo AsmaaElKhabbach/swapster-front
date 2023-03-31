@@ -34,4 +34,4 @@ recuperer les données du main : git merge dev
 # RECUPERER LA BRANCHE DEV SUR LA BRANCHE MAIN => DEPLOIEMENT 
 
 on se rend sur la branche main : git checkout main 
-on recupère les données de la branche dev : git merge dev 
+on recupère les données de la branche dev : git merge dev
