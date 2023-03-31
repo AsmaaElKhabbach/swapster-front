@@ -1,12 +1,15 @@
 // == Import
 import HomePage from '../HomePage';
 import './styles.css';
+import { Route, Routes } from 'react-router-dom';
 
 // == Component
 function App() {
   return (
     <div className="app">
-      <HomePage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
     </div>
   );
 }
