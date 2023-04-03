@@ -1,9 +1,13 @@
-import Header from "../Partials/Header/index"
+import NavScrollExample from '../Partials/Header/index';
+import CarouselFade from './carrousel/index';
 
-function HomePage () {
+function HomePage() {
   return (
-  <Header />
-)}
+    <div>
+      <NavScrollExample />
+      <CarouselFade />
+    </div>
+  );
+}
 
 export default HomePage;
-
