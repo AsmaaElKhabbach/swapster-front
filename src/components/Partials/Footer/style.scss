@@ -1,26 +1,60 @@
 @use 'src/styles/vars';
 
 .footer{
-  display: inline-block;
-  &-link {
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 300;
-    display: inline-block;
-    padding: 1.5rem;
-    transition: color .2s, box-shadow .4s;
-    color: vars.$text;
+  box-sizing: border-box;
+  background-color: vars.$bg-200;
+  border-radius: 15px;
+  box-shadow:none;
+  text-align: center;
+  align-items: center;
+  width: 60%;
+  height: 20%;
+  margin: auto;
 
-    &:hover:not(&--active) {
+  &-intro{
+    margin-left: 1.5rem;
+
+    &-title{
+      font-size: 3rem;
       color: vars.$primary-300;
     }
 
-    &--active {
-      color: vars.$text;
-      box-shadow: inset -3px 0 0 vars.$text;
+    &-slogan{
+      color: vars.$text-200;
+      font-style: italic;
+    }
+  }
+  &-icon {
+    color: vars.$primary-200;
+    margin-left: 1.5rem;
+    padding: 0.2rem;
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 0.3rem;
+  }
+  &-link {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: inline-block;
+    padding: 1rem;
+    transition: color .2s, box-shadow .4s;
+    color: vars.$primary-300;
+
+    &:hover:not(&--active) {
+      color: vars.$accent;
     }
 
-   
+    &--active {
+      color: vars.$accent;
+      box-shadow: inset -3px 0 0 vars.$text;
+    }   
   }
 
 }
+
+@media (max-width: 900){
+  .footer-link{
+      display: none;
+    }
+  }
