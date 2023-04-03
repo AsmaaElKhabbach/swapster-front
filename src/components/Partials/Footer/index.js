@@ -2,6 +2,8 @@
 
 import { NavLink } from 'react-router-dom';
 import './style.scss';
+import { Button } from 'react-bootstrap';
+import EmailTo from '../../EmailTo';
 
 // == Component
 function Footer() {
@@ -14,7 +16,7 @@ function Footer() {
             className={classNameLink}
             to="/legalnotice"
           >
-            Legale Notice
+            Mentions Légales
           </NavLink>
           <NavLink
             className={classNameLink}
@@ -22,17 +24,11 @@ function Footer() {
           >
             About us
           </NavLink>
-          <NavLink
-            className={classNameLink}
-            to="/contactus"
-          >
-            Contact Us
-          </NavLink>
+          <EmailTo  label="Nous Contacter" mailto="mailto:infos.swapster@gmail.com" />
         </nav>
       </footer>
     </div>
   );
 }
-
 // == Export
 export default Footer;

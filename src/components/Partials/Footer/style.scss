@@ -1,8 +1,9 @@
 @use 'src/styles/vars';
 
 .footer{
-
+  display: inline-block;
   &-link {
+    text-decoration: none;
     font-size: 1.5rem;
     font-weight: 300;
     display: inline-block;
@@ -18,5 +19,8 @@
       color: vars.$text;
       box-shadow: inset -3px 0 0 vars.$text;
     }
+
+   
   }
+
 }
