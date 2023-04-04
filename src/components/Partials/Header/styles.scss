@@ -1,23 +1,8 @@
-@use '../../../styles/vars';
-
-.navbar {
+.color-nav {
   background-color: #944424;
-  height: 5em ;
-  border-radius: 20px 20px 0 0;
-}
-
-.d-flex {
-  display: flex;
-  
-}
-.button {
-  background-color: #fffaf0;
-  color: #333333;
-  margin-left: 10em;
-  margin-right: 1em;
+  border-radius: 10px 10px 0 0;
 }
 
 .title {
-  color: #fffaf0;
-  text-size-adjust: 20em;
+  color: white;
 }
