@@ -1,7 +1,8 @@
 // == Import
 import HomePage from '../HomePage';
-import './styles.scss';
-import { Route, Routes } from 'react-router-dom';
+import SignUp from '../SignUp';
+import reactLogo from './react-logo.svg';
+import './styles.css';
 
 // == Component
 function App() {
