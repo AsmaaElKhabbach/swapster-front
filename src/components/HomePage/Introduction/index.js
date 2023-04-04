@@ -1,5 +1,7 @@
+// == Import
 import './styles.scss';
 
+// == Component
 function Presentation() {
   return (
     <div className="intro">
@@ -12,4 +14,5 @@ function Presentation() {
   );
 }
 
+// == Export
 export default Presentation;

@@ -1,6 +1,6 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import './styles.scss'
 function SearchBar() {
 
   const handleChangeSearch = (event) => {
@@ -9,7 +9,7 @@ function SearchBar() {
     dispatch(changeNewSearch(newValue));
   };
   return (
-    <div>
+    <div className="search">
         <Form className="d-flex">
           <Form.Control
             type="search"
