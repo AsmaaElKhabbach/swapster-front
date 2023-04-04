@@ -1,10 +1,19 @@
-.presentation {
-  background-color: #fffaf0;
-  margin: 1em;
-  border: solid 1px #944424;
-  border-radius: 10px ;
-}
-p {
-  color: #944424;
-  padding: 1em;
+@use 'src/styles/vars';
+
+.intro {
+  background-color: vars.$bg-200;
+  border: solid 1px vars.$primary-300;
+  box-shadow: 25px -16px vars.$primary-200;
+  border-radius: 15px ;
+  margin: 5rem;
+
+  &-title{
+    color: vars.$primary-300;
+    padding: 1em;
+  }
+
+  &-content{
+    color: vars.$text
+  }
+  
 }

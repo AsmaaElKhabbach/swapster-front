@@ -1,3 +1,6 @@
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
 function SearchBar() {
 
   const handleChangeSearch = (event) => {
@@ -7,14 +10,15 @@ function SearchBar() {
   };
   return (
     <div>
-      <form>
-        <input
-        placeholder="Veuillez entrer votre recherche"
-        type="text"
-        value={newSearch}
-        onChange={handleChangeSearch}>
-        </input>
-      </form>
+        <Form className="d-flex">
+          <Form.Control
+            type="search"
+            placeholder="Search"
+            className="me-2"
+             aria-label="Search"
+          />
+           <Button variant="danger">Search</Button>
+         </Form>
     </div>
   )
 }

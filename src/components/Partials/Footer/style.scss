@@ -6,31 +6,36 @@
   align-items: center;
   background-color: vars.$bg-200;
   border-radius: 15px;
-  width: 60%;
-  height: 20%;
+  width: 90%;
+  height: 10%;
   margin: auto;
+  margin-top: 2vh;
 
   &-intro{
-    margin: auto;
+    display: flex;
     text-align: center;
+    margin-top: 1rem;
 
     &-title{
-      font-size: 3rem;
+      font-size: 1.5rem;
       color: vars.$primary-300;
       
     }
 
     &-slogan{
+      font-size: 0.6rem;
       color: vars.$text-200;
       font-style: italic;
     }
   }
 }
 .nav{
+  font-size: 0.8rem;
   text-align: center;
   align-items: center;
   display: flex;
   justify-content: space-between;
+  gap: 0.5rem;
 
   &-content{
     display: inline;
@@ -41,7 +46,7 @@
   &-link {
     
     display: inline;
-    padding: 1rem;
+    padding: 0.5rem;
     transition: color .2s, box-shadow .4s;
     color: vars.$primary-300;
     text-decoration: none;
@@ -64,10 +69,6 @@
     }
   }
 
-}
-
-.color{
-  color: vars.$primary-300;
 }
 
 @media (max-width: 900){

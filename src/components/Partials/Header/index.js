@@ -1,12 +1,12 @@
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import SearchBar from './SearchBar';
 import './styles.scss';
 
-function NavScrollExample() {
+function Header() {
   return (
     <Navbar className="color-nav" expand="lg">
       <Container fluid>
@@ -34,19 +34,11 @@ function NavScrollExample() {
             </Nav.Link>
             <Navbar.Brand className="title" href="#">Swapster</Navbar.Brand>
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="danger">Search</Button>
-          </Form>
+          <SearchBar />
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 }
 
-export default header;
+export default Header;
