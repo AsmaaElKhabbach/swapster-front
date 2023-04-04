@@ -1,0 +1,10 @@
+@use '../../styles/vars'
+div {
+  background-color: $bg;
+  display: flex;
+  height: 7rem;
+}
+
+.CarouselFade {
+  color: red;
+}

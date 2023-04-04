@@ -1,16 +1,13 @@
-// == Import
-import Footer from '../Partials/Footer';
-import Header from '../Partials/Header';
+import NavScrollExample from '../Partials/Header/index';
+import CarouselFade from './Carrousel/index';
+import Presentation from './Presentation/index';
 
-// == Component
 function HomePage() {
   return (
     <div>
-      <Header />
-      <Footer />
+      <NavScrollExample />
+      <Presentation />
+      <CarouselFade />
     </div>
   );
 }
-
-// == Export
-export default HomePage;
