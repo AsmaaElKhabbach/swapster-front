@@ -1,13 +1,13 @@
-import DropDownMenu from './DropDownMenu';
+import DropDownMenu from "./DropDownMenu"
 
-function Logged() {
+function Logged () {
   return (
     <div>
       <button>Username</button>
 
       <DropDownMenu />
     </div>
-  );
+  )
 }
 
-export default Logged;
+export default Logged
