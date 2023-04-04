@@ -1,13 +1,15 @@
 // == Import
 import HomePage from '../HomePage';
-import reactLogo from './react-logo.svg';
-import './styles.css';
+import './styles.scss';
+import { Route, Routes } from 'react-router-dom';
 
-// == Composant
+// == Component
 function App() {
   return (
     <div className="app">
-    <HomePage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
     </div>
   );
 }

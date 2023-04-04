@@ -1,0 +1,78 @@
+@use 'src/styles/vars';
+
+.footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: vars.$bg-200;
+  border-radius: 15px;
+  width: 90%;
+  height: 10%;
+  margin: auto;
+  margin-top: 2vh;
+
+  &-intro{
+    display: flex;
+    text-align: center;
+    margin-top: 1rem;
+
+    &-title{
+      font-size: 1.5rem;
+      color: vars.$primary-300;
+      
+    }
+
+    &-slogan{
+      font-size: 0.6rem;
+      color: vars.$text-200;
+      font-style: italic;
+    }
+  }
+}
+.nav{
+  font-size: 0.8rem;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  &-content{
+    display: inline;
+    max-width: 20rem;
+    margin-left: 2rem;
+  }
+
+  &-link {
+    
+    display: inline;
+    padding: 0.5rem;
+    transition: color .2s, box-shadow .4s;
+    color: vars.$primary-300;
+    text-decoration: none;
+
+    &:hover:not(&--active) {
+      color: vars.$accent;
+    }
+
+    &--active {
+      color: vars.$accent;
+      box-shadow: inset -3px 0 0 vars.$text;
+    } 
+    
+    &-icon {
+      color: vars.$primary-200;
+      padding: 0.2rem;
+      width: fit-content;
+      height: fit-content;
+      margin-bottom: 0.3rem;
+    }
+  }
+
+}
+
+@media (max-width: 900){
+  .footer{
+      flex-direction: column;
+    }
+  }
