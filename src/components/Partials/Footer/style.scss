@@ -1,22 +1,23 @@
 @use 'src/styles/vars';
 
 .footer{
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: vars.$bg-200;
   border-radius: 15px;
-  box-shadow:none;
-  text-align: center;
-  align-items: center;
   width: 60%;
   height: 20%;
   margin: auto;
 
   &-intro{
-    margin-left: 1.5rem;
+    margin: auto;
+    text-align: center;
 
     &-title{
       font-size: 3rem;
       color: vars.$primary-300;
+      
     }
 
     &-slogan{
@@ -24,22 +25,26 @@
       font-style: italic;
     }
   }
-  &-icon {
-    color: vars.$primary-200;
-    margin-left: 1.5rem;
-    padding: 0.2rem;
-    width: fit-content;
-    height: fit-content;
-    margin-bottom: 0.3rem;
+}
+.nav{
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  &-content{
+    display: inline;
+    max-width: 20rem;
+    margin-left: 2rem;
   }
+
   &-link {
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 500;
-    display: inline-block;
+    
+    display: inline;
     padding: 1rem;
     transition: color .2s, box-shadow .4s;
     color: vars.$primary-300;
+    text-decoration: none;
 
     &:hover:not(&--active) {
       color: vars.$accent;
@@ -48,13 +53,25 @@
     &--active {
       color: vars.$accent;
       box-shadow: inset -3px 0 0 vars.$text;
-    }   
+    } 
+    
+    &-icon {
+      color: vars.$primary-200;
+      padding: 0.2rem;
+      width: fit-content;
+      height: fit-content;
+      margin-bottom: 0.3rem;
+    }
   }
 
 }
 
+.color{
+  color: vars.$primary-300;
+}
+
 @media (max-width: 900){
-  .footer-link{
-      display: none;
+  .footer{
+      flex-direction: column;
     }
   }

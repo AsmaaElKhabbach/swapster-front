@@ -1,36 +1,7 @@
 @use 'src/styles/vars';
 
 .contact{
-  display: inline-block;
-
-
-  &-icon{
-    margin-left: 1.5rem;
-    padding: 0.2rem;
-    width: fit-content;
-    height: fit-content;
-    margin-bottom: 0.3rem;
-    color: vars.$primary-200;
-  
-  }
-
-  &-emailto{
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 500;
-    transition: color .2s, box-shadow .4s;
-    color: vars.$primary-300;
-    padding: 1rem;
-
-    &:hover:not(&--active) {
-      color: vars.$accent;
-    }
-  }
-
+  text-decoration: none;
+  color: none;
+  margin-left: 1rem;
 }
-
-@media (max-width: 900){
-  .contact{
-      display: none;
-    }
-  }

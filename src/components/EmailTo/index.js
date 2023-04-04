@@ -2,14 +2,13 @@
 import PropTypes from 'prop-types'
 import  { Link } from 'react-router-dom'
 import './style.scss'
-import { Mail } from 'react-feather';
 
 // == Component
 function EmailTo({ mailto, label }) {
   return (
-    <div className='contact'>
-        <Mail className='contact-icon'/>
-        <Link className='contact-emailto'
+    <>
+        
+        <Link className="contact"
           to='#'
           onClick={(event) => {
             window.location.href = mailto;
@@ -19,7 +18,7 @@ function EmailTo({ mailto, label }) {
           {label}
         </Link>
 
-    </div>
+    </>
   )
 }
 
