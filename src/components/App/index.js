@@ -1,7 +1,6 @@
 // == Import
+import { Route, Routes } from 'react-router-dom';
 import HomePage from '../HomePage';
-import './styles.scss';
-import { Routes, Route} from 'react-router-dom'
 
 // == Component
 function App() {
