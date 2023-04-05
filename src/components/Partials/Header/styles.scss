@@ -1,8 +1,6 @@
-.color-nav {
-  background-color: #944424;
-  border-radius: 10px 10px 0 0;
-}
+@use 'src/styles/vars';
 
-.title {
-  color: white;
+.color-nav {
+  background-color: #7e5e52;
+  border-radius: 10px 10px 0 0;
 }
