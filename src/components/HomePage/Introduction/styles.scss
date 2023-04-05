@@ -2,15 +2,15 @@
 
 .intro {
   background-color: vars.$bg-200;
-  border: solid 1px yellow;
-  box-shadow: 25px -16px vars.$primary-200;
+  border: solid 1px vars.$primary-200;
+  box-shadow: 20px -16px rgba(222, 130, 94, 0.7);
   border-radius: 15px ;
-  margin: 2rem;
-  padding: 1rem;
+  margin: 2em;
+  padding: 1em;
 
   &-title{
     color: vars.$primary-300;
-    padding: 1rem;
+    padding: 1em;
     text-align: center;
   }
 
@@ -19,3 +19,10 @@
   }
   
 }
+
+// @media(max-width: 900px){
+//   .intro{
+//     display: none;
+//   }
+// }
+
