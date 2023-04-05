@@ -26,13 +26,13 @@ function SearchBar() {
   }
 
   return (
-    <div>
+    <div className='search'>
       <Form className="d-flex" onSubmit={handleSubmit}>
         <Form.Control
           value={search}
           onChange={handleInputChange}
           type="search"
-          placeholder="Search"
+          placeholder="Rechercher un livre"
           className="me-2"
           aria-label="Search"
         />

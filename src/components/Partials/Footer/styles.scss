@@ -43,8 +43,8 @@
     display: inline;
     padding: 1rem;
     transition: color .2s, box-shadow .4s;
-    color: vars.$primary-300;
     text-decoration: none;
+    color: vars.$text;
 
     &:hover:not(&--active) {
       color: vars.$accent;

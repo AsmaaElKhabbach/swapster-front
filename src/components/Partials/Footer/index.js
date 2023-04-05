@@ -1,7 +1,7 @@
 // == Import
 
 import { NavLink } from 'react-router-dom';
-import './style.scss';
+import './styles.scss';
 import EmailTo from '../../EmailTo';
 import { PenTool, FileText, Mail} from 'react-feather';
 
