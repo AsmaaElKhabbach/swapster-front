@@ -4,19 +4,19 @@ import Footer from '../Partials/Footer'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './style.scss'
+
 //== Component
 function Login() {
   return (
     <div className="login">
     <Header />
     <Form className= "login-form">
+      <h1 className='login-title'>Connection</h1>
       <Form.Group size="lg"  className="form-input" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Adresse mail" />
       </Form.Group>
 
       <Form.Group size="lg" className="form-input" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Mot de passe" />
       </Form.Group>
       <Button variant="primary" type="submit">

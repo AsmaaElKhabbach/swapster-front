@@ -1,22 +1,45 @@
 @use 'src/styles/vars';
 
 .login{
-
+  
+  &-title{
+    color: vars.$text-200;
+    font-size: 3em;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
   &-form{
-
-  background-color: vars.$primary-300;
-  border-color: vars.$primary-300;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3em;
+  background-color: vars.$primary-200;
+  opacity: 0.7;
   border-radius: 15px;
   align-items: center;
   text-align: center;
   max-width: 80%;
-  padding: 10rem;
-  margin: auto;
-
-  &-input{
-    width: 3400px;
-    margin-bottom: 2rem;
-  }
-  
+  padding: 10em;
+  margin: 6em 10em;
 
 }}
+
+#formBasicPassword{
+  width: 50em;
+}
+
+#formBasicEmail{
+  width: 50em;
+}
+
+.btn{
+  width: 30em;
+  background-color: vars.$primary-300;
+  border-color: vars.$primary-300;
+
+  &:hover{
+    background-color: vars.$accent;
+    border-color: vars.$accent;
+  }
+}
