@@ -1,13 +1,13 @@
 // == Import : npm
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 
 // == Import : local
 // Composants
 import App from 'src/components/App';
 import store from './store';
-import 'bootstrap/dist/css/bootstrap.min.css';
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
 //    => crée une structure d'objets imbriqués (DOM virtuel)
