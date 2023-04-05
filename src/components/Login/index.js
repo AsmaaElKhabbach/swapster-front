@@ -4,20 +4,57 @@ import Footer from '../Partials/Footer'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './style.scss'
+import { useDispatch, useSelector } from 'react-redux';
+import { changeCredentialsValue } from '../../store/reducers/settings';
+import { login } from '../../api/auth';
 
 //== Component
 function Login() {
+  const dispatch = useDispatch();
+
+  const email = useSelector((state) => state.settings.credentials.email);
+  const password = useSelector((state) => state.settings.credentials.password);
+
+  const handleChangeInput = (event) => {
+    // Je récupère la valeur de l'input (mon élément HTML)
+    const newValue = event.target.value;
+    // Je récupère la propriété name de mon input
+    const inputName = event.target.name;
+    // J'emets mon intention de changer la valeur de ma donnée
+    dispatch(changeCredentialsValue({
+      value: newValue,
+      name: inputName,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(login());
+  };
+
   return (
     <div className="login">
     <Header />
-    <Form className= "login-form">
+    <Form className= "login-form" onSubmit={handleSubmit}>
       <h1 className='login-title'>Connection</h1>
       <Form.Group size="lg"  className="form-input" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder="Adresse mail" />
+        <Form.Control
+        type="email"
+        name="email"
+        placeholder="Adresse mail"
+        value={email}
+        onChange={handleChangeInput}
+        />
       </Form.Group>
 
       <Form.Group size="lg" className="form-input" controlId="formBasicPassword">
-        <Form.Control type="password" placeholder="Mot de passe" />
+        <Form.Control
+        type="password"
+        name="password"
+        placeholder="Mot de passe"
+        value={password}
+        onChange={handleChangeInput}
+         />
       </Form.Group>
       <Button variant="primary" type="submit">
         Envoyez
