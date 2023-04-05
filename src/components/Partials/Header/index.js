@@ -17,19 +17,17 @@ function Header() {
             style={{ maxHeight: '200px' }}
             navbarScroll
           >
-            <Navbar.Brand className="title" href="#">Swapster</Navbar.Brand>
+            <Navbar.Brand className="title" href="/">Swapster</Navbar.Brand>
             <SearchBar />
-            <Nav.Link href="#action1">S'inscrire</Nav.Link>
-            <Nav.Link href="#action2">Se connecter</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
+            <Nav.Link href="/signup">S'inscrire</Nav.Link>
+            <Nav.Link href="/login">Se connecter</Nav.Link>
+            <NavDropdown title="Menu" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="/">Accueil</NavDropdown.Item>
+              <NavDropdown.Item href="/login">Se connecter</NavDropdown.Item>
+              <NavDropdown.Item href="/signup">S'inscrire</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
+              <NavDropdown.Item href="/profile">Profil</NavDropdown.Item>
+              <NavDropdown.Item href="/">Déconnection</NavDropdown.Item>
             </NavDropdown>
             {/* <Nav.Link href="#" disabled>
               Link
