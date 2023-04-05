@@ -1,7 +1,9 @@
+// == Import
 import Carousel from 'react-bootstrap/Carousel';
 import './styles.scss';
 
-function CarouselFade() {
+// == Component
+function LastestAdd() {
   return (
     <Carousel className="carousel" fade>
       <Carousel.Item>
@@ -47,4 +49,4 @@ function CarouselFade() {
   );
 }
 
-export default CarouselFade;
+export default LastestAdd;

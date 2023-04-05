@@ -1,16 +1,20 @@
+// == Imoort
 import Header from '../Partials/Header/index';
-import CarouselFade from './Carrousel/index';
-import Presentation from './Presentation/index';
+import LastestAdd from './Carousel/index';
+import Introduction from './Introduction/index';
 import Footer from '../Partials/Footer'
+
+// == Component
 function HomePage() {
   return (
     <div>
       <Header />
-      <Presentation />
-      <CarouselFade />
+      <Introduction />
+      <LastestAdd />
       <Footer />
     </div>
   );
 }
 
+// == Export
 export default HomePage;

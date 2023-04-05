@@ -1,3 +1,6 @@
+// == Import
+
+// == Component
 function SignUp() {
   return (
     <div className="form">
@@ -34,4 +37,5 @@ function SignUp() {
   );
 }
 
+// == Export
 export default SignUp;

@@ -17,8 +17,10 @@ function Header() {
             style={{ maxHeight: '200px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
+            <Navbar.Brand className="title" href="#">Swapster</Navbar.Brand>
+            <SearchBar />
+            <Nav.Link href="#action1">S'inscrire</Nav.Link>
+            <Nav.Link href="#action2">Se connecter</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
@@ -29,15 +31,15 @@ function Header() {
                 Something else here
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" disabled>
+            {/* <Nav.Link href="#" disabled>
               Link
-            </Nav.Link>
-            <Navbar.Brand className="title" href="#">Swapster</Navbar.Brand>
+            </Nav.Link> */}
           </Nav>
-          <SearchBar />
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    
   );
 }
 
