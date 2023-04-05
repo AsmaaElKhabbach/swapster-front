@@ -7,29 +7,41 @@ import './style.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { changeCredentialsValue } from '../../store/reducers/settings';
 import { login } from '../../api/auth';
-
+import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
 //== Component
 function Login() {
   const dispatch = useDispatch();
-
-  const email = useSelector((state) => state.settings.credentials.email);
-  const password = useSelector((state) => state.settings.credentials.password);
+  const navigate = useNavigate();
+  // const email = useSelector((state) => state.settings.credentials.email);
+  // const password = useSelector((state) => state.settings.credentials.password);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleChangeInput = (event) => {
-    // Je récupère la valeur de l'input (mon élément HTML)
-    const newValue = event.target.value;
-    // Je récupère la propriété name de mon input
-    const inputName = event.target.name;
-    // J'emets mon intention de changer la valeur de ma donnée
-    dispatch(changeCredentialsValue({
-      value: newValue,
-      name: inputName,
-    }));
+    // // Je récupère la valeur de l'input (mon élément HTML)
+    // const newValue = event.target.value;
+    // // Je récupère la propriété name de mon input
+    // const inputName = event.target.name;
+    // // J'emets mon intention de changer la valeur de ma donnée
+    // dispatch(changeCredentialsValue({
+    //   value: newValue,
+    //   name: inputName,
+    // }));
+    if(event.target.name === "email"){
+      setEmail(event.target.value)
+    }else{
+      setPassword(event.target.value)
+    }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(login());
+    dispatch(login(
+      email,
+      password,
+      () => navigate("/")
+    ));
   };
 
   return (

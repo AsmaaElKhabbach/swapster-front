@@ -2,31 +2,23 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
 
 const initialState = {
-  credentials: {
-    email: '',
-    password: 'Yeahmen',
-  },
+user: {
+  data: {}, // contient les données de l'utilisateur
+  isLoading: false, // va valoir true qd les donénes sont entrain d'etre chargées
+  error: null, // va valoir une erreur lorsqu'il y a une erreur 
+}
 
 };
 
 //== Action
-export const changeCredentialsValue = createAction('settings/changeCredentialsValue');
-
+export const saveUser = createAction('settings/saveUser');
+export const setIsLoading = createAction('settings/setIsLoading');
+export const setError = createAction('settings/setError');
 // == Reducer
 const settingsReducer = createReducer(initialState, (builder) => {
   builder 
-  .addCase(changeCredentialsValue, (state, action) => {
-    // le dispatch ressemble à
-    // dispatch(changeCredentialsValue({
-    //   value: 'Ma valeur',
-    //   name: 'email',
-    // }));
-    // payload ressemble à ça => {value: 'Ma valeur', name: 'email'}
-    // state.credentials.email === state.credentials['email']
-
-    const { value, name } = action.payload;
-    // name sera soit 'email' soit 'password'
-    state.credentials[name] = value;
+  .addCase(saveUser, (state, { payload }) => {
+    state.user.data = payload;
   });
 
 });
