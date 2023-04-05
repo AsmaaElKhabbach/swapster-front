@@ -1,0 +1,21 @@
+@use 'src/styles/vars';
+
+.intro {
+  background-color: vars.$bg-200;
+  border: solid 1px yellow;
+  box-shadow: 25px -16px vars.$primary-200;
+  border-radius: 15px ;
+  margin: 2rem;
+  padding: 1rem;
+
+  &-title{
+    color: vars.$primary-300;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  &-content{
+    color: vars.$text
+  }
+  
+}

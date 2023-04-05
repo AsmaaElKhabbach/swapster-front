@@ -1,0 +1,30 @@
+
+@use 'src/styles/vars';
+
+.carousel {
+  max-height: 60%;
+  padding: 1em;
+  margin-top: 2vh;
+  margin: 1em 35em;
+  background-color: vars.$bg-200;
+  opacity: 0.8;
+  max-width: 30%;
+  border-radius: 15px;
+
+  &-img{
+    width: 70%;
+    height: 50%;
+    border-radius: 15px;
+    margin: 1rem 0;
+  }
+
+  &-infos{
+    background-color: vars.$bg;
+    opacity: 0.5;
+    border-radius: 15px;
+    width: 60%;
+    height: 20%;
+    margin: auto;
+    color: vars.$accent-200;
+  }
+}

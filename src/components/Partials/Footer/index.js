@@ -1,7 +1,7 @@
 // == Import
 
 import { NavLink } from 'react-router-dom';
-import './style.scss';
+import './styles.scss';
 import EmailTo from '../../EmailTo';
 import { PenTool, FileText, Mail} from 'react-feather';
 
@@ -13,8 +13,8 @@ function Footer() {
     <>
       <footer className="footer">
       <section className="footer-intro">
-          <h1 className="footer-intro-title">Swapster</h1>
-          <p className="footer-intro-slogan">Donner une seconde vie à la culture</p>
+          <h1 className="footer-intro-title">S</h1>
+          <p className="footer-intro-slogan">Donnez une seconde vie à la culture</p>
         </section>
         <nav className="nav">
         <div className="nav-content">

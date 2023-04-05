@@ -1,12 +1,16 @@
-// == Import
+// == Imoort
+import Header from '../Partials/Header/index';
+import LastestAdd from './Carousel/index';
+import Introduction from './Introduction/index';
 import Footer from '../Partials/Footer';
-import Header from '../Partials/Header';
 
 // == Component
 function HomePage() {
   return (
     <div>
       <Header />
+      <Introduction />
+      <LastestAdd />
       <Footer />
     </div>
   );
