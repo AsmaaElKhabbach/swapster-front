@@ -1,0 +1,22 @@
+@use 'src/styles/vars';
+
+.login{
+
+  &-form{
+
+  background-color: vars.$primary-300;
+  border-color: vars.$primary-300;
+  border-radius: 15px;
+  align-items: center;
+  text-align: center;
+  max-width: 80%;
+  padding: 10rem;
+  margin: auto;
+
+  &-input{
+    width: 3400px;
+    margin-bottom: 2rem;
+  }
+  
+
+}}
