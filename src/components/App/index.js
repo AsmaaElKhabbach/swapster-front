@@ -1,6 +1,8 @@
 // == Import
-import { Route, Routes } from 'react-router-dom';
 import HomePage from '../HomePage';
+import './styles.scss';
+import { Route, Routes } from 'react-router-dom';
+import Login from '../Login';
 
 // == Component
 function App() {
@@ -8,6 +10,7 @@ function App() {
     <div className="app">
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
