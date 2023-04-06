@@ -47,7 +47,7 @@
     color: vars.$text;
 
     &:hover:not(&--active) {
-      color: vars.$accent;
+      color: vars.$accent-200;
     }
 
     &--active {

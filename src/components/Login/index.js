@@ -4,7 +4,7 @@ import Footer from '../Partials/Footer'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './style.scss'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login } from '../../api/auth';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
@@ -32,7 +32,6 @@ function Login() {
       password,
       () => navigate("/")
     ));
-    console.log(user.data.name)
   };
 
   return (
