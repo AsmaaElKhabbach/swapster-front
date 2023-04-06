@@ -1,21 +1,21 @@
 @use 'src/styles/vars';
 
 .intro {
-  background-color: vars.$bg-200;
-  border: solid 1px vars.$primary-200;
-  box-shadow: 20px -16px rgba(222, 130, 94, 0.7);
+  background-color: vars.$bg;
+  box-shadow: 10px 10px 10px rgba(250, 235, 215, 0.6);
   border-radius: 15px ;
   margin: 2em;
   padding: 1em;
 
   &-title{
-    color: vars.$primary-300;
-    padding: 1em;
+    color: vars.$primary-200;
+    padding: 0.5em;
     text-align: center;
   }
 
   &-content{
-    color: vars.$text
+    color: vars.$text-200;
+    text-align: center;
   }
   
 }
