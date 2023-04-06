@@ -13,6 +13,7 @@ export const login = (email, password, callback) => {
       password
     });
     console.log(response.data);
+    
     dispatch(setIsLoading(false));
     dispatch(saveUser(response.data))
     callback();

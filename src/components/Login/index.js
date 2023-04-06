@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './style.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { changeCredentialsValue } from '../../store/reducers/settings';
 import { login } from '../../api/auth';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
@@ -19,15 +18,6 @@ function Login() {
   const [password, setPassword] = useState('');
 
   const handleChangeInput = (event) => {
-    // // Je récupère la valeur de l'input (mon élément HTML)
-    // const newValue = event.target.value;
-    // // Je récupère la propriété name de mon input
-    // const inputName = event.target.name;
-    // // J'emets mon intention de changer la valeur de ma donnée
-    // dispatch(changeCredentialsValue({
-    //   value: newValue,
-    //   name: inputName,
-    // }));
     if(event.target.name === "email"){
       setEmail(event.target.value)
     }else{
@@ -42,6 +32,7 @@ function Login() {
       password,
       () => navigate("/")
     ));
+    console.log(user.data.name)
   };
 
   return (
