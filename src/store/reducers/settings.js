@@ -6,7 +6,7 @@ user: {
   data: {}, // contient les données de l'utilisateur
   isLoading: false, // va valoir true qd les donénes sont entrain d'etre chargées
   error: null, // va valoir une erreur lorsqu'il y a une erreur 
-  logged: true,
+  logged: false,
 },
 
 isLoggedIn: false,

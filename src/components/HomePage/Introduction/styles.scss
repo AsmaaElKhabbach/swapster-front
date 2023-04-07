@@ -1,28 +1,31 @@
 @use 'src/styles/vars';
 
-.intro {
-  background-color: vars.$bg;
-  box-shadow: 10px 10px 10px rgba(250, 235, 215, 0.6);
-  border-radius: 15px ;
-  margin: 2em;
-  padding: 1em;
-
-  &-title{
-    color: vars.$primary-200;
-    padding: 0.5em;
-    text-align: center;
-  }
+.intro{
+  width: 40%;
+  height: 25%;
+  margin: 3em 5em 2em 50em;
+  padding: 0.5em;
 
   &-content{
-    color: vars.$text-200;
-    text-align: center;
-  }
-  
+  color:#330000;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 900;
+}
 }
 
-// @media(max-width: 900px){
-//   .intro{
-//     display: none;
-//   }
-// }
-
+@media(max-width: 900px){
+  .intro{
+    max-width: 70%;
+    max-height: 20%;
+    margin: 1em 6em 2em 7em;
+    padding: 0.5em;
+  
+    &-content{
+    color: vars.$primary-300;
+    text-align: justify;
+    font-size: 0.5em;
+    font-weight: 900;
+  }
+  }
+}

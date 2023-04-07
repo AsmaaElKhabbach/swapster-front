@@ -2,7 +2,15 @@
   width: 40em;
   align-items: center;
   margin-left:8em;
-  margin-right: 8em;
+  margin-right: 13em;
 }
 
 
+@media(max-width: 900px){
+  .search{
+    width: 20em;
+    align-items: center;
+    margin-left:2em;
+    margin-right: 2em;
+ }
+}

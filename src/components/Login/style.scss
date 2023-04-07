@@ -1,7 +1,14 @@
 @use 'src/styles/vars';
 
 .login{
-  
+
+  background-color: vars.$bg;
+  background-image: url(../../assets/boook-bg.jpg);
+  background-repeat:no-repeat;
+  background-size: contain;
+  background-attachment:fixed;
+  height: 100%;
+
   &-title{
     color: vars.$text;
     font-size: 3em;
