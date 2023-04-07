@@ -8,7 +8,11 @@
   width: 100%;
 }
 
+.nav-connect{
+  display: flex;
+}
 @media(max-width: 900px){
-.nav-menu{
+.nav-connect{
+  display: none;
 }
 }

@@ -9,9 +9,9 @@ function Connection() {
 
 
   return (
-    <div className='connection'>
+    <div className='d-flex'>
     {isLoggedIn && (
-      <p>Bienvenue {username}</p>
+      <Nav.Link href="/profile" className='nav-link'>Bienvenue {username}</Nav.Link>
     )}
     {!isLoggedIn && (
       <><Nav.Link href="/signup">S'inscrire</Nav.Link><Nav.Link href="/login">Se connecter</Nav.Link></>

@@ -37,10 +37,10 @@ function Login() {
   return (
     <div className="login">
     <Header />
-    <Form className= "login-form" onSubmit={handleSubmit}>
-      <h1 className='login-title'>Connection</h1>
-      <Form.Group size="lg"  className="form-input" controlId="formBasicEmail">
-        <Form.Control
+    <Form className= 'mt-3 ms-10 md-5 mb-3 text-center' onSubmit={handleSubmit}>
+      <h1 className='login-title text-center'>Connexion</h1>
+      <Form.Group size="lg" controlId="formBasicEmail">
+        <Form.Control 
         type="email"
         name="email"
         placeholder="Adresse mail"
@@ -49,7 +49,7 @@ function Login() {
         />
       </Form.Group>
 
-      <Form.Group size="lg" className="form-input" controlId="formBasicPassword">
+      <Form.Group size="lg" controlId="formBasicPassword">
         <Form.Control
         type="password"
         name="password"
@@ -58,7 +58,7 @@ function Login() {
         onChange={handleChangeInput}
          />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" className='w-30 mb-5'>
         Envoyez
       </Button>
     </Form>

@@ -8,7 +8,7 @@ export const login = (email, password, callback) => {
   try {
     const state = getState();
     dispatch(setIsLoading(true));
-    const response = await axios.post('https://swapster-back-production.up.railway.app/login', {
+    const response = await axios.post('http://localhost:5000/login', {
       email,
       password
     });

@@ -15,7 +15,7 @@ function DropdownMenu() {
 
   return (
     <div className='menu'>
-        <NavDropdown title="Menu" id="navbarScrollingDropdown">
+        <NavDropdown className='mb-2' title="Menu" id="navbarScrollingDropdown">
         <NavDropdown.Item href="/">Accueil</NavDropdown.Item>
         <NavDropdown.Item href="/login">Se connecter</NavDropdown.Item>
         <NavDropdown.Item href="/signup">S'inscrire</NavDropdown.Item>

@@ -8,13 +8,15 @@ import { PenTool, FileText, Mail} from 'react-feather';
 
 // == Component
 function Footer() {
+
   const classNameLink = ({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`;
+
   return (
-    <>
-      <footer className="footer">
-      <section className="footer-intro">
-          <h1 className="footer-intro-title">S</h1>
-          <p className="footer-intro-slogan">Donnez une seconde vie à la culture</p>
+    <div className= "footer">
+      <footer className="footer-container">
+      <section className="container-intro">
+          <h1 className="container-intro-title">S</h1>
+          <p className="container-intro-slogan">Donnez une seconde vie à la culture</p>
         </section>
         <nav className="nav">
         <div className="nav-content">
@@ -41,7 +43,7 @@ function Footer() {
         </div> 
         </nav>
       </footer>
-    </>
+    </div>
   );
 }
 // == Export
