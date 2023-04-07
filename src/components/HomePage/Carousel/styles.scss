@@ -2,32 +2,107 @@
 @use 'src/styles/vars';
 
 .carousel {
+  position: sticky;
   max-height: 60rem;
   padding: 1em;
   margin-top: 2vh;
   margin: 1em;
-  background-color: vars.$bg-200;
-  opacity: 0.7;
-  max-width: 40rem;
+  background-color: #c9b2b3;
+  max-width: 50rem;
   border-radius: 15px;
+  opacity: 0.9;
 
   &-img{
-    width: 80%;
-    height: 50%;
-    border-radius: 15px;
-    margin: 1em 0;
-    padding-left: 4em;
+    height: 40em;
+    width: 30em;
+    margin-left: 0;
+    margin-right: 1em;
   }
 
-  &-infos{
-    background-color: vars.$bg;
-    opacity: 0.5;
-    border-radius: 15px;
-    width: 60%;
-    height: 20%;
+  &-inner{
+    width: 80%;
+    height: 40em;
     margin: auto;
-    color: vars.$accent-200;
-    font-size: 0.5em;
-    color: black
+    opacity: 0.7;
   }
+
+  &.slide{
+    margin: 0 0 2em 25em;
+    width: 40em;
+    height: 45em;
+    padding-top: 1em;
+  }
+
+  &-caption{
+      margin-bottom: 5em;
+  }
+    
+  &-item{
+    width: 30em;
+  }
+      
 }
+
+h1 {
+  margin: auto;
+  color: vars.$primary-300;
+  font-size: 4em;
+}
+
+@media(max-width: 900px){
+.carousel {
+  position: sticky;
+  max-height: 30rem;
+  padding: 1em;
+  margin-top: 2vh;
+  margin: 1em;
+  background-color: #c9b2b3;
+  max-width: 20rem;
+  border-radius: 15px;
+  opacity: 0.9;
+
+  &-img{
+    height: 25em;
+    width: 15em;
+    margin-left: 0;
+    margin-right: 1em;
+  }
+
+  &-inner{
+    width: 80%;
+    height: 25em;
+    margin: auto;
+    opacity: 0.7;
+  }
+
+  &.slide{
+    margin: 0 0 2em 2em;
+    width: 40em;
+    height: 45em;
+    padding-top: 2em;
+  }
+
+  &-caption{
+      font-size: 2em;
+      max-width: 5em;
+      margin: 3em 7em 1em 0;
+  }
+    
+  &-item{
+    width: 30em;
+  }
+      
+}
+
+p {
+  font-size: 1em;
+}
+h1 {
+  margin: auto;
+  color: vars.$primary-300;
+  font-size: 4em;
+}
+}
+
+
+
