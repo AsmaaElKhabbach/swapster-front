@@ -28,7 +28,7 @@ function Header() {
               className="d-inline-block align-top"
             /> </Navbar.Brand>
             <SearchBar />
-            <div className="d-flex @include media-breakpoint-down(md){d-none}">
+            <div className="nav-connect">
             <Connection />
             <DropdownMenu />
             </div>
