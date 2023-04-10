@@ -1,45 +1,51 @@
 @use 'src/styles/vars';
 
 .login{
-  
-  &-title{
-    color: vars.$text;
-    font-size: 3em;
-    font-weight: 500;
-    
-  }
-  
-  &-form{
+
+  background-color: vars.$bg;
+  background-image: url(../../assets/boook-bg.jpg);
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-attachment:fixed;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 3em;
-  background-color: vars.$primary-200;
-  opacity: 0.7;
-  border-radius: 15px;
-  align-items: center;
-  text-align: center;
-  max-width: 80%;
-  padding: 10em;
-  margin: 6em 10em;
 
-}}
-
-#formBasicPassword{
-  width: 50em;
+  &-title{
+    color: vars.$text;
+    margin-top: 2em;  
+    margin-bottom: 2em;
+  }
 }
 
-#formBasicEmail{
-  width: 50em;
+.form-control{
+  margin: auto;
+  width: 40em;
 }
+
 
 .btn{
-  width: 30em;
   background-color: vars.$primary-300;
   border-color: vars.$primary-300;
 
   &:hover{
     background-color: vars.$accent-200;
     border-color: vars.$accent-200;
+  }
+
+  &-primary{
+    margin-top: 1em;
+  }
+}
+
+@media(max-width: 900px){
+  .form-control {
+    width: 20em;
+
+  }
+
+ .login-title{
+    margin-top: 5em;  
+    margin-bottom: 2em;
   }
 }
