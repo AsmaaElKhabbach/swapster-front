@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.scss';
 import {
   MDBBtn,
   MDBContainer,
@@ -19,18 +20,25 @@ function SignUp() {
         fluid
         className="d-flex align-items-center justify-content-center bg-image"
         style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg)',
+
+        //   // backgroundImage: 'url(https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg)',
         }}
       >
         <div className="mask gradient-custom-3" />
-        <MDBCard className="m-5" style={{ maxWidth: '600px' }}>
+        <MDBCard
+          className="m-5"
+          style={{
+            maxWidth: '600px',
+            marginTop: '500px',
+          }}
+        >
           <MDBCardBody className="px-5">
             <h2 className="text-uppercase text-center mb-5">Create an account</h2>
-            <MDBInput wrapperClass="mb-4" placeholder="Your Name" size="lg" id="form1" type="text" />
-            <MDBInput wrapperClass="mb-4" placeholder="Your Email" size="lg" id="form2" type="email" />
-            <MDBInput wrapperClass="mb-4" placeholder="Your City" size="lg" id="form3" type="city" />
-            <MDBInput wrapperClass="mb-4" placeholder="Password" size="lg" id="form4" type="password" />
-            <MDBInput wrapperClass="mb-4" placeholder="Repeat your password" size="lg" id="form4" type="password" />
+            <MDBInput className="input" wrapperClass="mb-4" placeholder="Your Name" size="lg" id="form1" type="text" />
+            <MDBInput className="input" wrapperClass="mb-4" placeholder="Your Email" size="lg" id="form2" type="email" />
+            <MDBInput className="input" wrapperClass="mb-4" placeholder="Your City" size="lg" id="form3" type="city" />
+            <MDBInput className="input" wrapperClass="mb-4" placeholder="Password" size="lg" id="form4" type="password" />
+            <MDBInput className="input" wrapperClass="mb-4" placeholder="Repeat your password" size="lg" id="form4" type="password" />
             <div className="d-flex flex-row justify-content-center mb-4">
               <MDBCheckbox name="flexCheck" id="flexCheckDefault" label="I agree all statements in Terms of service" />
             </div>

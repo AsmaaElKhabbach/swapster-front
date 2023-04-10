@@ -8,27 +8,20 @@ function Connection() {
   const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
 
   return (
-    <div className="connection">
+
+    <div className="d-flex">
       {isLoggedIn && (
-      <p>Bienvenue {username}</p>
+      <Nav.Link href="/profile" className="nav-link">Bienvenue {username}</Nav.Link>
       )}
       {!isLoggedIn && (
       <>
         <Nav.Link href="/signup">S'inscrire</Nav.Link>
         <Nav.Link href="/login">Se connecter</Nav.Link>
-        <Nav.Link href="/profil">Profil</Nav.Link>
       </>
       )}
-    <div className='d-flex'>
-    {isLoggedIn && (
-      <Nav.Link href="/profile" className='nav-link'>Bienvenue {username}</Nav.Link>
-    )}
-    {!isLoggedIn && (
-      <><Nav.Link href="/signup">S'inscrire</Nav.Link><Nav.Link href="/login">Se connecter</Nav.Link></>
-    )}
-    </div>
+
+    </div> // Ajout de la fermeture de la première balise div
   );
 }
 
-// == Export
 export default Connection;

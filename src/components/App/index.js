@@ -5,7 +5,6 @@ import { Route, Routes } from 'react-router-dom';
 import Login from '../Login';
 import SignUp from '../SignUp';
 import UserPage from '../Profil';
-import SignUp from '../SignUp';
 
 // == Component
 function App() {
