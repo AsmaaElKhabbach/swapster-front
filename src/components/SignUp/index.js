@@ -1,41 +1,46 @@
-// == Import
+import React from 'react';
+import {
+  MDBBtn,
+  MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBInput,
+  MDBCheckbox,
+}
+  from 'mdb-react-ui-kit';
+import Header from '../Partials/Header';
+import Footer from '../Partials/Footer';
 
-// == Component
 function SignUp() {
   return (
-    <div className="form">
-      <div className="form-body">
-        <div className="username">
-          <label className="form__label" htmlFor="firstName">First Name </label>
-          <input className="form__input" type="text" id="firstName" placeholder="First Name" />
-        </div>
-        <div className="email">git
-          <label className="form__label" htmlFor="email">Email </label>
-          <input type="email" id="email" className="form__input" placeholder="Email" />
-        </div>
-        <div className="city">
-          <label className="form__label" htmlFor="city">City </label>
-          <input type="text" name="" id="city" className="form__input" placeholder="City" />
-        </div>
-        <div className="password">
-          <label className="form__label" htmlFor="password">Password </label>
-          <input className="form__input" type="password" id="password" placeholder="Password" />
-        </div>
-        <div className="confirm-password">
-          <label className="form__label" htmlFor="confirmPassword">Confirm Password </label>
-          <input className="form__input" type="password" id="confirmPassword" placeholder="Confirm Password" />
-        </div>
-      </div>
-      <div className="footer">
-        <button type="submit" className="btn">Register</button>
-      </div>
-      <div className="have__account">
-        <button type="submit" className="btn"><div>Already have an account</div>Log In</button>
-      </div>
-
-    </div>
+    <>
+      <Header />
+      <MDBContainer
+        fluid
+        className="d-flex align-items-center justify-content-center bg-image"
+        style={{
+          backgroundImage: 'url(https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg)',
+        }}
+      >
+        <div className="mask gradient-custom-3" />
+        <MDBCard className="m-5" style={{ maxWidth: '600px' }}>
+          <MDBCardBody className="px-5">
+            <h2 className="text-uppercase text-center mb-5">Create an account</h2>
+            <MDBInput wrapperClass="mb-4" placeholder="Your Name" size="lg" id="form1" type="text" />
+            <MDBInput wrapperClass="mb-4" placeholder="Your Email" size="lg" id="form2" type="email" />
+            <MDBInput wrapperClass="mb-4" placeholder="Your City" size="lg" id="form3" type="city" />
+            <MDBInput wrapperClass="mb-4" placeholder="Password" size="lg" id="form4" type="password" />
+            <MDBInput wrapperClass="mb-4" placeholder="Repeat your password" size="lg" id="form4" type="password" />
+            <div className="d-flex flex-row justify-content-center mb-4">
+              <MDBCheckbox name="flexCheck" id="flexCheckDefault" label="I agree all statements in Terms of service" />
+            </div>
+            <MDBBtn className="mb-4 w-100 gradient-custom-4" size="lg">Register</MDBBtn>
+          </MDBCardBody>
+        </MDBCard>
+      </MDBContainer>
+      <Footer />
+    </>
   );
 }
 
-// == Export
 export default SignUp;
