@@ -4,6 +4,7 @@ import './styles.scss';
 import { Route, Routes } from 'react-router-dom';
 import Login from '../Login';
 import SignUp from '../SignUp';
+import UserPage from '../Profil';
 
 // == Component
 function App() {
@@ -11,7 +12,7 @@ function App() {
     <div className="app">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<UserPage />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
     </div>

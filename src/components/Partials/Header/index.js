@@ -20,17 +20,18 @@ function Header() {
             navbarScroll
           >
             <Navbar.Brand className="logo" href="/">
-            <img
-              alt="swapsterlogo"
-              src= {swapsterLogo}
-              width="80"
-              height="30"
-              className="d-inline-block align-top"
-            /> </Navbar.Brand>
+              <img
+                alt="swapsterlogo"
+                src={swapsterLogo}
+                width="80"
+                height="30"
+                className="d-inline-block align-top"
+              />
+            </Navbar.Brand>
             <SearchBar />
             <div className="nav-connect">
-            <Connection />
-            <DropdownMenu />
+              <Connection />
+              <DropdownMenu />
             </div>
 
           </Nav>
