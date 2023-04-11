@@ -19,10 +19,7 @@ function SignUp() {
       <MDBContainer
         fluid
         className="d-flex align-items-center justify-content-center bg-image"
-        style={{
 
-        //   // backgroundImage: 'url(https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg)',
-        }}
       >
         <div className="mask gradient-custom-3" />
         <MDBCard
