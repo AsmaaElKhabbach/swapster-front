@@ -69,9 +69,7 @@ function SignUp() {
             <MDBInput className="input" wrapperClass="mb-4" placeholder="Your City" size="lg" id="form3" type="city" />
             <MDBInput className="input" wrapperClass="mb-4" placeholder="Password" size="lg" id="form4" type="password" />
             <MDBInput className="input" wrapperClass="mb-4" placeholder="Repeat your password" size="lg" id="form4" type="password" />
-            <div className="d-flex flex-row justify-content-center mb-4">
-              <MDBCheckbox name="flexCheck" id="flexCheckDefault" label="I agree all statements in Terms of service" />
-            </div>
+            <div className="d-flex flex-row justify-content-center mb-4" />
             <MDBBtn className="mb-4 w-100 gradient-custom-4" size="lg">Register</MDBBtn>
           </MDBCardBody>
         </MDBCard>
