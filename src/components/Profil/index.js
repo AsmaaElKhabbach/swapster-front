@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon, MDBBtn,
-} from 'mdb-react-ui-kit';
+import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
 
