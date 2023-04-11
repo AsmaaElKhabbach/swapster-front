@@ -14,28 +14,32 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {signUp} from '../../api/auth';
 import { setError } from '../../store/reducers/settings';
+import { useNavigate } from 'react-router-dom';
 
 // == Component 
 function SignUp() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     city: "",
     password: "",
-    confirmPassword: ""
+    passwordConfirm: ""
   });
 
   const { isLoading, error } = useSelector(state => state.settings.user);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
+    if (formData.password !== formData.passwordConfirm) {
       dispatch(setError("Passwords don't match."));
       return;
     }
     dispatch(signUp(formData));
+    navigate("/login")
+
   }
 
   const handleInputChange = (event) => {
@@ -65,7 +69,7 @@ function SignUp() {
               name = "name"
               wrapperClass="mb-4" 
               style={{width: '500px'}} 
-              placeholder="Votre nom" 
+              placeholder="Votre pseudo" 
               size="lg" id="form1" 
               type="text" 
               />
@@ -100,9 +104,9 @@ function SignUp() {
               type="password"
               />
               <MDBInput 
-              value={formData.confirmPassword} 
+              value={formData.passwordConfirm} 
               onChange={handleInputChange} 
-              name="confirmPassword"
+              name="passwordConfirm"
               wrapperClass="mb-4" 
               style={{width: '500px'}} 
               placeholder="Veuillez confirmer le mot de passe" 
