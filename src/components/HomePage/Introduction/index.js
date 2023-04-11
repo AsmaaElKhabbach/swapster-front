@@ -1,5 +1,5 @@
 // == Import 
-import './styles.scss'
+import './intro.scss'
 
 function Introduction() {
   return (

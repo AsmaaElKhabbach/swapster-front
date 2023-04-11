@@ -1,10 +1,9 @@
 // == Import
-
+import './footer.scss';
 import { NavLink } from 'react-router-dom';
-import './styles.scss';
 import EmailTo from '../../EmailTo';
 import { PenTool, FileText, Mail} from 'react-feather';
-
+import swapsterLogo from '../../../assets/logo-no-background.svg'
 
 // == Component
 function Footer() {
@@ -12,12 +11,14 @@ function Footer() {
   const classNameLink = ({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`;
 
   return (
-    <div className= "footer">
-      <footer className="footer-container">
-      <section className="container-intro">
-          <h1 className="container-intro-title">S</h1>
-          <p className="container-intro-slogan">Donnez une seconde vie à la culture</p>
-        </section>
+    <footer className= "footer">
+      <div className="footer-container">
+      <img
+              alt="swapsterlogo"
+              src= {swapsterLogo}
+              className="footer-logo"
+            />
+
         <nav className="nav">
         <div className="nav-content">
           <FileText className="nav-link-icon"/>
@@ -42,8 +43,8 @@ function Footer() {
           <EmailTo className="nav-link" label="Nous Contacter" mailto="mailto:infos.swapster@gmail.com" />
         </div> 
         </nav>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 }
 // == Export

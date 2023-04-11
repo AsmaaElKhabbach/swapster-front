@@ -1,13 +1,7 @@
 // == Import 
+import './signup.scss'
 import React from 'react';
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-}
-from 'mdb-react-ui-kit';
+import { MDBBtn, MDBContainer, MDBCard, MDBCardBody, MDBInput } from 'mdb-react-ui-kit';
 import Header from '../Partials/Header';
 import Footer from '../Partials/Footer';
 import { useState } from 'react'
@@ -15,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {signUp} from '../../api/auth';
 import { setError } from '../../store/reducers/settings';
 import { useNavigate } from 'react-router-dom';
+
 
 // == Component 
 function SignUp() {
@@ -48,14 +43,12 @@ function SignUp() {
 
   
   return (
-    <>
+    <div className='signup'>
       <Header />
+      <main>
       <MDBContainer
         fluid
-        className="d-flex align-items-center justify-content-center bg-image"
-        style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg)',
-        }}
+        className="d-flex align-items-center justify-content-center"
       >
         <div className="mask gradient-custom-3" />
         <MDBCard style={{ maxWidth: '650px', marginTop: 110, marginBottom: 50, }}>
@@ -68,7 +61,6 @@ function SignUp() {
               onChange={handleInputChange} 
               name = "name"
               wrapperClass="mb-4" 
-              style={{width: '500px'}} 
               placeholder="Votre pseudo" 
               size="lg" id="form1" 
               type="text" 
@@ -78,7 +70,6 @@ function SignUp() {
               onChange={handleInputChange} 
               name="email"
               wrapperClass="mb-4" 
-              style={{width: '500px'}} 
               placeholder="Votre email" 
               size="lg" id="form2" 
               type="email" 
@@ -88,7 +79,6 @@ function SignUp() {
               onChange={handleInputChange} 
               name="city"
               wrapperClass="mb-4" 
-              style={{width: '500px'}} 
               placeholder="Votre ville" 
               size="lg" id="form3" 
               type="text"
@@ -98,7 +88,6 @@ function SignUp() {
               onChange={handleInputChange} 
               name="password"
               wrapperClass="mb-4" 
-              style={{width: '500px'}} 
               placeholder="Veuillez saisir un mot de passe" 
               size="lg" id="form4" 
               type="password"
@@ -108,7 +97,6 @@ function SignUp() {
               onChange={handleInputChange} 
               name="passwordConfirm"
               wrapperClass="mb-4" 
-              style={{width: '500px'}} 
               placeholder="Veuillez confirmer le mot de passe" 
               size="lg" id="form5" 
               type="password"
@@ -124,8 +112,9 @@ function SignUp() {
           </MDBCardBody>
         </MDBCard>
       </MDBContainer>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

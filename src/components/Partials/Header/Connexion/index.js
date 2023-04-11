@@ -1,14 +1,15 @@
 // == Import
+import './connexion.scss';
 import Nav from 'react-bootstrap/Nav';
-import './styles.scss';
 import { useSelector } from 'react-redux';
+
 // == Commponent
 function Connection() {
   const username = useSelector((state) => state.settings.user.data.name);
   const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
 
   return (
-    <div className="d-flex">
+    <div className="user">
       {isLoggedIn && (
       <Nav.Link href="/profile" className="nav-link">Bienvenue {username}</Nav.Link>
       )}

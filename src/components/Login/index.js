@@ -1,13 +1,14 @@
 // == Import
+import './login.scss'
 import Header from '../Partials/Header'
 import Footer from '../Partials/Footer'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import './style.scss'
 import { useDispatch } from 'react-redux';
 import { login } from '../../api/auth';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
+
 //== Component
 function Login() {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ function Login() {
   return (
     <div className="login">
     <Header />
+    <main>
     <Form className= 'mt-3 ms-10 md-5 mb-3 text-center' onSubmit={handleSubmit}>
       <h1 className='login-title text-center'>Connexion</h1>
       <Form.Group size="lg" controlId="formBasicEmail">
@@ -62,6 +64,7 @@ function Login() {
         Envoyez
       </Button>
     </Form>
+    </main>
     <Footer />
     </div>
   );

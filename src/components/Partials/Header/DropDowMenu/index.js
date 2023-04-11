@@ -1,6 +1,6 @@
 // == Import
+import './menu.scss';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import './styles.scss';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../../../store/reducers/settings';
 

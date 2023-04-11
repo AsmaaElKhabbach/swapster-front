@@ -6,6 +6,7 @@ user: {
   data: {}, // contient les données de l'utilisateur
   isLoading: false, // va valoir true qd les donénes sont entrain d'etre chargées
   error: null, // va valoir une erreur lorsqu'il y a une erreur 
+  token: null,
 },
 
 isLoggedIn: false,
@@ -29,10 +30,12 @@ const settingsReducer = createReducer(initialState, (builder) => {
   .addCase(saveUser, (state, { payload }) => {
     state.user.data = payload;
     state.isLoggedIn = true;
+    state.user.token = payload;
   })
 
   .addCase(logout, (state) => {
     state.isLoggedIn = false;
+    state.user.token = null;
   })
 
   .addCase(signUpRequest, (state) => {

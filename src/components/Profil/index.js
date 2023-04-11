@@ -7,6 +7,7 @@ function UserPage() {
   return (
     <>
       <Header />
+      <main>
       <section
         className="vh-100"
         style={{
@@ -94,6 +95,7 @@ function UserPage() {
           </MDBRow>
         </MDBContainer>
       </section>
+      </main>
       <Footer />
     </>
   );

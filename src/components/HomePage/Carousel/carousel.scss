@@ -1,0 +1,98 @@
+
+@use 'src/styles/vars';
+
+.lastestadd{
+padding: 3em 0;
+display: flex;
+}
+
+h1 {
+  width: 40%;
+  margin: auto;
+  color: vars.$primary-300;
+  font-size: 2em;
+}
+
+.carousel {
+
+  &.slide{
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 1em;
+  }
+  &-img{
+    height: 50%;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+  }
+
+  &-inner{
+    width: 50%;
+    margin: auto;
+    justify-content: center;
+  }
+
+}
+
+
+
+@media(max-width: 900px){ 
+  .lastestadd{
+    display: flex;
+    flex-direction: column;
+    }
+    
+  h1 {
+    margin: auto;
+    color: vars.$primary-300;
+    font-size: 2em;
+  }
+  }
+// .carousel {
+
+//   &-img{
+//     height: 25em;
+//     width: 15em;
+//     margin-left: 0;
+//     margin-right: 1em;
+//   }
+
+//   &-inner{
+//     width: 80%;
+//     height: 25em;
+//     margin: auto;
+//     opacity: 0.7;
+//   }
+
+//   &.slide{
+//     margin: 0 0 2em 2em;
+//     width: 40em;
+//     height: 45em;
+//     padding-top: 2em;
+//   }
+
+//   &-caption{
+//       font-size: 2em;
+//       max-width: 5em;
+//       margin: 3em 7em 1em 0;
+//   }
+    
+//   &-item{
+//     width: 30em;
+//   }
+      
+// }
+
+// p {
+//   font-size: 1em;
+// }
+// h1 {
+//   margin: auto;
+//   color: vars.$primary-300;
+//   font-size: 4em;
+// }
+// }
+
+
+

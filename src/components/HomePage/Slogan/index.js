@@ -1,5 +1,5 @@
 // == Import
-import './styles.scss';
+import './slogan.scss';
 
 // == Component
 function Presentation() {

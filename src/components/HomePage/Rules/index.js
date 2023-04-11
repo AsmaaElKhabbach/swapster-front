@@ -1,5 +1,5 @@
 // == Import 
-import './styles.scss'
+import './rules.scss'
 
 function Rules() {
   return (

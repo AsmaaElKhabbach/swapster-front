@@ -1,8 +1,7 @@
 @use 'src/styles/vars';
 
 .post-it {
-  width:45em;
-  height:35em;
+  width:50%;
   background: rgba(153, 97, 108, 0.7);
   overflow:hidden;
   margin:10em auto;
@@ -19,7 +18,7 @@
 .post-it li {
   cursor:pointer; 
   font-size: 1.5em;
-  margin:0 1em 1em 1em;
+  margin: 1em auto;
   letter-spacing: 0.2em;
 }
 
@@ -41,22 +40,24 @@
  left:10%;
 }
 
+.post-it ul{
+  margin: 3rem auto;
+}
 .done {
   text-decoration:line-through; 
 }
 
 h1 {
-  font-size:4em; 
-  margin: 1em 1em 1em 1.5em;
+  font-size:2.2rem; 
+  margin: 3em auto;
 }
 
 @media(max-width: 900px){
 .post-it {
-  width:20em;
-  height:12em;
+  width: 80%;
   background: rgba(153, 97, 108, 0.7);
   overflow:hidden;
-  margin:1em 2em 2em 2em;
+  margin: 3em auto;
   padding:20px;
   border-radius:0 3em 0 3em/4.5em;
   box-shadow:
@@ -67,14 +68,11 @@ h1 {
   color: vars.$bg;
 }
 .post-it ul {
-  margin: 0.5em 1em 0em 0em;
-  padding: 0;
-  width: 18em;
+  margin: 1em auto;
 }
 .post-it li {
-  cursor:pointer; 
-  font-size: 0.5em;
-  margin:0 1em 0 1em;
+  margin: 0.5em auto;
+  font-size: 1rem;
 }
 
 .post-it span {
@@ -99,7 +97,7 @@ h1 {
 }
 
 h1 {
-  font-size:1em; 
-  margin: 0.2em 0.5em 0.5em 1.5em;
+  font-size:1.5rem; 
+  margin: 1em auto;
 }
 }

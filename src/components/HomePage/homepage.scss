@@ -1,0 +1,11 @@
+
+@media(max-width: 900px){
+ main{
+    max-height: 25%;
+    align-items: center;
+    margin: 3em auto;
+    display: flex;
+    flex-direction: column;
+    column-gap: 3em;
+  }
+}

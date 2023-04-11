@@ -1,8 +1,7 @@
 // == Import 
-
+import './searchBar.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeNewSearch } from '../../../../store/reducers/home'
 import { getBook } from '../../../../api/books';
