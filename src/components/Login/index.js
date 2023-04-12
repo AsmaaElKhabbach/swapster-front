@@ -1,9 +1,8 @@
 // == Import
 import './login.scss'
+import { MDBBtn, MDBContainer, MDBCard, MDBCardBody, MDBInput } from 'mdb-react-ui-kit';
 import Header from '../Partials/Header'
 import Footer from '../Partials/Footer'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import { useDispatch } from 'react-redux';
 import { login } from '../../api/auth';
 import { useNavigate } from "react-router-dom";
@@ -39,32 +38,44 @@ function Login() {
     <div className="login">
     <Header />
     <main>
-    <Form className= 'mt-3 ms-10 md-5 mb-3 text-center' onSubmit={handleSubmit}>
-      <h1 className='login-title text-center'>Connexion</h1>
-      <Form.Group size="lg" controlId="formBasicEmail">
-        <Form.Control 
-        type="email"
-        name="email"
-        placeholder="Adresse mail"
-        value={email}
-        onChange={handleChangeInput}
-        />
-      </Form.Group>
-
-      <Form.Group size="lg" controlId="formBasicPassword">
-        <Form.Control
-        type="password"
-        name="password"
-        placeholder="Mot de passe"
-        value={password}
-        onChange={handleChangeInput}
-         />
-      </Form.Group>
-      <Button variant="primary" type="submit" className='w-30 mb-5'>
-        Envoyez
-      </Button>
-    </Form>
-    </main>
+      <MDBContainer
+        fluid
+        className="d-flex align-items-center justify-content-center"
+      >
+        <div className="mask gradient-custom-3" />
+        <MDBCard style={{ maxWidth: '650px', marginTop: 110, marginBottom: 50, }}>
+          <MDBCardBody className="px-5">
+            <h2 className="text-uppercase text-center mb-5">Connexion</h2>
+            <form onSubmit={handleSubmit}>
+              <MDBInput 
+                type="email"
+                name="email"
+                placeholder="Adresse mail"
+                value={email}
+                onChange={handleChangeInput}
+                size="lg" id="form1" 
+                wrapperClass="mb-4" 
+              />
+              <MDBInput 
+                type="password"
+                name="password"
+                placeholder="Mot de passe"
+                value={password}
+                onChange={handleChangeInput}
+                size="lg" id="form2"
+                wrapperClass="mb-4" 
+              />          
+              <MDBBtn
+              type='submit' 
+              className="mb-4 w-100 gradient-custom-4" 
+              size="lg">
+              Envoyer
+              </MDBBtn>
+            </form>
+          </MDBCardBody>
+        </MDBCard>
+      </MDBContainer>
+      </main>
     <Footer />
     </div>
   );

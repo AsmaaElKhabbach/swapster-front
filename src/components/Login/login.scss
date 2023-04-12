@@ -1,17 +1,8 @@
 @use 'src/styles/vars';
 
-.login{
-  
-  &-title{
-    color: vars.$text;
-    margin-top: 2em;  
-    margin-bottom: 2em;
-  }
-}
-
 .form-control{
-  margin: auto;
   width: 40em;
+  max-width: 28em;
 }
 
 
@@ -30,13 +21,4 @@
 }
 
 @media(max-width: 900px){
-  .form-control {
-    width: 100%;
-
-  }
-
- .login-title{
-    margin-top: 5em;  
-    margin-bottom: 2em;
-  }
 }
