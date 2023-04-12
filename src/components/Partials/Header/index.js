@@ -12,33 +12,33 @@ import swapsterLogo from '../../../assets/images/logo-no-background.svg';
 function Header() {
   return (
     <header>
-    <Navbar className="nav-menu" expand="lg">
-      <Container fluid>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="my-2 my-lg-0 nav-container"
-            navbarScroll
-          >
-            <Navbar.Brand href="/">
-            <img
-              alt="swapsterlogo"
-              src= {swapsterLogo}
-              className="logo"
-            />
-            </Navbar.Brand>
-            <SearchBar />
-            <div className="nav-connect">
-            <Connexion />
-            <DropdownMenu />
-            </div>
+      <Navbar className="nav-menu" expand="lg">
+        <Container fluid>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              className="my-2 my-lg-0 nav-container"
+              navbarScroll
+            >
+              <Navbar.Brand href="/">
+                <img
+                  alt="swapsterlogo"
+                  src={swapsterLogo}
+                  className="logo"
+                />
+              </Navbar.Brand>
+              <SearchBar />
+              <div className="nav-connect">
+                <Connexion />
+                <DropdownMenu />
+              </div>
 
-          </Nav>
+            </Nav>
 
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-</header>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </header>
   );
 }
 

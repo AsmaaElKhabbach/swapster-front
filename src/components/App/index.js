@@ -1,21 +1,21 @@
 // == Import
 import './styles.scss';
-import HomePage from '../HomePage';
 import { Route, Routes } from 'react-router-dom';
+import HomePage from '../HomePage';
 import Login from '../Login';
 import SignUp from '../SignUp';
 import UserPage from '../Profil';
-import LegalNotice from '../LegalNotice'
+import LegalNotice from '../LegalNotice';
 
 // == Component
 function App() {
   return (
     <div className="app">
-    {/* Mise en place du router  */}
+      {/* Mise en place du router  */}
       <Routes>
-      {/* Détail de chaque route de l'application */}
+        {/* Détail de chaque route de l'application */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<UserPage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<UserPage />} />
         <Route path="/legalnotice" element={<LegalNotice />} />

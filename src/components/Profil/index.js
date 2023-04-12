@@ -1,7 +1,15 @@
 import React from 'react';
-import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
+import Accordion from 'react-bootstrap/Accordion';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import {
+  MDBCol,
+  MDBContainer,
+  MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon, MDBBtn,
+} from 'mdb-react-ui-kit';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
+import './styles.scss';
 
 function UserPage() {
   return (
@@ -20,17 +28,16 @@ function UserPage() {
               <MDBCard
                 className="mb-3"
                 style={{
-                  backgroundColor: '#ffa07a',
+                  backgroundColor: 'rgba(255, 160, 122, 0.5',
                   borderRadius: '.5rem',
                   width: '50em',
-                  height: '40em',
                 }}
               >
                 <MDBRow className="g-0">
                   <MDBCol
                     md="4"
                     className="gradient-custom text-center text-white"
-                    style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}
+                    style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem', height: '50%' }}
                   >
                     <MDBCardImage
                       src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
@@ -41,22 +48,28 @@ function UserPage() {
                       }}
                       fluid
                     />
-                    <MDBTypography tag="h5">Pseudo</MDBTypography>
+                    <MDBTypography
+                      tag="h5"
+                      style={{
+                        color: '#500000',
+                      }}
+                    >Aicha
+                    </MDBTypography>
                     {/* <MDBCardText>Web Designer</MDBCardText> */}
                     <MDBIcon far icon="edit mb-5" />
                   </MDBCol>
                   <MDBCol md="8">
                     <MDBCardBody className="p-4">
-                      <MDBTypography tag="h6">Information</MDBTypography>
+                      <MDBTypography tag="h6">Informations</MDBTypography>
                       <hr className="mt-0 mb-4" />
                       <MDBRow className="pt-1">
                         <MDBCol size="6" className="mb-3">
                           <MDBTypography tag="h6">Localisation</MDBTypography>
-                          <MDBCardText className="text-muted">Paris (75000)</MDBCardText>
+                          <MDBCardText className="text-muted"><input type="text" placeholder="Paris" /></MDBCardText>
                         </MDBCol>
                         <MDBCol size="6" className="mb-3">
                           <MDBTypography tag="h6">Livres a donner</MDBTypography>
-                          <MDBCardText className="text-muted">12</MDBCardText>
+                          <MDBCardText className="text-muted"><input type="number" placeholder="12" /></MDBCardText>
                         </MDBCol>
                       </MDBRow>
 
@@ -65,28 +78,74 @@ function UserPage() {
                       <MDBRow className="pt-1">
                         <MDBCol size="6" className="mb-3">
                           <MDBTypography tag="h6">Email</MDBTypography>
-                          <MDBCardText className="text-muted">tata@tatas.com</MDBCardText>
-                          <MDBBtn>Envoyer un message</MDBBtn>
+                          <MDBCardText className="text-muted"><input type="email" placeholder="tata@tata.com" /></MDBCardText>
+                          <MDBBtn className="sendButton">Envoyer un message</MDBBtn>
                         </MDBCol>
-                        {/* <MDBCol size="6" className="mb-3">
-                          <MDBTypography tag="h6">Phone</MDBTypography>
-                          <MDBCardText className="text-muted">123 456 789</MDBCardText>
-                        </MDBCol> */}
                       </MDBRow>
+                      {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
                       <MDBContainer
                         breakpoint="lg"
                         style={{
-                          backgroundColor: '#500000',
-                          color: 'white',
-
+                          display: 'block',
+                          marginTop: '5em',
+                          width: '100%',
+                          borderRadius: '10px',
                         }}
-                      >boite de gestion de don
+                      >
+                        <div>
+                          <Accordion defaultActiveKey={['0']} alwaysOpen>
+                            <Accordion.Item eventKey="0">
+                              <Accordion.Header>
+                                Livres à donner
+                              </Accordion.Header>
+                              <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
+                                <main className="cardBody">
+                                  <div>
+                                    <p>
+                                      Voyage au centre de la terre
+                                    </p>
+                                    <img
+                                      src="https://m.media-amazon.com/images/I/51TIY0eeh5L._SY291_BO1,204,203,200_QL40_ML2_.jpg"
+                                      alt="couverture de livre"
+                                    />
+                                    <button className="button" type="button">Supprimer le livre</button>
+                                  </div>
+                                  <div>
+                                    <p>
+                                      100 ans de solitude
+                                    </p>
+                                    <img
+                                      src="https://images2.medimops.eu/product/07f827/M0202023811X-large.jpg"
+                                      alt="couverture de livre"
+                                    />
+                                    <button className="button" type="button">Supprimer le livre</button>
+                                  </div>
+                                  <div>
+                                    <p>
+                                      bobby potter
+                                    </p>
+                                    <img
+                                      src="https://m.media-amazon.com/images/I/51CP2LpqpTL._SY291_BO1,204,203,200_QL40_ML2_.jpg"
+                                      alt="couverture de livre"
+                                    />
+                                    <button className="button" type="button">Supprimer le livre</button>
+                                  </div>
+                                </main>
+                              </Accordion.Body>
+                            </Accordion.Item>
+                            <Accordion.Item eventKey="1">
+                              <Accordion.Header>Livres donnés</Accordion.Header>
+                              <Accordion.Body style={{
+                                backgroundColor: '#f5f0e6',
+
+                              }}
+                              />
+                            </Accordion.Item>
+
+                          </Accordion>
+                        </div>
                       </MDBContainer>
-                      {/* <div className="d-flex justify-content-start">
-                        <a href="#!"><MDBIcon fab icon="facebook me-3" size="lg" /></a>
-                        <a href="#!"><MDBIcon fab icon="twitter me-3" size="lg" /></a>
-                        <a href="#!"><MDBIcon fab icon="instagram me-3" size="lg" /></a>
-                      </div> */}
+
                     </MDBCardBody>
                   </MDBCol>
                 </MDBRow>

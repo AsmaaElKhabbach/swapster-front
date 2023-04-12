@@ -2,6 +2,7 @@
 import './menu.scss';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
 import { logout } from '../../../../store/reducers/settings';
 
 // == Component
@@ -25,9 +26,6 @@ function DropdownMenu() {
         <NavDropdown.Item href="/profile">Profil</NavDropdown.Item>
         <NavDropdown.Item onClick={handleLogout} href="/">Déconnection</NavDropdown.Item>
       </NavDropdown>
-      {/* <Nav.Link href="#" disabled>
-              Link
-        </Nav.Link> */}
     </div>
   );
 }
