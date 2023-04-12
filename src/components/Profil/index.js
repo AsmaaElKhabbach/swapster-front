@@ -14,7 +14,10 @@ import './styles.scss';
 function UserPage() {
   return (
     <>
-      <Header />
+      <header>
+
+        <Header />
+      </header>
       <section
         className="vh-100"
         style={{
@@ -28,8 +31,9 @@ function UserPage() {
                 className="mb-3"
                 style={{
                   backgroundColor: 'rgba(255, 160, 122, 0.5',
+
                   borderRadius: '.5rem',
-                  width: '50em',
+
                 }}
               >
                 <MDBRow className="g-0">
