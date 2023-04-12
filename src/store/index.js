@@ -1,13 +1,13 @@
 // == Import
 import { configureStore } from '@reduxjs/toolkit';
-import booksReducer from './reducers/books';
 import loggerMiddleware from './middlewares/logger';
+import booksReducer from './reducers/books';
 import settingsReducer from './reducers/settings';
 
 // == Store
 const store = configureStore({
   reducer: {
-    home: booksReducer,
+    books: booksReducer,
     settings: settingsReducer,
   },
   // on rajoute un middleware qui va permettre la connexion d'un utilisateur

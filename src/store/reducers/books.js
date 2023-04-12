@@ -3,21 +3,36 @@ import { createAction, createReducer } from '@reduxjs/toolkit';
 
 // == State
 const initialState = {
-  search: "",
-
+  userSearch:"",
+  search:{
+    searchResults:[],
+    error: null,
+    isLoading: false
+  }
+ 
 };
 
 //== Action
 // action qui permet changer l'input de recherche
 export const changeNewSearch = createAction('books/changeNewSearch');
+// actionn qui permet de sauvegardé le résultat de la recherche 
+export const saveBooks = createAction('books/saveBooks');
+// action qui permet de gérer le chargement des données venant de l'api
+export const setIsLoading = createAction('books/setIsLoading');
+// action qui permet de gérer les erreurs de connexion
+export const setError = createAction('books/setError');
 
 // == Reducer
 const booksReducer = createReducer(initialState, (builder) => {
   builder 
   .addCase(changeNewSearch, (state, { payload }) => {
-    state.search = payload;
+    state.userSearch = payload;
   })
-   
+  .addCase(saveBooks, (state, { payload }) => {
+    state.search.searchResults = payload;
+    state.search.isLoading = true;
+    state.search.error = payload;
+  })
 });
 
 // == Export

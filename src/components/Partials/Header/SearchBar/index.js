@@ -3,6 +3,7 @@ import './searchBar.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
 import { changeNewSearch } from '../../../../store/reducers/books'
 import { getBook } from '../../../../api/books';
 
@@ -10,9 +11,11 @@ import { getBook } from '../../../../api/books';
 function SearchBar() {
   // on récupère le hook react-redux qui nous permet de modifier nos données et on le stock dans une variable 
   const dispatch = useDispatch();
+  // on récupère le hook react-router-dom afin de rediriger l'utilisateur
+  const navigate = useNavigate();
 
   // grace au hook react-redux on récupère la donnée qui correspond a la valeur de la barre de recherche
-  const search = useSelector((state) => state.search);
+  const search = useSelector((state) => state.books.userSearch);
 
   // Fonction qui permet de changer la valeur de l'input rechercher
   const handleInputChange = (event) => {
@@ -20,6 +23,7 @@ function SearchBar() {
     const newValue = event.target.value;
     // J'emet mon intention de modifier le newSearch
     dispatch(changeNewSearch(newValue));
+    console.log(search)
   };
 
   // Fonction qui permet de gérer la soumission du formulaire de recherche
@@ -28,6 +32,7 @@ function SearchBar() {
     event.preventDefault();
     // on émet l'intention de modifier grace à l'action récupérer dans le réducer home de modifié l'input
     dispatch(getBook());
+    navigate('book/search'/*`book/${search}`*/)
   }
 
   return (
@@ -41,7 +46,7 @@ function SearchBar() {
           className="me-2"
           aria-label="Search"
         />
-        <Button variant="danger">Rechercher</Button>
+        <Button type= 'submit' variant="danger">Rechercher</Button>
       </Form>
 
     </div>
