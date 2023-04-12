@@ -37,8 +37,8 @@ function SignUp() {
     // on envois un message d'erreur si le mot de passe est différent de la confirmation de mot de passe 
     if (formData.password !== formData.passwordConfirm) {
       dispatch(setError("Passwords don't match."));
-      // // on envois une information à l'utilisateur en lui précisant que le mot de passe ne matche pas
-      // alert("Le mot de passe n'est pas identique")
+      // on envois une information à l'utilisateur en lui précisant que le mot de passe ne matche pas
+      alert("Le mot de passe n'est pas identique")
       return;
     }
     // on émet l'intention d'enregistrer les données entrée dans le formulaire par l'utilisateur grace a la méthode signUp
@@ -66,7 +66,6 @@ function SignUp() {
         <MDBCard style={{ maxWidth: '650px', marginTop: 110, marginBottom: 50, }}>
           <MDBCardBody className="px-5">
             <h2 className="text-uppercase text-center mb-5">Créer un compte</h2>
-            {error && <div className="alert alert-danger">{error}</div>}
             <form onSubmit={handleSubmit}>
               <MDBInput 
               value={formData.name}
