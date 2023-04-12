@@ -1,6 +1,7 @@
 // == Import 
 import './intro.scss'
 
+// == Component
 function Introduction() {
   return (
     <div className="intro">
@@ -14,4 +15,5 @@ function Introduction() {
   )
 }
 
+// == Export
 export default Introduction

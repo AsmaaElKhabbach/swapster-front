@@ -13,10 +13,13 @@ import { useNavigate } from 'react-router-dom';
 
 // == Component 
 function SignUp() {
+  // récupération des hooks react-redux qu'on stock dans des variable 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // création d'une variable qui va contenir les données de notre formulaire que l'on stocke dans le state global
   const [formData, setFormData] = useState({
+    // données du formulaire qu'on initié a vide 
     name: "",
     email: "",
     city: "",
@@ -24,19 +27,28 @@ function SignUp() {
     passwordConfirm: ""
   });
 
+  // on récupère les données erreur et chargemetn stocké dans l'initialstate du reducer settings
   const { isLoading, error } = useSelector(state => state.settings.user);
 
+  // Fonction qui permet de gérer la soumission du formulaire d'inscription
   const handleSubmit = (event) => {
+    // on stop le comportement  par defaut de rechargement de la page 
     event.preventDefault();
+    // on envois un message d'erreur si le mot de passe est différent de la confirmation de mot de passe 
     if (formData.password !== formData.passwordConfirm) {
       dispatch(setError("Passwords don't match."));
+      // // on envois une information à l'utilisateur en lui précisant que le mot de passe ne matche pas
+      // alert("Le mot de passe n'est pas identique")
       return;
     }
+    // on émet l'intention d'enregistrer les données entrée dans le formulaire par l'utilisateur grace a la méthode signUp
     dispatch(signUp(formData));
+    // on redirige l'utilisateur sur la page de connexion
     navigate("/login")
 
   }
 
+  // Fonction qui permet de modifier les inputs du formulaire d'inscription
   const handleInputChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   }

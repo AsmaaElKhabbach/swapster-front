@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Connexion from './Connexion';
 import DropdownMenu from './DropDowMenu';
 import SearchBar from './SearchBar';
-import swapsterLogo from '../../../assets/logo-no-background.svg';
+import swapsterLogo from '../../../assets/images/logo-no-background.svg';
 
 // == Component
 function Header() {
@@ -20,13 +20,11 @@ function Header() {
             className="my-2 my-lg-0 nav-container"
             navbarScroll
           >
-            <Navbar.Brand className="logo" href="/">
+            <Navbar.Brand href="/">
             <img
               alt="swapsterlogo"
               src= {swapsterLogo}
-              width="80"
-              height="30"
-              className="d-inline-block align-top"
+              className="logo"
             />
             </Navbar.Brand>
             <SearchBar />

@@ -15,7 +15,7 @@ function LastestAdd() {
             alt="Image One"
           />
           <Carousel.Caption>
-            <h3>Label for first slide</h3>
+            <button>Voir plus</button>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={500}>
@@ -25,7 +25,7 @@ function LastestAdd() {
             alt="Image Two"
           />
           <Carousel.Caption>
-            <h3>Label for second slide</h3>
+          <button>Voir plus</button>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
@@ -33,4 +33,5 @@ function LastestAdd() {
   );
 }
 
+// == Export
 export default LastestAdd;

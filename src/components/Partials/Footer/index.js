@@ -3,11 +3,11 @@ import './footer.scss';
 import { NavLink } from 'react-router-dom';
 import EmailTo from '../../EmailTo';
 import { PenTool, FileText, Mail} from 'react-feather';
-import swapsterLogo from '../../../assets/logo-no-background.svg'
+import swapsterLogo from '../../../assets/images/logo-no-background.svg'
 
 // == Component
 function Footer() {
-
+  // création du variable pour gérer isActive pour chacun des lien
   const classNameLink = ({ isActive }) => `nav-link ${isActive ? 'nav-link--active' : ''}`;
 
   return (

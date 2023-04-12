@@ -1,5 +1,12 @@
 @use 'src/styles/vars';
 
+.contact{
+  color: vars.$text;
+
+    &:hover {
+      color: vars.$accent-200 ;
+    }
+}
 .footer{
   width: 100%;
   background: rgb(255,250,240);
@@ -45,7 +52,7 @@
     color: vars.$text;
 
     &:hover:not(&--active) {
-      color: vars.$accent-200;
+      color: vars.$accent-200 ;
     }
 
     &--active {
@@ -61,9 +68,10 @@
       margin-bottom: 0.3rem;
     }
   }
+}
+}
 
-}
-}
+// -- Responsiv -- // 
 
 @media (max-width: 900){
   .footer{

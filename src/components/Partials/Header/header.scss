@@ -1,7 +1,7 @@
 @use 'src/styles/vars';
 
 .logo{
-  width: 20%;
+  width: 7%;
 }
 .nav-menu {
   background: rgb(255,250,240);
@@ -26,6 +26,9 @@
   column-gap: 2em;
 
 }
+
+// -- Responsiv --//
+
 @media(max-width: 900px){
   .logo{
     width: 20%;

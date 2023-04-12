@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 // == Commponent
 function Connection() {
+  // on récupére grace au hook react les données de l'utilisateur et un booleen pour géré l'affichage du nom de l'utilisateur une fois connecté
   const username = useSelector((state) => state.settings.user.data.name);
   const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
 
