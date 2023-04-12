@@ -89,7 +89,7 @@ function UserPage() {
                         }}
                       >
                         <div>
-                          <Accordion defaultActiveKey={['0']} alwaysOpen>
+                          <Accordion defaultActiveKey={[]} alwaysOpen>
                             <Accordion.Item eventKey="0">
                               <Accordion.Header>
                                 Livres à donner
