@@ -1,16 +1,12 @@
+// == Import 
+import './profile.scss';
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import {
-  MDBCol,
-  MDBContainer,
-  MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon, MDBBtn,
-} from 'mdb-react-ui-kit';
+import {MDBCol,MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon, MDBBtn,} from 'mdb-react-ui-kit';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
-import './styles.scss';
 
+// == Component
 function UserPage() {
   return (
     <>
@@ -160,4 +156,5 @@ function UserPage() {
   );
 }
 
+// Export
 export default UserPage;
