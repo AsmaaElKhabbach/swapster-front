@@ -7,16 +7,20 @@
 .image {
   height: 20em;
 }
-.givenButton {
-  display: block;
-  align-items: center;
-  background-color: #de825e;
-  margin: 1em;
-  border-radius: 5px;
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  text-transform: capitalize;
+  text-decoration: underline;
+ color: #500000;
 }
 
-
-.accordion {
-  background-color: #500000;
-  color: greenyellow;
+.button {
+  
+  margin-left: 1em;
+  background-color: #de825e;
+  border-radius: 5px;
+  border: 1px solid #500000;
 }

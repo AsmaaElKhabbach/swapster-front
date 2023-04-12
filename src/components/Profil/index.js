@@ -27,7 +27,7 @@ function UserPage() {
               <MDBCard
                 className="mb-3"
                 style={{
-                  backgroundColor: '#ffa07a',
+                  backgroundColor: 'rgba(255, 160, 122, 0.5',
                   borderRadius: '.5rem',
                   width: '50em',
                 }}
@@ -52,23 +52,23 @@ function UserPage() {
                       style={{
                         color: '#500000',
                       }}
-                    >Pseudo
+                    >Aicha
                     </MDBTypography>
                     {/* <MDBCardText>Web Designer</MDBCardText> */}
                     <MDBIcon far icon="edit mb-5" />
                   </MDBCol>
                   <MDBCol md="8">
                     <MDBCardBody className="p-4">
-                      <MDBTypography tag="h6">Information</MDBTypography>
+                      <MDBTypography tag="h6">Informations</MDBTypography>
                       <hr className="mt-0 mb-4" />
                       <MDBRow className="pt-1">
                         <MDBCol size="6" className="mb-3">
                           <MDBTypography tag="h6">Localisation</MDBTypography>
-                          <MDBCardText className="text-muted">Paris (75000)</MDBCardText>
+                          <MDBCardText className="text-muted"><input type="text" placeholder="Paris" /></MDBCardText>
                         </MDBCol>
                         <MDBCol size="6" className="mb-3">
                           <MDBTypography tag="h6">Livres a donner</MDBTypography>
-                          <MDBCardText className="text-muted">12</MDBCardText>
+                          <MDBCardText className="text-muted"><input type="number" placeholder="12" /></MDBCardText>
                         </MDBCol>
                       </MDBRow>
 
@@ -77,7 +77,7 @@ function UserPage() {
                       <MDBRow className="pt-1">
                         <MDBCol size="6" className="mb-3">
                           <MDBTypography tag="h6">Email</MDBTypography>
-                          <MDBCardText className="text-muted">tata@tatas.com</MDBCardText>
+                          <MDBCardText className="text-muted"><input type="email" placeholder="tata@tata.com" /></MDBCardText>
                           <MDBBtn className="sendButton">Envoyer un message</MDBBtn>
                         </MDBCol>
                       </MDBRow>
@@ -94,63 +94,51 @@ function UserPage() {
                         <div>
                           <Accordion defaultActiveKey={['0']} alwaysOpen>
                             <Accordion.Item eventKey="0">
-                              <Accordion.Header style={{
-                                color: '#500000',
-                              }}
-                              >
-                                Livres a donner
+                              <Accordion.Header>
+                                Livres à donner
                               </Accordion.Header>
-                              <Accordion.Body style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                backgroundColor: '#f5f0e6',
-
-                              }}
-                              >
-                                <Card style={{
-                                  width: '18rem',
-                                  backgroundColor: ' #fffaf0',
-                                }}
-                                >
-                                  <Card.Body>
-                                    <Card.Title>Harry Potter</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">le magicien a lunettes</Card.Subtitle>
+                              <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
+                                <main className="cardBody">
+                                  <div>
+                                    <p>
+                                      Voyage au centre de la terre
+                                    </p>
                                     <img
-                                      alt=""
-                                      className="image"
-                                      src="https://kbimages1-a.akamaihd.net/6750d058-29cb-4626-9c12-a62e816a80cc/353/569/90/False/harry-potter-and-the-philosopher-s-stone-3.jpg"
+                                      src="https://m.media-amazon.com/images/I/51TIY0eeh5L._SY291_BO1,204,203,200_QL40_ML2_.jpg"
+                                      alt="couverture de livre"
                                     />
-
-                                    <button type="button" className="givenButton">Supprimer le livre</button>
-                                  </Card.Body>
-                                  <Card.Body>
-                                    <Card.Title>100 ans de solitude</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">un livre qu'il est bien</Card.Subtitle>
+                                    <button className="button" type="button">Supprimer le livre</button>
+                                  </div>
+                                  <div>
+                                    <p>
+                                      100 ans de solitude
+                                    </p>
                                     <img
-                                      alt=""
-                                      className="image"
-                                      src="https://m.media-amazon.com/images/I/410B+B-datL._SY344_BO1,204,203,200_.jpg"
+                                      src="https://images2.medimops.eu/product/07f827/M0202023811X-large.jpg"
+                                      alt="couverture de livre"
                                     />
-
-                                    <button type="button" className="givenButton">boite a livré</button>
-                                  </Card.Body>
-                                </Card>
+                                    <button className="button" type="button">Supprimer le livre</button>
+                                  </div>
+                                  <div>
+                                    <p>
+                                      bobby potter
+                                    </p>
+                                    <img
+                                      src="https://m.media-amazon.com/images/I/51CP2LpqpTL._SY291_BO1,204,203,200_QL40_ML2_.jpg"
+                                      alt="couverture de livre"
+                                    />
+                                    <button className="button" type="button">Supprimer le livre</button>
+                                  </div>
+                                </main>
                               </Accordion.Body>
                             </Accordion.Item>
                             <Accordion.Item eventKey="1">
-                              <Accordion.Header>Livres données</Accordion.Header>
+                              <Accordion.Header>Livres donnés</Accordion.Header>
                               <Accordion.Body style={{
                                 backgroundColor: '#f5f0e6',
 
                               }}
-                              >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum.
-                              </Accordion.Body>
+                              />
                             </Accordion.Item>
 
                           </Accordion>
