@@ -23,7 +23,6 @@ function SearchBar() {
     const newValue = event.target.value;
     // J'emet mon intention de modifier le newSearch
     dispatch(changeNewSearch(newValue));
-    console.log(search)
   };
 
   // Fonction qui permet de gérer la soumission du formulaire de recherche
@@ -32,7 +31,8 @@ function SearchBar() {
     event.preventDefault();
     // on émet l'intention de modifier grace à l'action récupérer dans le réducer home de modifié l'input
     dispatch(getBook());
-    navigate('book/search'/*`book/${search}`*/)
+    console.log(search)
+    navigate(`book/search/${search}`)
   }
 
   return (
