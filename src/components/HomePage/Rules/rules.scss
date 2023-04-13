@@ -1,7 +1,7 @@
 @use 'src/styles/vars';
 
 .post-it {
-  width:50%;
+  width:60%;
   background: rgba(153, 97, 108, 0.7);
   overflow:hidden;
   margin:10em auto;
@@ -13,6 +13,10 @@
     0 5px 6px 5px rgba(0,0,0,0.2);
   line-height:1.7em;
   color: vars.$bg;
+}
+
+.post-it ul{
+  margin: 6rem auto;
 }
 
 .post-it li {
@@ -33,16 +37,13 @@
  display:block;
  position:sticky;
  width:75%;
- height:20px; 
  border-top:3px solid vars.$primary-300;
  border-radius: 50% ;
  bottom: 1em;
  left:10%;
 }
 
-.post-it ul{
-  margin: 3rem auto;
-}
+
 .done {
   text-decoration:line-through; 
 }

@@ -9,6 +9,8 @@ import Header from '../Partials/Header';
 import Footer from '../Partials/Footer';
 import { signUp } from '../../api/auth';
 import { setError } from '../../store/reducers/settings';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 
 // == Component
 function SignUp() {
@@ -63,8 +65,8 @@ function SignUp() {
           <MDBCard
             className="m-5"
             style={{
-              maxWidth: '600px',
-              marginTop: '500px',
+              maxWidth: '650px',
+              marginTop: '600px',
             }}
           >
             <MDBCardBody className="px-5">
