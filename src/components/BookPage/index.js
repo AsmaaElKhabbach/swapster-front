@@ -23,13 +23,13 @@ function BookPage() {
   // Fonction qui permet d'ajouter un livre aux livre à donnés
   const handleAdd = () => {};
 
-  // const params = useParams();
-  // const book = useSelector((state) => findBook(state.books.search.searchResults, params.id));
-  //  console.log(book);
+  const params = useParams();
+  const book = useSelector((state) => findBook(state.books.search.searchResults, params.id));
+    console.log(book);
 
-  // if(!book) {
-  //   return <Navigate to="/error" replace />
-  // }
+  if(!book) {
+     return <Navigate to="/error" replace />
+   }
 
   return (
     <div>

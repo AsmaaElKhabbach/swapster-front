@@ -5,8 +5,8 @@ import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { changeNewSearch } from '../../../../store/reducers/books'
-import { getBook } from '../../../../api/books';
-
+import { axiosInstance } from '../../../../api/axiosInstance';
+import { setError, saveBooks } from '../../../../store/reducers/books';
 // == Component
 function SearchBar() {
   // on récupère le hook react-redux qui nous permet de modifier nos données et on le stock dans une variable 
@@ -25,12 +25,31 @@ function SearchBar() {
     dispatch(changeNewSearch(newValue));
   };
 
+  // Fonction pour récupérer les livres rechercher 
+  const getBook = () => {
+  return async (dispatch) => {
+    try {
+       //  appel api à l'application back pour récupérer les livres une fois une recherche effectuée
+       const response = await axiosInstance.get(`/book/search?query=${search}`)
+       console.log(response)
+      // modification de l'action de succès pour s'inscrire
+      dispatch(saveBooks(response.data));
+
+    }catch (axios) {
+      console.log(axios);
+      // on récupère l'erreur dans axios
+      dispatch(setError(axios.response.data))
+      alert('error')
+    } 
+  };
+}
+
   // Fonction qui permet de gérer la soumission du formulaire de recherche
   const handleSubmit = (event) => {
     // on stop le comportement par défaut de rechargement de la page
     event.preventDefault();
     // on émet l'intention de modifier grace à l'action récupérer dans le réducer home de modifié l'input
-    dispatch(getBook());
+    dispatch(getBook(search));
     console.log(search)
     navigate(`book/search/${search}`)
   }

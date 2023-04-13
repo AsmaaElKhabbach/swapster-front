@@ -5,21 +5,21 @@ import Footer from "../Partials/Footer"
 import Header from "../Partials/Header"
 import BookCard from '../BookCard'
 
+import { useSelector } from 'react-redux';
+
 // == Component
 function BookResults() {
-  // grace au hook react-redux on récupère la donnée qui correspond a la valeur des livres recherchés
-  // const search = useSelector((state) => state.books.searchResults);
+  //grace au hook react-redux on récupère la donnée qui correspond a la valeur des livres recherchés
+   const searchResults = useSelector((state) => state.books.search.searchResults);
 
   return (
     <div>
     <Header />
     <main>
       <div className='books'>
-      <BookCard />
-      <BookCard />
-      <BookCard />
-      <BookCard />
-      <BookCard />
+      {searchResults.map((books) => (
+        <BookCard {...books} key={books.id} />
+      ))}
       </div>
     </main>
     <Footer />
