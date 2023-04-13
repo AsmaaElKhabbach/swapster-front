@@ -2,7 +2,19 @@
 
 .app {
   background-color: vars.$bg;
-
   font-family: SpecialElite;
+  background-color: vars.$bg;
+  background-image: url(../../assets/images/boook-bg.jpg);
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-attachment:fixed;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100vh;
 }
 
+main {
+  min-height: calc(100vh - 10em);
+}

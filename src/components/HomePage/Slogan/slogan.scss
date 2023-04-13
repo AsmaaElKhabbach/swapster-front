@@ -4,7 +4,7 @@
 
   margin: 20%;
   padding: 1em;
-  max-width: 80%;
+  width: 100%;
   
 
   &-title{
@@ -16,16 +16,10 @@
   
 }
 
-@media(max-width: 900px){
-  .slogan{
-    margin: 3em 8em 4em 4em;
-    padding: 1em;
-    max-width: 50%;
-}
+// -- Responsiv -- //
 
+@media(max-width: 900px){
 .slogan-title{
-  font-size: 1.5em;
-  align-items: baseline;
-  text-align: center;
+font-size: 1.5em;
 }
 }

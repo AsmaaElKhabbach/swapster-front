@@ -3,7 +3,7 @@
 .intro{
   width: 40%;
   height: 25%;
-  margin: 3em 5em 2em 50em;
+  margin: auto;
   padding: 0.5em;
 
   &-content{
@@ -14,11 +14,12 @@
 }
 }
 
+// -- Responsiv -- // 
 @media(max-width: 900px){
   .intro{
     max-width: 70%;
     max-height: 20%;
-    margin: 1em 6em 2em 7em;
+    margin: auto;
     padding: 0.5em;
   
     &-content{

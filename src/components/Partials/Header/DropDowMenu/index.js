@@ -1,15 +1,18 @@
 // == Import
+import './menu.scss';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import './styles.scss';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { logout } from '../../../../store/reducers/settings';
 
 // == Component
 function DropdownMenu() {
+  // on récupère le hook react-redux qu'on stock dans une variable pour gérer la modification des données 
   const dispatch = useDispatch();
+
+  // Fonction qui permet à l'utilisateur de se déconnecter 
   const handleLogout = () => {
-    console.log('handleLogout');
+    // on modifie grace au hook react-redux et l'action présente dans le reducer settings
     dispatch(logout());
   };
 

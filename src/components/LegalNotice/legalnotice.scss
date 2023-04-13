@@ -1,0 +1,15 @@
+
+h1{
+  text-align: center;
+}
+
+.legalnotice{
+  &-content{
+    width: 90%;
+    margin:auto;
+    display: flex;
+    flex-flow: column ;
+    column-gap: 3em;
+    text-align: justify;
+  }
+}

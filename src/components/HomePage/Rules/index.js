@@ -1,6 +1,7 @@
 // == Import 
-import './styles.scss'
+import './rules.scss'
 
+// == Component
 function Rules() {
   return (
     <div className="post-it">
@@ -20,4 +21,5 @@ function Rules() {
   )
 }
 
+// == Export
 export default Rules

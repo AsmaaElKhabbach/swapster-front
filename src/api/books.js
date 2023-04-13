@@ -1,9 +1,18 @@
 // == Import
 import axios from 'axios'
-
+import { axiosInstance } from './axiosInstance';
 // == Middlewares
+
+// Fonction pour récupérer les livres rechercher 
 export const getBook = () => async (dispatch, getState) => {
-    const state = getState();
-    const { data } = await axios.get('https://openlibrary.org/works/OL15626917W.json')
-    console.log(data)
+  try {
+       //  appel api à l'application back pour récupérer les livres une fois une recherche effectuée
+       const { data } = await axiosInstance.get('/books/search')
+       console.log(data)
+  }  catch (axios) {
+    console.log(axios);
+    // on récupère l'erreur dans axios
+    dispatch(setError(axios.response.data))
+    alert('error')
+  } 
 };
