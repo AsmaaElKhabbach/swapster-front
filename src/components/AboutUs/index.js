@@ -1,3 +1,4 @@
+import { GitHub, Linkedin } from 'react-feather';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
 import './styles.scss';
@@ -24,18 +25,24 @@ function AboutUs() {
               alt="Fabien"
             />
             <p className="devBox__presentation">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Officiis accusamus molestiae earum rerum natus corporis quas,
-              odit, tenetur autem, saepe possimus iusto et beatae atque enim
-              explicabo architecto eos. Itaque!
+              Fais ton greuh...............................
             </p>
-            <a
-              href="https://www.linkedin.com/in/fabien-costa-/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Lien vers mon LinkedIn
-            </a>
+            <div className="devBox__contact">
+              <a
+                href="https://www.linkedin.com/in/cielbleu92/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Linkedin className="linkedin" />
+              </a>
+              <a
+                href="https://github.com/minjung-kim-quere"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GitHub />
+              </a>
+            </div>
           </div>
           {/* fin de la card dev */}
 
@@ -52,18 +59,24 @@ function AboutUs() {
               alt="Fabien"
             />
             <p className="devBox__presentation">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Officiis accusamus molestiae earum rerum natus corporis quas,
-              odit, tenetur autem, saepe possimus iusto et beatae atque enim
-              explicabo architecto eos. Itaque!
+              Ahhh que tu as de grandes dents... Je veux dire blanches on se voit dedans ah oui je sais la plupart de tes casse croûte on dû te le dire tu les fais détartrer à l'eau de javel parce que tu as un sourire j' te jure.
             </p>
-            <a
-              href="https://www.linkedin.com/in/fabien-costa-/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Lien vers mon LinkedIn
-            </a>
+            <div className="devBox__contact">
+              <a
+                href="https://www.linkedin.com/in/asmaa-el-khabbach/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Linkedin className="linkedin" />
+              </a>
+              <a
+                href="https://github.com/AsmaaElKhabbach"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GitHub />
+              </a>
+            </div>
           </div>
 
           <div className="devBox__profil">
@@ -79,18 +92,24 @@ function AboutUs() {
               alt="Fabien"
             />
             <p className="devBox__presentation">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Officiis accusamus molestiae earum rerum natus corporis quas,
-              odit, tenetur autem, saepe possimus iusto et beatae atque enim
-              explicabo architecto eos. Itaque!
+              Misère, je ne sens plus mes orteils! J'ai pas d'orteils!
             </p>
-            <a
-              href="https://www.linkedin.com/in/fabien-costa-/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Lien vers mon LinkedIn
-            </a>
+            <div className="devBox__contact">
+              <a
+                href="https://www.linkedin.com/in/aicha-zine/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Linkedin className="linkedin" />
+              </a>
+              <a
+                href="https://github.com/AichaaZine"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GitHub />
+              </a>
+            </div>
           </div>
 
           <div className="devBox__profil">
@@ -111,13 +130,22 @@ function AboutUs() {
               odit, tenetur autem, saepe possimus iusto et beatae atque enim
               explicabo architecto eos. Itaque!
             </p>
-            <a
-              href="https://www.linkedin.com/in/fabien-costa-/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Lien vers mon LinkedIn
-            </a>
+            <div className="devBox__contact">
+              <a
+                href="https://www.linkedin.com/in/fabien-costa-/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Linkedin className="linkedin" />
+              </a>
+              <a
+                href="https://github.com/FabienCosta"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GitHub />
+              </a>
+            </div>
           </div>
 
           <div className="devBox__profil">
@@ -133,18 +161,24 @@ function AboutUs() {
               alt="Fabien"
             />
             <p className="devBox__presentation">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Officiis accusamus molestiae earum rerum natus corporis quas,
-              odit, tenetur autem, saepe possimus iusto et beatae atque enim
-              explicabo architecto eos. Itaque!
+              Tu sais ce que tout le monde aime ? Le clafoutis. T'as déjà rencontré quelqu'un à qui tu dis : « fais péter le clafoutis ! », et qui te dit, « j'aime pas le clafoutis » ? Il n'y a rien de plus clafoutant que le clafoutis !
             </p>
-            <a
-              href="https://www.linkedin.com/in/fabien-costa-/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Lien vers mon LinkedIn
-            </a>
+            <div className="devBox__contact">
+              <a
+                href="https://www.linkedin.com/in/fabien-costa-/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Linkedin className="linkedin" />
+              </a>
+              <a
+                href="https://github.com/FabienCosta"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GitHub />
+              </a>
+            </div>
           </div>
 
         </div>
