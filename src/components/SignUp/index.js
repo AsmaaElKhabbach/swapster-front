@@ -1,16 +1,15 @@
 // == Import
 import './signup.scss';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   MDBBtn, MDBContainer, MDBCard, MDBCardBody, MDBInput,
 } from 'mdb-react-ui-kit';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Partials/Header';
 import Footer from '../Partials/Footer';
 import { signUp } from '../../api/auth';
 import { setError } from '../../store/reducers/settings';
-import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
 
 // == Component
 function SignUp() {
@@ -63,16 +62,13 @@ function SignUp() {
         >
           <div className="mask gradient-custom-3" />
           <MDBCard
-            className="m-5"
-            style={{
-              maxWidth: '650px',
-              marginTop: '500px',
-            }}
+            style={{ maxWidth: '700px', marginTop: 110, marginBottom: 50 }}
           >
             <MDBCardBody className="px-5">
               <h2 className="text-uppercase text-center mb-5">Créer un compte</h2>
               <form onSubmit={handleSubmit}>
                 <MDBInput
+                  className="form-input"
                   value={formData.name}
                   onChange={handleInputChange}
                   name="name"

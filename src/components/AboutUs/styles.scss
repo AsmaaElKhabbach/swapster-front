@@ -1,0 +1,46 @@
+
+.devBox {
+  
+  display: flex;
+  justify-content: space-around;
+  gap: 2em;
+  margin: 2em;
+  color: #500000;
+  
+
+  &__profil {
+    background-color: rgba(253, 242, 221, 0.8);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #99616c;
+    text-align: center;
+  }
+
+  &__name {
+    
+    margin-top: 1em;
+  }
+
+  &__profilPic {
+    clip-path:ellipse(50% 50%);
+    margin: auto;
+    height: 10em;
+    width: 10em;
+  }
+
+  &__presentation {
+   
+    display: flex;
+    align-items: center;
+    margin: 2em;
+  }
+
+}
+
+a {
+  color: #5c5c5c;
+  text-decoration: none;
+}
+
+

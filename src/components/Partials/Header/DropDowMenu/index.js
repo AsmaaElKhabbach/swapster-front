@@ -18,7 +18,13 @@ function DropdownMenu() {
 
   return (
     <div className="menu">
-      <NavDropdown className="mb-2" title="Menu" id="navbarScrollingDropdown">
+      <NavDropdown key = 'start'
+      className="mb-2" 
+      title="Menu" 
+      id="dropdown-button-drop-start"
+      drop= 'start'
+      variant= "secondary"
+       >
         <NavDropdown.Item href="/">Accueil</NavDropdown.Item>
         <NavDropdown.Item href="/login">Se connecter</NavDropdown.Item>
         <NavDropdown.Item href="/signup">S'inscrire</NavDropdown.Item>
