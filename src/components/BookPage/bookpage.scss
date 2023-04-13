@@ -1,0 +1,23 @@
+@use 'src/styles/vars';
+
+.book{
+  width: 50em;
+  margin: 5em auto;
+}
+
+
+.givers{
+  width: 80%;
+  background-color: vars.$bg-300;
+  opacity: 0.9;
+  margin: 2em auto;
+}
+
+// -- Responsiv --//
+
+@media(max-width: 900px){
+  .book{
+    width: 20em;
+    margin: 2em auto;
+  }
+}

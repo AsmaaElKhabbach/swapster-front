@@ -1,8 +1,10 @@
-// == Import 
+// == Import
 import './profile.scss';
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import {MDBCol,MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon, MDBBtn,} from 'mdb-react-ui-kit';
+import {
+  MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon, MDBBtn,
+} from 'mdb-react-ui-kit';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
 
@@ -12,81 +14,81 @@ function UserPage() {
     <>
       <Header />
       <main>
-      <section
-        className="vh-100"
-      >
-        <MDBContainer className="py-5 h-100">
-          <MDBRow className="justify-content-center align-items-center h-100">
-            <MDBCol lg="6" className="mb-4 mb-lg-0 ">
-              <MDBCard
-                className="mb-3"
-                style={{
-                  backgroundColor: 'rgba(255, 160, 122, 0.5',
-                  borderRadius: '.5rem',
-                  width: '50em',
-                }}
-              >
-                <MDBRow className="g-0">
-                  <MDBCol
-                    md="4"
-                    className="gradient-custom text-center text-white"
-                    style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem', height: '50%' }}
-                  >
-                    <MDBCardImage
-                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                      alt="Avatar"
-                      className="my-5"
-                      style={{
-                        width: '200px',
-                      }}
-                      fluid
-                    />
-                    <MDBTypography
-                      tag="h5"
-                      style={{
-                        color: '#500000',
-                      }}
-                    >Aicha
-                    </MDBTypography>
-                    {/* <MDBCardText>Web Designer</MDBCardText> */}
-                    <MDBIcon far icon="edit mb-5" />
-                  </MDBCol>
-                  <MDBCol md="8">
-                    <MDBCardBody className="p-4">
-                      <MDBTypography tag="h6">Informations</MDBTypography>
-                      <hr className="mt-0 mb-4" />
-                      <MDBRow className="pt-1">
-                        <MDBCol size="6" className="mb-3">
-                          <MDBTypography tag="h6">Localisation</MDBTypography>
-                          <MDBCardText className="text-muted"><input type="text" placeholder="Paris" /></MDBCardText>
-                        </MDBCol>
-                        <MDBCol size="6" className="mb-3">
-                          <MDBTypography tag="h6">Livres a donner</MDBTypography>
-                          <MDBCardText className="text-muted"><input type="number" placeholder="12" /></MDBCardText>
-                        </MDBCol>
-                      </MDBRow>
-
-                      <MDBTypography tag="h6" />
-                      <hr className="mt-0 mb-4" />
-                      <MDBRow className="pt-1">
-                        <MDBCol size="6" className="mb-3">
-                          <MDBTypography tag="h6">Email</MDBTypography>
-                          <MDBCardText className="text-muted"><input type="email" placeholder="tata@tata.com" /></MDBCardText>
-                          <MDBBtn className="sendButton">Envoyer un message</MDBBtn>
-                        </MDBCol>
-                      </MDBRow>
-                      {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
-                      <MDBContainer
-                        breakpoint="lg"
+        <section
+          className="vh-100"
+        >
+          <MDBContainer className="py-5 h-100">
+            <MDBRow className="justify-content-center align-items-center h-100">
+              <MDBCol lg="6" className="mb-4 mb-lg-0 ">
+                <MDBCard
+                  className="mb-3"
+                  style={{
+                    backgroundColor: 'rgba(255, 160, 122, 0.5',
+                    borderRadius: '.5rem',
+                    width: '50em',
+                  }}
+                >
+                  <MDBRow className="g-0">
+                    <MDBCol
+                      md="4"
+                      className="gradient-custom text-center text-white"
+                      style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem', height: '50%' }}
+                    >
+                      <MDBCardImage
+                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                        alt="Avatar"
+                        className="my-5"
                         style={{
-                          display: 'block',
-                          marginTop: '5em',
-                          width: '100%',
-                          borderRadius: '10px',
+                          width: '200px',
                         }}
-                      >
-                        <div>
-                          <Accordion defaultActiveKey={[]} >
+                        fluid
+                      />
+                      <MDBTypography
+                        tag="h5"
+                        style={{
+                          color: '#500000',
+                        }}
+                      >Aicha
+                      </MDBTypography>
+                      {/* <MDBCardText>Web Designer</MDBCardText> */}
+                      <MDBIcon far icon="edit mb-5" />
+                    </MDBCol>
+                    <MDBCol md="8">
+                      <MDBCardBody className="p-4">
+                        <MDBTypography tag="h6">Informations</MDBTypography>
+                        <hr className="mt-0 mb-4" />
+                        <MDBRow className="pt-1">
+                          <MDBCol size="6" className="mb-3">
+                            <MDBTypography tag="h6">Localisation</MDBTypography>
+                            <MDBCardText className="text-muted"><input type="text" placeholder="Paris" /></MDBCardText>
+                          </MDBCol>
+                          <MDBCol size="6" className="mb-3">
+                            <MDBTypography tag="h6">Livres a donner</MDBTypography>
+                            <MDBCardText className="text-muted"><input type="number" placeholder="12" /></MDBCardText>
+                          </MDBCol>
+                        </MDBRow>
+
+                        <MDBTypography tag="h6" />
+                        <hr className="mt-0 mb-4" />
+                        <MDBRow className="pt-1">
+                          <MDBCol size="6" className="mb-3">
+                            <MDBTypography tag="h6">Email</MDBTypography>
+                            <MDBCardText className="text-muted"><input type="email" placeholder="tata@tata.com" /></MDBCardText>
+                            <MDBBtn className="sendButton">Envoyer un message</MDBBtn>
+                          </MDBCol>
+                        </MDBRow>
+                        {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
+                        <MDBContainer
+                          breakpoint="lg"
+                          style={{
+                            display: 'block',
+                            marginTop: '5em',
+                            width: '100%',
+                            borderRadius: '10px',
+                          }}
+                        >
+                          <div>
+                            <Accordion defaultActiveKey={[]} alwaysOpen>
                             <Accordion.Item eventKey="0">
                               <Accordion.Header>
                                 Livres à donner
@@ -136,17 +138,17 @@ function UserPage() {
                             </Accordion.Item>
 
                           </Accordion>
-                        </div>
-                      </MDBContainer>
+                          </div>
+                        </MDBContainer>
 
-                    </MDBCardBody>
-                  </MDBCol>
-                </MDBRow>
-              </MDBCard>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-      </section>
+                      </MDBCardBody>
+                    </MDBCol>
+                  </MDBRow>
+                </MDBCard>
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer>
+        </section>
       </main>
       <Footer />
     </>
