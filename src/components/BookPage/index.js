@@ -7,8 +7,25 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Table from 'react-bootstrap/Table';
 import EmailTo from '../EmailTo';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import React, { useState } from 'react';
+
 // == Component
 function BookPage() {
+  const [show, setShow] = useState(false);
+
+  // Fonction qui permet de gérer la fermeture de la modal
+  const handleClose = () => setShow(false);
+
+  // Fonction qui permet de gérer l'affichage de la modal
+  const handleShow = () => setShow(true);
+
+  // Fonction qui permet d'ajouter un livre aux livre à donnés
+  const handleAdd = () => {
+
+  }
+
   return (
     <div>
       <Header />
@@ -28,9 +45,33 @@ function BookPage() {
           <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
         </ListGroup>
         <Card.Body>
-        <Button variant="primary">Donner le livre</Button>
+        <Button onClick={handleShow}>Donner le livre</Button>
         </Card.Body>
     </Card>
+
+    <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Ajouter à ses livres à donner</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <Form.Group className="mb-3">
+        <Form.Label>Etat du livre</Form.Label>
+        <Form.Select>
+          <option>Comme neuf</option>
+          <option>Bon</option>
+          <option>Acceptable</option>
+        </Form.Select>
+        </Form.Group>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleClose}>
+            Close
+          </Button>
+          <Button onClick={handleAdd}>
+            Ajouter
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
     <Table className='givers' size= "lg" striped bordered hover>
       <thead>
@@ -46,43 +87,43 @@ function BookPage() {
           <td>John</td>
           <td>Bon</td>
           <td>Paris</td>
-          <td> <EmailTo label="Contacter le donneur" mailto="john@john.com" /> </td>
+          <td> <EmailTo label="Envoyer un message" mailto="mailto:john@gmail.com" /> </td>
         </tr>
         <tr>
         <td>John</td>
           <td>Bon</td>
           <td>Paris</td>
-          <td> <EmailTo label="Contacter le donneur" mailto="john@john.com" /> </td>
+          <td> <EmailTo label="Envoyer un message" mailto="mailto:john@gmail.com" /> </td>
         </tr>
         <tr>
         <td>John</td>
           <td>Bon</td>
           <td>Paris</td>
-          <td> <EmailTo label="Contacter le donneur" mailto="john@john.com" /> </td>
+          <td> <EmailTo label="Envoyer un message" mailto="mailto:john@gmail.com" /> </td>
         </tr>
         <tr>
           <td>John</td>
           <td>Bon</td>
           <td>Paris</td>
-          <td> <EmailTo label="Contacter le donneur" mailto="john@john.com" /> </td>
+          <td> <EmailTo label="Envoyer un message" mailto="mailto:john@gmail.com" /> </td>
         </tr>
         <tr>
           <td>John</td>
           <td>Bon</td>
           <td>Paris</td>
-          <td> <EmailTo label="Contacter le donneur" mailto="john@john.com" /> </td>
+          <td> <EmailTo label="Envoyer un message" mailto="mailto:john@gmail.com" /> </td>
         </tr>
         <tr>
           <td>John</td>
           <td>Bon</td>
           <td>Paris</td>
-          <td> <EmailTo label="Contacter le donneur" mailto="john@john.com" /> </td>
+          <td> <EmailTo label="Envoyer un message" mailto="mailto:john@gmail.com" /> </td>
         </tr>
         <tr>
           <td>John</td>
           <td>Bon</td>
           <td>Paris</td>
-          <td> <EmailTo label="Contacter le donneur" mailto="john@john.com" /> </td>
+          <td> <EmailTo label="Envoyer un message" mailto="mailto:john@gmail.com" /> </td>
         </tr>
       </tbody>
     </Table>
