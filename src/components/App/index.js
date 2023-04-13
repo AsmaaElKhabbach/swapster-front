@@ -8,9 +8,11 @@ import Login from '../Login';
 import SignUp from '../SignUp';
 import UserPage from '../Profil';
 import LegalNotice from '../LegalNotice';
+import Error from '../Error'
 
 // == Component
 function App() {
+  
   return (
     <div className="app">
       {/* Mise en place du router  */}
@@ -23,6 +25,7 @@ function App() {
         <Route path="/profile" element={<UserPage />} />
         <Route path="/book/:bookid" element={<BookPage />} />
         <Route path="/legalnotice" element={<LegalNotice />} />
+        <Route path="*" element={<Error />}/>
       </Routes>
     </div>
   );
