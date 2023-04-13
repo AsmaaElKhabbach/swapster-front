@@ -7,7 +7,7 @@ import { axiosInstance } from './axiosInstance';
 export const getBook = () => async (dispatch, getState) => {
   try {
        //  appel api à l'application back pour récupérer les livres une fois une recherche effectuée
-       const { data } = await axiosInstance.get('/books/search')
+       const { data } = await axiosInstance.get('/book/search')
        console.log(data)
   }  catch (axios) {
     console.log(axios);
