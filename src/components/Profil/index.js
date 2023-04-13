@@ -16,9 +16,6 @@ function UserPage() {
       <main>
         <section
           className="vh-100"
-          style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg)',
-          }}
         >
           <MDBContainer className="py-5 h-100">
             <MDBRow className="justify-content-center align-items-center h-100">
@@ -27,9 +24,8 @@ function UserPage() {
                   className="mb-3"
                   style={{
                     backgroundColor: 'rgba(255, 160, 122, 0.5',
-
                     borderRadius: '.5rem',
-
+                    width: '50em',
                   }}
                 >
                   <MDBRow className="g-0">
