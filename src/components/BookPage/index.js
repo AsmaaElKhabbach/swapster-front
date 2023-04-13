@@ -10,21 +10,26 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import React, { useState } from 'react';
+import {useParams, Navigate} from 'react-router-dom';
+import { findBook } from '../../store/selectors/books';
 
 // == Component
 function BookPage() {
   const [show, setShow] = useState(false);
-
   // Fonction qui permet de gérer la fermeture de la modal
   const handleClose = () => setShow(false);
-
   // Fonction qui permet de gérer l'affichage de la modal
   const handleShow = () => setShow(true);
-
   // Fonction qui permet d'ajouter un livre aux livre à donnés
-  const handleAdd = () => {
+  const handleAdd = () => {};
 
-  }
+  // const params = useParams();
+  // const book = useSelector((state) => findBook(state.books.search.searchResults, params.id));
+  //  console.log(book);
+
+  // if(!book) {
+  //   return <Navigate to="/error" replace />
+  // }
 
   return (
     <div>
@@ -35,14 +40,19 @@ function BookPage() {
         <Card.Body>
           <Card.Title>Le Petit Prince</Card.Title>
           <Card.Text>
+            Résumé du livre
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroup.Item>Cras justo odio</ListGroup.Item>
-          <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-          <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+          <ListGroup.Item>Catégorie</ListGroup.Item>
+          <ListGroup.Item>Auteur</ListGroup.Item>
+          <ListGroup.Item>Editeur</ListGroup.Item>
+          <ListGroup.Item>Format</ListGroup.Item>
+          <ListGroup.Item>Date de publication</ListGroup.Item>
+          <ListGroup.Item>Langue</ListGroup.Item>
+          <ListGroup.Item>Nombre de pages</ListGroup.Item>
         </ListGroup>
         <Card.Body>
         <Button onClick={handleShow}>Donner le livre</Button>

@@ -4,8 +4,6 @@ import './bookresults.scss'
 import Footer from "../Partials/Footer"
 import Header from "../Partials/Header"
 import BookCard from '../BookCard'
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 
 // == Component
 function BookResults() {
@@ -16,18 +14,16 @@ function BookResults() {
     <div>
     <Header />
     <main>
-      <div>
-        <Row xs={1} md={3} className="g-4">
-          {Array.from({ length: 4 }).map((_, idx) => (
-            <Col>
-              <BookCard />
-            </Col>
-          ))}
-        </Row>
+      <div className='books'>
+      <BookCard />
+      <BookCard />
+      <BookCard />
+      <BookCard />
+      <BookCard />
       </div>
     </main>
     <Footer />
-  </div>
+   </div>
   )
 }
 

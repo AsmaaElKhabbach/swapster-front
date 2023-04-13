@@ -13,12 +13,13 @@ function BookCard() {
           <Card.Body>
             <Card.Title>Le Petit Prince</Card.Title>
             <ListGroup className="list-group-flush">
+              <ListGroup.Item>Catégorie</ListGroup.Item>
               <ListGroup.Item>ISBN</ListGroup.Item>
               <ListGroup.Item>Auteur</ListGroup.Item>
               <ListGroup.Item>Editeur</ListGroup.Item>
               <ListGroup.Item>Format</ListGroup.Item>
             </ListGroup>
-            <Button variant="primary" href='/book/bookid'>Voir en détails</Button>
+            <Button href='/book/:bookid'>Voir en détails</Button>
           </Card.Body>
         </Card>
     </>
