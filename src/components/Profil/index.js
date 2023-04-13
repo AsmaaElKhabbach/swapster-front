@@ -14,9 +14,6 @@ function UserPage() {
       <main>
       <section
         className="vh-100"
-        style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg)',
-        }}
       >
         <MDBContainer className="py-5 h-100">
           <MDBRow className="justify-content-center align-items-center h-100">
@@ -89,7 +86,7 @@ function UserPage() {
                         }}
                       >
                         <div>
-                          <Accordion defaultActiveKey={['0']} alwaysOpen>
+                          <Accordion defaultActiveKey={[]} >
                             <Accordion.Item eventKey="0">
                               <Accordion.Header>
                                 Livres à donner
