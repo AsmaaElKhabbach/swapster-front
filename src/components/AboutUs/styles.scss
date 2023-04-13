@@ -3,7 +3,9 @@
   
   display: flex;
   justify-content: space-around;
-  gap: 10px;
+  gap: 2em;
+  margin: 2em;
+  color: #500000;
   
 
   &__profil {
@@ -11,11 +13,12 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
+    border: 1px solid #99616c;
+    text-align: center;
   }
 
   &__name {
-    text-align: center;
+    
     margin-top: 1em;
   }
 
@@ -23,11 +26,21 @@
     clip-path:ellipse(50% 50%);
     margin: auto;
     height: 10em;
-    width: 50%;
+    width: 10em;
+  }
+
+  &__presentation {
+   
+    display: flex;
+    align-items: center;
+    margin: 2em;
   }
 
 }
 
-
+a {
+  color: #5c5c5c;
+  text-decoration: none;
+}
 
 

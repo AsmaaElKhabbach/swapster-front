@@ -3,7 +3,13 @@ import './profile.scss';
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import {
-  MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon, MDBBtn,
+  MDBCol,
+  MDBContainer,
+  MDBRow, MDBCard,
+  MDBCardText, MDBCardBody,
+  MDBCardImage,
+  MDBTypography,
+  MDBIcon, MDBBtn,
 } from 'mdb-react-ui-kit';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
@@ -89,55 +95,55 @@ function UserPage() {
                         >
                           <div>
                             <Accordion defaultActiveKey={['0']} alwaysOpen>
-                            <Accordion.Item eventKey="0">
-                              <Accordion.Header>
-                                Livres à donner
-                              </Accordion.Header>
-                              <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
-                                <main className="cardBody">
-                                  <div>
-                                    <p>
-                                      Voyage au centre de la terre
-                                    </p>
-                                    <img
-                                      src="https://m.media-amazon.com/images/I/51TIY0eeh5L._SY291_BO1,204,203,200_QL40_ML2_.jpg"
-                                      alt="couverture de livre"
-                                    />
-                                    <button className="button" type="button">Supprimer le livre</button>
-                                  </div>
-                                  <div>
-                                    <p>
-                                      100 ans de solitude
-                                    </p>
-                                    <img
-                                      src="https://images2.medimops.eu/product/07f827/M0202023811X-large.jpg"
-                                      alt="couverture de livre"
-                                    />
-                                    <button className="button" type="button">Supprimer le livre</button>
-                                  </div>
-                                  <div>
-                                    <p>
-                                      bobby potter
-                                    </p>
-                                    <img
-                                      src="https://m.media-amazon.com/images/I/51CP2LpqpTL._SY291_BO1,204,203,200_QL40_ML2_.jpg"
-                                      alt="couverture de livre"
-                                    />
-                                    <button className="button" type="button">Supprimer le livre</button>
-                                  </div>
-                                </main>
-                              </Accordion.Body>
-                            </Accordion.Item>
-                            <Accordion.Item eventKey="1">
-                              <Accordion.Header>Livres donnés</Accordion.Header>
-                              <Accordion.Body style={{
-                                backgroundColor: '#f5f0e6',
+                              <Accordion.Item eventKey="0">
+                                <Accordion.Header>
+                                  Livres à donner
+                                </Accordion.Header>
+                                <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
+                                  <main className="cardBody">
+                                    <div>
+                                      <p>
+                                        Voyage au centre de la terre
+                                      </p>
+                                      <img
+                                        src="https://m.media-amazon.com/images/I/51TIY0eeh5L._SY291_BO1,204,203,200_QL40_ML2_.jpg"
+                                        alt="couverture de livre"
+                                      />
+                                      <button className="button" type="button">Supprimer le livre</button>
+                                    </div>
+                                    <div>
+                                      <p>
+                                        100 ans de solitude
+                                      </p>
+                                      <img
+                                        src="https://images2.medimops.eu/product/07f827/M0202023811X-large.jpg"
+                                        alt="couverture de livre"
+                                      />
+                                      <button className="button" type="button">Supprimer le livre</button>
+                                    </div>
+                                    <div>
+                                      <p>
+                                        bobby potter
+                                      </p>
+                                      <img
+                                        src="https://m.media-amazon.com/images/I/51CP2LpqpTL._SY291_BO1,204,203,200_QL40_ML2_.jpg"
+                                        alt="couverture de livre"
+                                      />
+                                      <button className="button" type="button">Supprimer le livre</button>
+                                    </div>
+                                  </main>
+                                </Accordion.Body>
+                              </Accordion.Item>
+                              <Accordion.Item eventKey="1">
+                                <Accordion.Header>Livres donnés</Accordion.Header>
+                                <Accordion.Body style={{
+                                  backgroundColor: '#f5f0e6',
 
-                              }}
-                              />
-                            </Accordion.Item>
+                                }}
+                                />
+                              </Accordion.Item>
 
-                          </Accordion>
+                            </Accordion>
                           </div>
                         </MDBContainer>
 
