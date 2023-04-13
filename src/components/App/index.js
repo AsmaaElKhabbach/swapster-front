@@ -6,6 +6,7 @@ import Login from '../Login';
 import SignUp from '../SignUp';
 import UserPage from '../Profil';
 import LegalNotice from '../LegalNotice';
+import AboutUs from '../AboutUs';
 
 // == Component
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<UserPage />} />
         <Route path="/legalnotice" element={<LegalNotice />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
     </div>
   );
