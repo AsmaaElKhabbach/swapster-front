@@ -1,5 +1,6 @@
 // == Imoort
 import './homepage.scss';
+import { useSelector } from 'react-redux';
 import Header from '../Partials/Header/index';
 import LastestAdd from './Carousel/index';
 import Slogan from './Slogan/index';
@@ -9,6 +10,8 @@ import Rules from './Rules';
 
 // == Component
 function HomePage() {
+  const token = useSelector((state) => state.settings.user.token);
+  console.log('montoken', token);
   return (
     <div className="page">
       <Header />
@@ -17,6 +20,7 @@ function HomePage() {
         <Introduction />
         <Rules />
         <LastestAdd />
+
       </main>
       <Footer />
     </div>

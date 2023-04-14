@@ -1,8 +1,10 @@
 // == Import
 // == Import
 import './profile.scss';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
+import Nav from 'react-bootstrap/Nav';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   MDBCol,
   MDBContainer,
@@ -12,11 +14,22 @@ import {
   MDBTypography,
   MDBIcon, MDBBtn,
 } from 'mdb-react-ui-kit';
+// import { setIsLoading } from '../../store/reducers/settings';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
+import { getMyBook } from '../../api/books';
 
 // == Component
 function UserPage() {
+  const username = useSelector((state) => state.settings.user.data.name);
+  const usercity = useSelector((state) => state.settings.user.data.city);
+  const usermail = useSelector((state) => state.settings.user.data.email);
+  const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getMyBook());
+  // }, []);
+
   return (
     <>
       <Header />
@@ -55,7 +68,18 @@ function UserPage() {
                         style={{
                           color: '#500000',
                         }}
-                      >Aicha
+                      >
+                        <div className="user">
+                          {isLoggedIn && (
+                          <Nav.Link href="/profile" className="nav-link">Bienvenue {username}</Nav.Link>
+                          )}
+                          {!isLoggedIn && (
+                          <>
+                            Pseudo
+                          </>
+                          )}
+
+                        </div>
                       </MDBTypography>
                       {/* <MDBCardText>Web Designer</MDBCardText> */}
                       <MDBIcon far icon="edit mb-5" />
@@ -67,10 +91,10 @@ function UserPage() {
                         <MDBRow className="pt-1">
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Localisation</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="text" placeholder="Paris" /></MDBCardText>
+                            <MDBCardText className="text-muted"><input type="text" placeholder={usercity} /></MDBCardText>
                           </MDBCol>
                           <MDBCol size="6" className="mb-3">
-                            <MDBTypography tag="h6">Livres a donner</MDBTypography>
+                            <MDBTypography tag="h6">Livres à donner</MDBTypography>
                             <MDBCardText className="text-muted"><input type="number" placeholder="12" /></MDBCardText>
                           </MDBCol>
                         </MDBRow>
@@ -80,7 +104,7 @@ function UserPage() {
                         <MDBRow className="pt-1">
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Email</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="email" placeholder="tata@tata.com" /></MDBCardText>
+                            <MDBCardText className="text-muted"><input type="email" placeholder={usermail} /></MDBCardText>
                             <MDBBtn className="sendButton">Envoyer un message</MDBBtn>
                           </MDBCol>
                         </MDBRow>
