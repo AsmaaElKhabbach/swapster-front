@@ -1,4 +1,4 @@
-
+// scss
 .devBox {
   
   display: flex;
@@ -15,6 +15,7 @@
     flex-direction: column;
     border: 1px solid #99616c;
     text-align: center;
+    
   }
 
   &__name {
@@ -24,23 +25,48 @@
 
   &__profilPic {
     clip-path:ellipse(50% 50%);
-    margin: auto;
+    margin:  1em auto;
     height: 10em;
     width: 10em;
+    position: static;
   }
 
   &__presentation {
-   
+    width: 18em;
     display: flex;
     align-items: center;
-    margin: 2em;
+    margin: auto;
+  }
+
+  &__contact {
+    height: 3em;
+    background-color: #ffa07a;
+    border-radius: 0 0 10px 10px;
   }
 
 }
 
+// css
 a {
   color: #5c5c5c;
   text-decoration: none;
 }
 
+.linkedin {
+  
+  margin: 1em;
+}
 
+
+
+// Media query
+@media(max-width: 900px){
+  .devBox{
+     max-height: 25%;
+     align-items: center;
+     width: auto;
+     display: flex;
+     flex-direction: column;
+  
+   }
+ }

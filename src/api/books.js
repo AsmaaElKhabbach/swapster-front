@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { axiosInstance } from './axiosInstance';
 import { setError, saveBooks } from '../store/reducers/books';
+<<<<<<< HEAD
 // == Middlewares
 
 // Fonction pour récupérer les livres rechercher
@@ -19,3 +20,7 @@ export const getBook = () => async (dispatch) => {
     alert('error');
   }
 };
+=======
+
+// == Middlewares
+>>>>>>> 89c2c46f3cfa7139a20e21841d809d932adeda21
