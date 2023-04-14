@@ -59,7 +59,7 @@ function SearchBar() {
     // on émet l'intention de modifier grace à l'action récupérer dans le réducer home de modifié l'input
     dispatch(getBook(search));
     console.log(search)
-    navigate('book/search', { replace: true })
+    navigate('/book/search', { replace: true })
   }
 
 
