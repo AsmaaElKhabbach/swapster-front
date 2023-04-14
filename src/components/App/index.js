@@ -14,6 +14,8 @@ import Error from '../Error';
 
 // == Component
 function App() {
+    // grace au hook react-redux on récupère la donnée qui correspond a la valeur de la barre de recherche
+    const search = useSelector((state) => state.books.userSearch);
   return (
     <div className="app">
       {/* Mise en place du router  */}
