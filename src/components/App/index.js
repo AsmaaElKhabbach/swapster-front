@@ -22,7 +22,7 @@ function App() {
       <Routes>
         {/* Détail de chaque route de l'application */}
         <Route path="/" element={<HomePage />} />
-        <Route path={`/book/search/${search}`} element={<BookResults />} />
+        <Route path={`/book/search`} element={<BookResults />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<UserPage />} />

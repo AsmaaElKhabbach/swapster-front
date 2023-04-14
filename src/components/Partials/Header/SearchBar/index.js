@@ -20,6 +20,11 @@ function SearchBar() {
   // grace au hook react-redux on récupère la donnée qui correspond a la valeur de la barre de recherche
   const search = useSelector((state) => state.books.userSearch);
 
+  useEffect(() => {
+    // Appeler l'API quand ma variable search est modifier
+    getBook();
+  }, [search]); 
+
   // Fonction qui permet de changer la valeur de l'input rechercher
   const handleInputChange = (event) => {
     // on récupère la donnée entré par l'utilisateur dans la barre de recherche
@@ -54,13 +59,9 @@ function SearchBar() {
     // on émet l'intention de modifier grace à l'action récupérer dans le réducer home de modifié l'input
     dispatch(getBook(search));
     console.log(search)
-    navigate(`book/search/${search}`)
+    navigate('book/search', { replace: true })
   }
 
-  useEffect(() => {
-    //Etape 3: Appeler l'API quand ma variable search est modifier
-    getBook();
-  }, [search]); 
 
   return (
     <div className='search'>
