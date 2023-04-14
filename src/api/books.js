@@ -1,18 +1,6 @@
 // == Import
-import axios from 'axios'
+import axios from 'axios';
 import { axiosInstance } from './axiosInstance';
-// == Middlewares
+import { setError, saveBooks } from '../store/reducers/books';
 
-// Fonction pour récupérer les livres rechercher 
-export const getBook = () => async (dispatch, getState) => {
-  try {
-       //  appel api à l'application back pour récupérer les livres une fois une recherche effectuée
-       const { data } = await axiosInstance.get('/book/search')
-       console.log(data)
-  }  catch (axios) {
-    console.log(axios);
-    // on récupère l'erreur dans axios
-    dispatch(setError(axios.response.data))
-    alert('error')
-  } 
-};
+// == Middlewares

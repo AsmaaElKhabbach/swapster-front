@@ -1,0 +1,10 @@
+.book{
+  max-width: 25em;
+  margin: 2em auto;
+}
+
+@media(max-width: 1300px){
+  .book{
+    width: 20em;
+  }
+}
