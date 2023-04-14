@@ -1,22 +1,21 @@
 // == Import
 import './styles.scss';
 import { Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import HomePage from '../HomePage';
-import BookResults from '../BookResults'
-import BookPage from '../BookPage'
+import BookResults from '../BookResults';
+import BookPage from '../BookPage';
 import Login from '../Login';
 import SignUp from '../SignUp';
 import UserPage from '../Profil';
 import LegalNotice from '../LegalNotice';
+import AboutUs from '../AboutUs';
 import Error from '../Error';
-
-import { useSelector } from 'react-redux';
 
 // == Component
 function App() {
-   // grace au hook react-redux on récupère la donnée qui correspond a la valeur de la barre de recherche
-   const search = useSelector((state) => state.books.userSearch);
-
+    // grace au hook react-redux on récupère la donnée qui correspond a la valeur de la barre de recherche
+    const search = useSelector((state) => state.books.userSearch);
   return (
     <div className="app">
       {/* Mise en place du router  */}
@@ -29,7 +28,8 @@ function App() {
         <Route path="/profile" element={<UserPage />} />
         <Route path="/book/:id" element={<BookPage />} />
         <Route path="/legalnotice" element={<LegalNotice />} />
-        <Route path="*" element={<Error />}/>
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );
