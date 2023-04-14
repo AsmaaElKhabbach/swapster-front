@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom'
 import { changeNewSearch } from '../../../../store/reducers/books'
 import { axiosInstance } from '../../../../api/axiosInstance';
 import { setError, saveBooks } from '../../../../store/reducers/books';
+import { useEffect } from 'react';
+
+
 // == Component
 function SearchBar() {
   // on récupère le hook react-redux qui nous permet de modifier nos données et on le stock dans une variable 
@@ -53,6 +56,11 @@ function SearchBar() {
     console.log(search)
     navigate(`book/search/${search}`)
   }
+
+  useEffect(() => {
+    //Etape 3: Appeler l'API quand ma variable search est modifier
+    getBook();
+  }, [search]); 
 
   return (
     <div className='search'>
