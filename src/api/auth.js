@@ -65,10 +65,29 @@ export const deleteUserAccount = () => async (dispatch, getState) => {
   try {
     const state = getState();
     const { token } = state.settings.user.token;
-    console.log(token);
 
     //  appel api à l'application back pour s'inscrire
     const response = await axiosInstance.delete('/user/me', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  }
+  catch (error) {
+    throw new Error(`Error deleting user account: ${error.message}`);
+  }
+};
+
+// Fonction pour modifier son compte
+
+export const modifyAccount = () => async (dispatch, getState) => {
+  try {
+    const state = getState();
+    const { token } = state.settings.user.token;
+
+    //  appel api à l'application back pour s'inscrire
+    const response = await axiosInstance.patch('/user/me', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

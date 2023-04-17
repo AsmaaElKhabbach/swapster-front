@@ -18,7 +18,14 @@
   color: #500000;
 }
 
-.deleteButton {
+.buttonContainer {
+  
+  
+}
+
+.button {
+  margin-top: 1em;
+  display: flex;
   background-color: #de825e;
   border-radius: 5px;
   border: 1px solid #500000;

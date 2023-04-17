@@ -33,12 +33,6 @@ export const signUpSuccess = createAction('settings/signUpSucess');
 // action qui permet de gérer l'erreur lors de la création d'un compte utilisateur
 export const signUpFailed = createAction('settings/signUpFailed');
 
-// Action concernant la modification/suppression d'un compte utilisateur
-// action qui permet de supprimer un compte
-// export const deleteAccount = createAction('settings/deleteAccount');
-// action qui permet de modifier un compte
-export const updateAccount = createAction('settings/updateAccount');
-
 // == Reducer
 const settingsReducer = createReducer(initialState, (builder) => {
   builder
@@ -68,11 +62,6 @@ const settingsReducer = createReducer(initialState, (builder) => {
       state.user.isLoading = false;
       state.user.error = payload;
     });
-
-//     .addCase(deleteAccount, (state, { payload }) => {
-//       state.isLoggedIn = false;
-//       state.user.token = null;
-//     });
 });
 
 // == Export

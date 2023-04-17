@@ -18,7 +18,7 @@ import {
 // import { setIsLoading } from '../../store/reducers/settings';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
-import { deleteUserAccount } from '../../api/auth';
+import { deleteUserAccount, modifyAccount } from '../../api/auth';
 import { logout } from '../../store/reducers/settings';
 
 // == Component
@@ -31,11 +31,21 @@ function UserPage() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // fonction de suppression de compte
   const handleDeleteUserAccount = (event) => {
     event.preventDefault();
     dispatch(deleteUserAccount());
     dispatch(logout());
-    navigate('/', { replace: true });
+    navigate('/profile', { replace: true });
+  };
+
+  // fonction de modification de compte
+  const handleModifyAccount = (event) => {
+    event.preventDefault();
+    dispatch(modifyAccount());
+    dispatch(logout());
+    navigate('/profile', { replace: true });
   };
 
   return (
@@ -113,7 +123,10 @@ function UserPage() {
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Email</MDBTypography>
                             <MDBCardText className="text-muted"><input type="email" placeholder={usermail} /></MDBCardText>
-                            <button onClick={handleDeleteUserAccount} type="button" className="deleteButton">supprimer mon compte</button>
+                            <span className="buttonContainer">
+                              <button onClick={handleDeleteUserAccount} type="button" className="button">Supprimer mon compte</button>
+                              <button onClick={handleModifyAccount} type="button" className="button">Modifier mon compte</button>
+                            </span>
                           </MDBCol>
                         </MDBRow>
                         {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
