@@ -11,29 +11,36 @@ import Form from 'react-bootstrap/Form';
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-
+import { getUsersGivenBooks } from '../../api/books';
+import { useDispatch } from 'react-redux';
 
 
 // == Component
 function BookCard({id, cover_page, title, resume, Category, publication_date, isbn_13, Author, editor, height, width, language, pages_number}) {
-
+  const dispatch = useDispatch();
   const book = useSelector((state) => state.books.search.searchResults);
   const [showAdd, setShowAdd] = useState(false);
   const [showUsers, setShowUsers] = useState(false);
 
   // Fonction qui permet de gérer la fermeture de la modal
   const handleCloseAdd = () => setShowAdd(false);
-
   const handleCloseUsers = () => setShowUsers(false);
 
   // Fonction qui permet de gérer l'affichage de la modal add
   const handleShowAdd = () => setShowAdd(true);
 
-  // Fonction qui permet de gérer l'affichage de la modal add
-  const handleShowUsers = () => setShowUsers(true);
+  // Fonction qui permet de gérer l'affichage de la modal users
+  const handleShowUsers = () => {
+    setShowUsers(true);
+    dispatch(getUsersGivenBooks())
+  }
 
   // Fonction qui permet d'ajouter un livre aux livre à donnés
-  const handleAdd = () => {};
+  const handleAdd = () => {
+    console.log()
+  };
+
+ const booksGiver = useSelector((state) => state.books.booksGivenByUsers);
 
   return (
     <>
@@ -98,30 +105,14 @@ function BookCard({id, cover_page, title, resume, Category, publication_date, is
                 </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>John</td>
-                <td>Bon</td>
-                <td>Paris</td>
-                <td> <EmailTo label="Envoyer un message" mailto="mailto:john@gmail.com" /> </td>
+            {booksGiver.map((giver)=> (
+              <tr key={giver.email}>
+                <td>{giver.name}</td>
+                <td>{giver.status}</td>
+                <td>{giver.city}</td>
+                <td> <EmailTo label="Envoyer un message" mailto={`mailto:${giver.email}`} /></td>
               </tr>
-              <tr>
-              <td>John</td>
-                <td>Bon</td>
-                <td>Paris</td>
-                <td> <EmailTo label="Envoyer un message" mailto="mailto:john@gmail.com" /> </td>
-              </tr>
-              <tr>
-              <td>John</td>
-                <td>Bon</td>
-                <td>Paris</td>
-                <td> <EmailTo label="Envoyer un message" mailto="mailto:john@gmail.com" /> </td>
-              </tr>
-              <tr>
-                <td>John</td>
-                <td>Bon</td>
-                <td>Paris</td>
-                <td> <EmailTo label="Envoyer un message" mailto="mailto:john@gmail.com" /> </td>
-              </tr>
+            ))}            
             </tbody>
      </Table>
         </Modal.Body>

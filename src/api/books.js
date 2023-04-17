@@ -1,17 +1,21 @@
 // == Import
 import axios from 'axios';
 import { axiosInstance } from './axiosInstance';
-import { setError, saveBooks } from '../store/reducers/books';
-<<<<<<< HEAD
+import { setError, saveBooksGivenByUsers } from '../store/reducers/books';
 // == Middlewares
 
-// Fonction pour récupérer les livres rechercher
-export const getBook = () => async (dispatch) => {
+// Fonction pour récupérer les livres donnés par les utilisateurs 
+
+export const getUsersGivenBooks = () => async (dispatch, getState) => {
+const state = getState();
+console.log(state)
   try {
+
+    const bookId = state.books.search.searchResults.map((id) => ({id}));
     //  appel api à l'application back pour récupérer les livres une fois une recherche effectuée
-    const response = await axiosInstance.post('/book/search');
+    const response = await axiosInstance.get(`/book/${bookId}/allusers`);
     // modification de l'action de succès pour s'inscrire
-    dispatch(saveBooks(response.data));
+    dispatch(saveBooksGivenByUsers(response.data));
   }
   catch (axios) {
     console.log(axios);
@@ -20,7 +24,5 @@ export const getBook = () => async (dispatch) => {
     alert('error');
   }
 };
-=======
 
-// == Middlewares
->>>>>>> 89c2c46f3cfa7139a20e21841d809d932adeda21
+///book/:bookId/allusers 

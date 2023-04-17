@@ -8,7 +8,9 @@ const initialState = {
     searchResults:[],
     error: null,
     isLoading: false
-  }
+  },
+
+  booksGivenByUsers: [],
  
 };
 
@@ -22,6 +24,8 @@ export const setIsLoading = createAction('books/setIsLoading');
 // action qui permet de gérer les erreurs de connexion
 export const setError = createAction('books/setError');
 
+export const saveBooksGivenByUsers = createAction('books/saveBooksGivenByUsers');
+
 // == Reducer
 const booksReducer = createReducer(initialState, (builder) => {
   builder 
@@ -32,6 +36,9 @@ const booksReducer = createReducer(initialState, (builder) => {
     state.search.searchResults = payload;
     state.search.isLoading = true;
     state.search.error = payload;
+  })
+  .addCase(saveBooksGivenByUsers, (state, { payload }) => {
+    state.booksGivenByUsers = payload;
   })
 });
 
