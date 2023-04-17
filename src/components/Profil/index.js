@@ -18,6 +18,7 @@ import {
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
 import { getMyBook } from '../../api/books';
+import { logout } from '../../store/reducers/settings';
 
 // == Component
 function UserPage() {
@@ -25,10 +26,10 @@ function UserPage() {
   const usercity = useSelector((state) => state.settings.user.data.city);
   const usermail = useSelector((state) => state.settings.user.data.email);
   const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getMyBook());
-  // }, []);
+  const dispatch = useDispatch();
+  const deleteAccount = () => {
+    dispatch(logout());
+  };
 
   return (
     <>
@@ -105,7 +106,7 @@ function UserPage() {
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Email</MDBTypography>
                             <MDBCardText className="text-muted"><input type="email" placeholder={usermail} /></MDBCardText>
-                            <button type="button" className="deleteButton">supprimer mon compte</button>
+                            <button onClick={deleteAccount} type="button" className="deleteButton">supprimer mon compte</button>
                           </MDBCol>
                         </MDBRow>
                         {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
