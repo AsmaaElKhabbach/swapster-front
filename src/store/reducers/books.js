@@ -1,4 +1,4 @@
-//= = Import
+//== Import
 import { createAction, createReducer } from '@reduxjs/toolkit';
 
 // == State
@@ -13,7 +13,7 @@ const initialState = {
   myBooks: [],
 };
 
-//= = Action
+//== Action
 // action qui permet changer l'input de recherche
 export const changeNewSearch = createAction('books/changeNewSearch');
 // actionn qui permet de sauvegardé le résultat de la recherche
