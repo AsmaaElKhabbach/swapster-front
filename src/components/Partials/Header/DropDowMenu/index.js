@@ -2,9 +2,8 @@
 import './menu.scss';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
 import { logout } from '../../../../store/reducers/settings';
-
+import { LinkContainer } from 'react-router-bootstrap';
 // == Component
 function DropdownMenu() {
   // on récupère le hook react-redux qu'on stock dans une variable pour gérer la modification des données
@@ -26,12 +25,22 @@ function DropdownMenu() {
         drop="start"
         variant="secondary"
       >
-        <NavDropdown.Item href="/">Accueil</NavDropdown.Item>
-        <NavDropdown.Item href="/login">Se connecter</NavDropdown.Item>
-        <NavDropdown.Item href="/signup">S'inscrire</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="/profile">Profil</NavDropdown.Item>
-        <NavDropdown.Item onClick={handleLogout} href="/">Déconnection</NavDropdown.Item>
+        <LinkContainer to ="/">
+          <NavDropdown.Item >Accueil</NavDropdown.Item>
+        </LinkContainer>
+        <LinkContainer to="/login">
+          <NavDropdown.Item>Se connecter</NavDropdown.Item>
+        </LinkContainer>
+        <LinkContainer  to="/signup">
+          <NavDropdown.Item>S'inscrire</NavDropdown.Item>
+        </LinkContainer> 
+      <NavDropdown.Divider />
+        <LinkContainer to="/profile">
+          <NavDropdown.Item >Profil</NavDropdown.Item>
+        </LinkContainer>
+        <LinkContainer to="/">
+          <NavDropdown.Item onClick={handleLogout}>Déconnection</NavDropdown.Item>
+        </LinkContainer>
       </NavDropdown>
     </div>
   );
