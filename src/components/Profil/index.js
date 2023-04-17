@@ -33,10 +33,10 @@ function UserPage() {
   return (
     <>
       <Header />
-      <main className='mjboot'>
+      <main className="mjboot">
         <section
-          className="vh-100" 
-          >
+          className="vh-100"
+        >
           <MDBContainer className="py-5 h-100">
             <MDBRow className="justify-content-center align-items-center h-100">
               <MDBCol lg="6" className="mb-4 mb-lg-0 ">
@@ -105,7 +105,7 @@ function UserPage() {
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Email</MDBTypography>
                             <MDBCardText className="text-muted"><input type="email" placeholder={usermail} /></MDBCardText>
-                            <MDBBtn className="sendButton">Envoyer un message</MDBBtn>
+                            <button type="button" className="deleteButton">supprimer mon compte</button>
                           </MDBCol>
                         </MDBRow>
                         {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
