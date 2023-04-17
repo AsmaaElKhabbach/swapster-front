@@ -13,8 +13,8 @@ import Error from '../Error';
 
 // == Component
 function App() {
-    // grace au hook react-redux on récupère la donnée qui correspond a la valeur de la barre de recherche
-    const search = useSelector((state) => state.books.userSearch);
+  // grace au hook react-redux on récupère la donnée qui correspond a la valeur de la barre de recherche
+  const search = useSelector((state) => state.books.userSearch);
 
   return (
     <div className="app">
@@ -22,7 +22,7 @@ function App() {
       <Routes>
         {/* Détail de chaque route de l'application */}
         <Route path="/" element={<HomePage />} />
-        <Route path={`/book/search`} element={<BookResults />} />
+        <Route path="/book/search" element={<BookResults />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<UserPage />} />
