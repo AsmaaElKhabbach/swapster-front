@@ -69,9 +69,9 @@ const settingsReducer = createReducer(initialState, (builder) => {
       state.user.error = payload;
     })
 
-    .addCase(deleteAccount, (state, { payload }) => {
-      state.user.isLoading = true;
-      state.user.data = ;
+    .addCase(deleteAccount, (state) => {
+      state.isLoggedIn = false;
+      state.user.token = null;
     });
 });
 

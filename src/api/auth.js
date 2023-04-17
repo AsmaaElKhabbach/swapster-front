@@ -12,7 +12,7 @@ export const login = (email, password, callback) => async (dispatch) => {
   try {
     dispatch(setIsLoading(true));
     // appel api à l'application back pour se logger
-    const response = await axiosInstance.post('/login', {
+    const response = await axiosInstance.post('user/login', {
       email,
       password,
     });
