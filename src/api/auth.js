@@ -1,7 +1,7 @@
 // == Import
 import axios from 'axios';
 import {
-  setError, setIsLoading, saveUser, signUpRequest, signUpFailed, signUpSuccess,
+  setError, setIsLoading, saveUser, signUpRequest, signUpFailed, signUpSuccess, deleteAccount,
 } from '../store/reducers/settings';
 import { axiosInstance } from './axiosInstance';
 
@@ -56,5 +56,26 @@ export const signUp = (userData) => async (dispatch) => {
   catch (error) {
     // modification de l'action d'erreur pour s'inscrire
     dispatch(signUpFailed(error.message));
+  }
+};
+
+// Fonction pour supprimer son compte
+
+export const deleteUserAccount = () => async (dispatch, getState) => {
+  try {
+    const state = getState();
+    const { token } = state.settings.user.token;
+    console.log(token);
+
+    //  appel api à l'application back pour s'inscrire
+    const response = await axiosInstance.delete('/user/me', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  }
+  catch (error) {
+    throw new Error(`Error deleting user account: ${error.message}`);
   }
 };

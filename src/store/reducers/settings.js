@@ -22,7 +22,7 @@ export const saveUser = createAction('settings/saveUser');
 export const setIsLoading = createAction('settings/setIsLoading');
 // action qui permet de gérer les erreurs de connexion
 export const setError = createAction('settings/setError');
-// action qui permet de gérer la déconnexion de l'utilisateur, la suppression de ses données dans l'initial state
+// action qui permet de gérer la déconnexion de l'utilisateur
 export const logout = createAction('settings/logout');
 
 // Action concernant l'inscription
@@ -35,7 +35,7 @@ export const signUpFailed = createAction('settings/signUpFailed');
 
 // Action concernant la modification/suppression d'un compte utilisateur
 // action qui permet de supprimer un compte
-export const deleteAccount = createAction('settings/deleteAccount');
+// export const deleteAccount = createAction('settings/deleteAccount');
 // action qui permet de modifier un compte
 export const updateAccount = createAction('settings/updateAccount');
 
@@ -67,12 +67,12 @@ const settingsReducer = createReducer(initialState, (builder) => {
     .addCase(signUpFailed, (state, { payload }) => {
       state.user.isLoading = false;
       state.user.error = payload;
-    })
-
-    .addCase(deleteAccount, (state) => {
-      state.isLoggedIn = false;
-      state.user.token = null;
     });
+
+//     .addCase(deleteAccount, (state, { payload }) => {
+//       state.isLoggedIn = false;
+//       state.user.token = null;
+//     });
 });
 
 // == Export

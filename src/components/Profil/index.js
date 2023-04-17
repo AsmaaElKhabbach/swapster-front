@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Nav from 'react-bootstrap/Nav';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   MDBCol,
   MDBContainer,
@@ -17,7 +18,7 @@ import {
 // import { setIsLoading } from '../../store/reducers/settings';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
-import { getMyBook } from '../../api/books';
+import { deleteUserAccount } from '../../api/auth';
 import { logout } from '../../store/reducers/settings';
 
 // == Component
@@ -26,9 +27,15 @@ function UserPage() {
   const usercity = useSelector((state) => state.settings.user.data.city);
   const usermail = useSelector((state) => state.settings.user.data.email);
   const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
+  const token = useSelector((state) => state.settings.user.token);
+
   const dispatch = useDispatch();
-  const deleteAccount = () => {
+  const navigate = useNavigate();
+  const handleDeleteUserAccount = (event) => {
+    event.preventDefault();
+    dispatch(deleteUserAccount());
     dispatch(logout());
+    navigate('/', { replace: true });
   };
 
   return (
@@ -106,7 +113,7 @@ function UserPage() {
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Email</MDBTypography>
                             <MDBCardText className="text-muted"><input type="email" placeholder={usermail} /></MDBCardText>
-                            <button onClick={deleteAccount} type="button" className="deleteButton">supprimer mon compte</button>
+                            <button onClick={handleDeleteUserAccount} type="button" className="deleteButton">supprimer mon compte</button>
                           </MDBCol>
                         </MDBRow>
                         {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}

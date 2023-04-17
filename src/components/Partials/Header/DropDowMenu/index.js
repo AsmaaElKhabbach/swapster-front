@@ -3,7 +3,6 @@ import './menu.scss';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { logout } from '../../../../store/reducers/settings';
 
 // == Component
 function DropdownMenu() {
@@ -13,7 +12,7 @@ function DropdownMenu() {
   // Fonction qui permet à l'utilisateur de se déconnecter
   const handleLogout = () => {
     // on modifie grace au hook react-redux et l'action présente dans le reducer settings
-    dispatch(logout());
+    dispatch(deleteAccount());
   };
 
   return (
