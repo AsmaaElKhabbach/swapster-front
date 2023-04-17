@@ -18,7 +18,7 @@ import { useDispatch } from 'react-redux';
 // == Component
 function BookCard({id, cover_page, title, resume, Category, publication_date, isbn_13, Author, editor, height, width, language, pages_number}) {
   const dispatch = useDispatch();
-  const book = useSelector((state) => state.books.search.searchResults);
+
   const [showAdd, setShowAdd] = useState(false);
   const [showUsers, setShowUsers] = useState(false);
 
@@ -40,6 +40,7 @@ function BookCard({id, cover_page, title, resume, Category, publication_date, is
     console.log()
   };
 
+  // grace au hook de react-redux on recupère les données concernant les users qui donnent un livre
  const booksGiver = useSelector((state) => state.books.booksGivenByUsers);
 
   return (

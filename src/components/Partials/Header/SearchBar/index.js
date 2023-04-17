@@ -2,13 +2,13 @@
 import './searchBar.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
-import { changeNewSearch } from '../../../../store/reducers/books'
-import { axiosInstance } from '../../../../api/axiosInstance';
-import { setError, saveBooks } from '../../../../store/reducers/books';
 import { useEffect } from 'react';
 
+import { getBook } from '../../../../api/books';
+import { changeNewSearch } from '../../../../store/reducers/books';
 
 // == Component
 function SearchBar() {
@@ -32,25 +32,6 @@ function SearchBar() {
     // J'emet mon intention de modifier le newSearch
     dispatch(changeNewSearch(newValue));
   };
-
-  // Fonction pour récupérer les livres rechercher 
-  const getBook = () => {
-  return async (dispatch) => {
-    try {
-       //  appel api à l'application back pour récupérer les livres une fois une recherche effectuée
-       const response = await axiosInstance.get(`/book/search?query=${search}`)
-       console.log(response)
-      // modification de l'action de succès pour s'inscrire
-      dispatch(saveBooks(response.data));
-
-    }catch (axios) {
-      console.log(axios);
-      // on récupère l'erreur dans axios
-      dispatch(setError(axios.response.data))
-      alert('error')
-    } 
-  };
-}
 
   // Fonction qui permet de gérer la soumission du formulaire de recherche
   const handleSubmit = (event) => {
