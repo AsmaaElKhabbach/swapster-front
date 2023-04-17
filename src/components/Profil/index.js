@@ -20,10 +20,10 @@ function UserPage() {
   return (
     <>
       <Header />
-      <main>
+      <main className='mjboot'>
         <section
-          className="vh-100"
-        >
+          className="vh-100" 
+          >
           <MDBContainer className="py-5 h-100">
             <MDBRow className="justify-content-center align-items-center h-100">
               <MDBCol lg="6" className="mb-4 mb-lg-0 ">
@@ -32,7 +32,7 @@ function UserPage() {
                   style={{
                     backgroundColor: 'rgba(255, 160, 122, 0.5',
                     borderRadius: '.5rem',
-                    width: '50em',
+                    width: '100%',
                   }}
                 >
                   <MDBRow className="g-0">
@@ -46,7 +46,7 @@ function UserPage() {
                         alt="Avatar"
                         className="my-5"
                         style={{
-                          width: '200px',
+                          // width: '200px',
                         }}
                         fluid
                       />
@@ -157,7 +157,7 @@ function UserPage() {
           </MDBContainer>
         </section>
       </main>
-      <Footer />
+      <Footer className="footer" />
     </>
   );
 }
