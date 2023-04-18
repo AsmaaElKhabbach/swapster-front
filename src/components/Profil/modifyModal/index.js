@@ -19,7 +19,7 @@ export default function Modal() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // fonction de suppression de compte
+  // fonction de modification de compte
   const handleModifyAccount = (event) => {
     event.preventDefault();
     dispatch(modifyUserAccount());
