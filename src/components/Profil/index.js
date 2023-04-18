@@ -102,11 +102,11 @@ function UserPage() {
                         <MDBRow className="pt-1">
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Localisation</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="text" placeholder={usercity} /></MDBCardText>
+                            <MDBCardText className="texted">{usercity}</MDBCardText>
                           </MDBCol>
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Livres à donner</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="number" placeholder="12" /></MDBCardText>
+                            <MDBCardText className="texted">12</MDBCardText>
                           </MDBCol>
                         </MDBRow>
 
@@ -115,7 +115,7 @@ function UserPage() {
                         <MDBRow className="pt-1">
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Email</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="email" placeholder={usermail} /></MDBCardText>
+                            <MDBCardText className="texted">{usermail}</MDBCardText>
                             <span className="buttonContainer">
                               <button onClick={handleDeleteUserAccount} type="button" className="button">Supprimer mon compte</button>
                               <Modal />

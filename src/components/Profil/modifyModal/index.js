@@ -100,11 +100,11 @@ export default function Modal() {
               </div>
 
             </MDBModalBody>
-            <MDBModalFooter>
+            <MDBModalFooter className="modalFooter">
               <MDBBtn color="secondary" onClick={toggleShow}>
-                Close
+                Fermer
               </MDBBtn>
-              <MDBBtn>Save changes</MDBBtn>
+              <MDBBtn>Sauvegarder</MDBBtn>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>

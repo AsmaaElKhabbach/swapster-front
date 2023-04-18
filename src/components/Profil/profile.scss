@@ -9,6 +9,10 @@
   height: 20em;
 }
 
+.texted {
+   color: #500000;
+  }
+
 .cardBody {
   display: flex;
   flex-direction: column;
@@ -16,11 +20,6 @@
   text-transform: capitalize;
   text-decoration: underline;
   color: #500000;
-}
-
-.buttonContainer {
-  
-  
 }
 
 .button {
@@ -44,10 +43,6 @@
 .footer {
   bottom: 0;
 }
-
-// .mb-4 {
-//   background-color: #df6cee;
-// }
 
 // -- Responsiv -- // 
 
