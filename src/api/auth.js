@@ -92,6 +92,7 @@ export const modifyUserAccount = () => async (dispatch, getState) => {
         Authorization: `Bearer ${token}`,
       },
     });
+    // faire un dispatch avec un createAction
     return response.data;
   }
   catch (error) {
