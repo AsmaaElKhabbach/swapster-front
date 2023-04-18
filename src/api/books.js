@@ -1,7 +1,7 @@
 // == Import
 import axios from 'axios';
 import { axiosInstance } from './axiosInstance';
-import { setError, saveBooksGivenByUsers, saveBooks } from '../store/reducers/books';
+import { setError, saveBooksGivenByUsers, saveBooks, saveBooksToGivenBooksList } from '../store/reducers/books';
 
 // == Middlewares
 
@@ -49,6 +49,26 @@ export const getUsersGivenBooks = () => async (dispatch, getState) => {
       alert('error');
     }
   });
-
 };
 
+// Fonction qui permet à l'utilisateur connecter d'ajouter un livre a sa liste des livres à donner 
+export const addBookToList = (id, bookCondition) => async (dispatch, getState) => {
+
+  const state = getState();
+  console.log(state)
+
+    try {
+      
+      const response = await axiosInstance.post(`/book/${id}/my`, {
+        status: bookCondition,
+      });
+      
+      dispatch(saveBooksToGivenBooksList(response.data));
+
+    }catch (axios) {
+      console.log(axios);
+      // on récupère l'erreur dans axios
+      dispatch(setError(axios.response.data));
+      alert('error');
+    }
+};

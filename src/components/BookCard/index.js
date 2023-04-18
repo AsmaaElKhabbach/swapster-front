@@ -11,8 +11,9 @@ import Form from 'react-bootstrap/Form';
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import { getUsersGivenBooks } from '../../api/books';
+import { addBookToList, getUsersGivenBooks } from '../../api/books';
 import { useDispatch } from 'react-redux';
+import { saveBooksToGivenBooksList } from '../../store/reducers/books';
 
 
 // == Component
@@ -21,6 +22,7 @@ function BookCard({id, cover_page, title, resume, Category, publication_date, is
 
   const [showAdd, setShowAdd] = useState(false);
   const [showUsers, setShowUsers] = useState(false);
+  const [selectedValue, setSelectedValue] = useState('Comme neuf');
 
   // Fonction qui permet de gérer la fermeture de la modal
   const handleCloseAdd = () => setShowAdd(false);
@@ -35,14 +37,20 @@ function BookCard({id, cover_page, title, resume, Category, publication_date, is
     dispatch(getUsersGivenBooks())
   }
 
+  // grace au hook de react-redux on recupère les données concernant les users qui donnent un livre
+  const booksGiver = useSelector((state) => state.books.booksGivenByUsers);
+
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+  }
+
   // Fonction qui permet d'ajouter un livre aux livre à donnés
   const handleAdd = () => {
-    console.log()
+  console.log(selectedValue);
+  dispatch(addBookToList(id, selectedValue));
+  handleCloseAdd();
   };
-
-  // grace au hook de react-redux on recupère les données concernant les users qui donnent un livre
- const booksGiver = useSelector((state) => state.books.booksGivenByUsers);
-
+  
   return (
     <>
       <Card className="book">
@@ -74,10 +82,10 @@ function BookCard({id, cover_page, title, resume, Category, publication_date, is
         <Modal.Body>
         <Form.Group className="mb-3">
         <Form.Label>Etat du livre</Form.Label>
-        <Form.Select>
-          <option>Comme neuf</option>
-          <option>Bon</option>
-          <option>Acceptable</option>
+        <Form.Select value={selectedValue} onChange={handleSelectChange}>
+          <option value='Comme neuf'>Comme neuf</option>
+          <option value='Bon'>Bon</option>
+          <option value='Acceptable'>Acceptable</option>
         </Form.Select>
         </Form.Group>
         </Modal.Body>
