@@ -1,7 +1,7 @@
 // == Import
 import axios from 'axios';
 import { axiosInstance } from './axiosInstance';
-import { setError, saveBooksGivenByUsers, saveBooks, saveBooksToGivenBooksList } from '../store/reducers/books';
+import { setError, saveBooksGivenByUsers, saveBooks, saveBooksToGivenBooksList, saveLatestBookAdded } from '../store/reducers/books';
 
 // == Middlewares
 
@@ -70,5 +70,23 @@ export const addBookToList = (id, bookCondition) => async (dispatch, getState) =
       // on récupère l'erreur dans axios
       dispatch(setError(axios.response.data));
       alert('error');
+    }
+};
+
+// Fonction qui permet de récupérer les derniers livres ajoutés par les utilisateurs
+export const getLatestBookAdded = () => async (dispatch) => {
+
+    try {
+      
+      const response = await axiosInstance.get('/book/latestadded');
+      
+      dispatch(saveLatestBookAdded(response.data));
+      console.log(response.data)
+    }catch (axios) {
+      console.log(axios);
+      // on récupère l'erreur dans axios
+      dispatch(setError(axios.response.data));
+      alert('Error retrieving latest books added');
+      return[];
     }
 };

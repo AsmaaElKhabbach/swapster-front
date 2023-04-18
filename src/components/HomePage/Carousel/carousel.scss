@@ -13,26 +13,26 @@ h1 {
   font-size: 2em;
 }
 
-.carousel {
+.card {
+  min-height: 20%;
+  min-width: 20%;
+}
 
-  &.slide{
-    width: 60%;
-    margin: 0 auto;
-    padding-top: 1em;
-  }
-  &-img{
-    height: 50%;
-    width: 100%;
-    margin: auto;
-    border-radius: 10px;
-  }
+.card-img-top{
+  flex-basis: 40%;
+  min-height: 30%;
+  padding: 1em;
+  border: 1px solid vars.$text-200;
+}
 
-  &-inner{
-    width: 50%;
-    margin: auto;
-    justify-content: center;
-  }
+.card-body{
+  flex-basis: 15%;
+  min-height: 10%;
+}
 
+.list-group{
+  flex-basis: 40%;
+  min-height: 10%;
 }
 
 // -- Responviv -- //
@@ -41,6 +41,8 @@ h1 {
   .lastestadd{
     display: flex;
     flex-direction: column;
+    margin: auto;
+    gap: 1em;
     }
     
   h1 {
@@ -48,6 +50,16 @@ h1 {
     color: vars.$primary-300;
     font-size: 2em;
   }
+  // .carousel-inner{
+  //   height: 40em;
+  //   width: 20em;
+  //   margin: auto;
+    
+  // }
+  // .carousel-slide{
+  //   width: 100%;
+  // }
+
   }
 
 

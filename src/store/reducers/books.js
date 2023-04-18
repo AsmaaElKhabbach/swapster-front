@@ -11,7 +11,8 @@ const initialState = {
   },
 
   booksGivenByUsers: [],
-  listOfBookAddedToGive: [], 
+  listOfBookAddedToGive: [],
+  latestBooksAdded: [],
 };
 
 //== Action
@@ -28,6 +29,9 @@ export const setError = createAction('books/setError');
 export const saveBooksGivenByUsers = createAction('books/saveBooksGivenByUsers');
 // action qui permet de sauvegarder un livre a donné 
 export const saveBooksToGivenBooksList  = createAction('books/saveBooksToGivenBooksList ');
+//action qui permet de sauvegarder les derniers livres ajouter part les utilisateurs
+export const saveLatestBookAdded = createAction('books/saveLatestBookAdded');
+
 
 // == Reducer
 const booksReducer = createReducer(initialState, (builder) => {
@@ -53,6 +57,9 @@ const booksReducer = createReducer(initialState, (builder) => {
   })
   .addCase(saveBooksToGivenBooksList, (state, { payload }) => {
     state.listOfBookAddedToGive = state.listOfBookAddedToGive.concat(payload);
+  })
+  .addCase(saveLatestBookAdded, (state, { payload }) => {
+    state.latestBooksAdded = state.latestBooksAdded.concat(payload);
   })
 });
 
