@@ -18,6 +18,7 @@ import {
 // import { setIsLoading } from '../../store/reducers/settings';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
+import Modal from './modifyModal/index';
 import { deleteUserAccount, modifyAccount } from '../../api/auth';
 import { logout } from '../../store/reducers/settings';
 
@@ -36,14 +37,6 @@ function UserPage() {
   const handleDeleteUserAccount = (event) => {
     event.preventDefault();
     dispatch(deleteUserAccount());
-    dispatch(logout());
-    navigate('/profile', { replace: true });
-  };
-
-  // fonction de modification de compte
-  const handleModifyAccount = (event) => {
-    event.preventDefault();
-    dispatch(modifyAccount());
     dispatch(logout());
     navigate('/profile', { replace: true });
   };
@@ -125,7 +118,7 @@ function UserPage() {
                             <MDBCardText className="text-muted"><input type="email" placeholder={usermail} /></MDBCardText>
                             <span className="buttonContainer">
                               <button onClick={handleDeleteUserAccount} type="button" className="button">Supprimer mon compte</button>
-                              <button onClick={handleModifyAccount} type="button" className="button">Modifier mon compte</button>
+                              <Modal />
                             </span>
                           </MDBCol>
                         </MDBRow>

@@ -1,0 +1,16 @@
+@use 'src/styles/vars';
+
+.changeForm {
+  background-color: vars.$primary;
+  color: vars.$primary-300;
+
+  &__form-input {
+    background-color: vars.$bg-300;
+    color: vars.$primary-300;
+  }
+
+  &__form-password {
+    background-color: vars.$bg-300;
+    color: vars.$primary-300;
+  }
+}

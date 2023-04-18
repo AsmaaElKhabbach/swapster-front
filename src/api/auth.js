@@ -49,7 +49,7 @@ export const signUp = (userData) => async (dispatch) => {
   dispatch(signUpRequest());
   try {
     //  appel api à l'application back pour s'inscrire
-    const response = await axiosInstance.post('user/signup', userData);
+    const response = await axiosInstance.post('/signup', userData);
     // modification de l'action de succès pour s'inscrire
     dispatch(signUpSuccess(response.data));
   }
@@ -81,7 +81,7 @@ export const deleteUserAccount = () => async (dispatch, getState) => {
 
 // Fonction pour modifier son compte
 
-export const modifyAccount = () => async (dispatch, getState) => {
+export const modifyUserAccount = () => async (dispatch, getState) => {
   try {
     const state = getState();
     const { token } = state.settings.user.token;
