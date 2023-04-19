@@ -24,6 +24,9 @@ function DropdownMenu() {
         id="dropdown-button-drop-start"
         drop="start"
         variant="secondary"
+        style={{
+          display: 'flex',
+        }}
       >
         <NavDropdown.Item href="/">Accueil</NavDropdown.Item>
         <NavDropdown.Item href="/login">Se connecter</NavDropdown.Item>
