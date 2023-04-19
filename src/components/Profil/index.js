@@ -78,6 +78,9 @@ function UserPage() {
                         tag="h5"
                         style={{
                           color: '#500000',
+                          display: 'flex',
+                          alignItems: 'center',
+                          flexDirection: 'column',
                         }}
                       >
                         <div className="user">
