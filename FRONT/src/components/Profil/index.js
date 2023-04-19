@@ -85,7 +85,7 @@ function UserPage() {
                       >
                         <div className="user">
                           {isLoggedIn && (
-                          <Nav.Link href="/profile" className="nav-link">Bienvenue {username}</Nav.Link>
+                          <Nav.Link href="/profile" className="nav-link"> {username}</Nav.Link>
                           )}
                           {!isLoggedIn && (
                           <>
