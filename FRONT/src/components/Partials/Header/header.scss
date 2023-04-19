@@ -1,0 +1,43 @@
+@use 'src/styles/vars';
+
+.logo{
+  width: 7%;
+}
+.nav-menu {
+  background: rgb(255,250,240);
+  background: linear-gradient(90deg, rgba(255,250,240,1) 0%, rgba(246,188,165,1) 100%);
+  border-radius: 10px 10px 0 0;
+  position: fixed;
+  width: 100%;
+  z-index:100;
+
+}
+.nav-connect{
+  display: flex;
+  flex-flow: row nowrap;
+  column-gap: 0.5em;
+}
+.nav-container{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  column-gap: 2em;
+  margin-right: 5em;
+
+}
+
+// -- Responsiv --//
+
+@media(max-width: 900px){
+  .logo{
+    width: 20%;
+  }
+
+  .nav-container{
+    display: flex;
+    flex-direction: column;
+    align-items: first baseline;
+  }
+}
