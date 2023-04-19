@@ -62,6 +62,7 @@ function SignUp() {
         >
           <div className="mask gradient-custom-3" />
           <MDBCard
+            className="changeForm"
             style={{ maxWidth: '700px', marginTop: 110, marginBottom: 50 }}
           >
             <MDBCardBody className="px-5">
