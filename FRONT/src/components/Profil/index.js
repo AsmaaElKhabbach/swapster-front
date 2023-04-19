@@ -125,7 +125,9 @@ function UserPage() {
                             </span>
                           </MDBCol>
                         </MDBRow>
+
                         {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
+                        
                         <MDBContainer
                           breakpoint="lg"
                           style={{
