@@ -3,6 +3,7 @@ import './header.scss';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { LinkContainer } from 'react-router-bootstrap';
 import Connexion from './Connexion';
 import DropdownMenu from './DropDowMenu';
 import SearchBar from './SearchBar';
@@ -20,13 +21,16 @@ function Header() {
               className="my-2 my-lg-0 nav-container"
               navbarScroll
             >
-              <Navbar.Brand href="/">
+            <LinkContainer to="/">
+            <Navbar.Brand>
                 <img
                   alt="swapsterlogo"
                   src={swapsterLogo}
                   className="logo"
                 />
               </Navbar.Brand>
+            </LinkContainer>
+             
               <SearchBar />
               <div className="nav-connect">
                 <Connexion />

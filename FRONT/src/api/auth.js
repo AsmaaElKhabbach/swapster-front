@@ -1,6 +1,6 @@
 // == Import
 import axios from 'axios'
-import { setError, setIsLoading, saveUser, signUpRequest, signUpFailed, signUpSuccess } from '../store/reducers/settings';
+import { setError, setIsLoading, saveUser, signUpRequest, signUpFailed, signUpSuccess, saveNewUserInfo } from '../store/reducers/settings';
 import { axiosInstance } from './axiosInstance';
 
 // == Middlewares
@@ -50,6 +50,43 @@ export const signUp = (userData) => {
   };
 };
 
+// Fonction pour supprimer son compte
 
+export const deleteUserAccount = () => async (dispatch, getState) => {
+  try {
+    const state = getState();
+    const { token } = state.settings.user.token;
 
+    //  appel api à l'application back pour s'inscrire
+    const response = await axiosInstance.delete('/user/me', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  }
+  catch (error) {
+    throw new Error(`Error deleting user account: ${error.message}`);
+  }
+};
 
+// Fonction pour modifier son compte
+
+export const changeUserData = () => async (dispatch, getState) => {
+  try {
+    const state = getState();
+
+    //  appel api à l'application back pour modifier les informations de l'utilisateur
+    const response = await axiosInstance.patch('/user/me', {
+      name: state.settings.user.data.name,
+      city: state.settings.user.data.city,
+      password: state.settings.user.data.password,
+    });
+    console.log(response.data);
+    // faire un dispatch avec un createAction
+    dispatch(saveNewUserInfo(response.data));
+  }
+  catch (error) {
+    throw new Error(`Error deleting user account: ${error.message}`);
+  }
+};

@@ -1,8 +1,10 @@
 // == Import
-// == Import
 import './profile.scss';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
+import Nav from 'react-bootstrap/Nav';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   MDBCol,
   MDBContainer,
@@ -12,15 +14,35 @@ import {
   MDBTypography,
   MDBIcon, MDBBtn,
 } from 'mdb-react-ui-kit';
+// import { setIsLoading } from '../../store/reducers/settings';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
+import Modal from './modifyModal/index';
+import { deleteUserAccount, modifyAccount } from '../../api/auth';
+import { logout } from '../../store/reducers/settings';
 
 // == Component
 function UserPage() {
+  const username = useSelector((state) => state.settings.user.data.name);
+  const usercity = useSelector((state) => state.settings.user.data.city);
+  const usermail = useSelector((state) => state.settings.user.data.email);
+  const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // fonction de suppression de compte
+  const handleDeleteUserAccount = (event) => {
+    event.preventDefault();
+    dispatch(deleteUserAccount());
+    dispatch(logout());
+    navigate('/', { replace: true });
+  };
+
   return (
     <>
       <Header />
-      <main>
+      <main className="mjboot">
         <section
           className="vh-100"
         >
@@ -32,7 +54,7 @@ function UserPage() {
                   style={{
                     backgroundColor: 'rgba(255, 160, 122, 0.5',
                     borderRadius: '.5rem',
-                    width: '50em',
+                    width: '100%',
                   }}
                 >
                   <MDBRow className="g-0">
@@ -46,7 +68,7 @@ function UserPage() {
                         alt="Avatar"
                         className="my-5"
                         style={{
-                          width: '200px',
+                          // width: '200px',
                         }}
                         fluid
                       />
@@ -54,8 +76,22 @@ function UserPage() {
                         tag="h5"
                         style={{
                           color: '#500000',
+                          display: 'flex',
+                          alignItems: 'center',
+                          flexDirection: 'column',
                         }}
-                      >Aicha
+                      >
+                        <div className="user">
+                          {isLoggedIn && (
+                          <Nav.Link href="/profile" className="nav-link"> {username}</Nav.Link>
+                          )}
+                          {!isLoggedIn && (
+                          <>
+                            Pseudo
+                          </>
+                          )}
+
+                        </div>
                       </MDBTypography>
                       {/* <MDBCardText>Web Designer</MDBCardText> */}
                       <MDBIcon far icon="edit mb-5" />
@@ -67,11 +103,11 @@ function UserPage() {
                         <MDBRow className="pt-1">
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Localisation</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="text" placeholder="Paris" /></MDBCardText>
+                            <MDBCardText className="texted">{usercity}</MDBCardText>
                           </MDBCol>
                           <MDBCol size="6" className="mb-3">
-                            <MDBTypography tag="h6">Livres a donner</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="number" placeholder="12" /></MDBCardText>
+                            <MDBTypography tag="h6">Livres à donner</MDBTypography>
+                            <MDBCardText className="texted">12</MDBCardText>
                           </MDBCol>
                         </MDBRow>
 
@@ -80,11 +116,16 @@ function UserPage() {
                         <MDBRow className="pt-1">
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Email</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="email" placeholder="tata@tata.com" /></MDBCardText>
-                            <MDBBtn className="sendButton">Envoyer un message</MDBBtn>
+                            <MDBCardText className="texted">{usermail}</MDBCardText>
+                            <span className="buttonContainer">
+                              <button onClick={handleDeleteUserAccount} type="button" className="button">Supprimer mon compte</button>
+                              <Modal />
+                            </span>
                           </MDBCol>
                         </MDBRow>
+
                         {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
+                        
                         <MDBContainer
                           breakpoint="lg"
                           style={{
@@ -102,7 +143,7 @@ function UserPage() {
                                 </Accordion.Header>
                                 <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
                                   <main className="cardBody">
-                                    <div>
+                                    <div className="bookItem">
                                       <p>
                                         Voyage au centre de la terre
                                       </p>
@@ -111,8 +152,9 @@ function UserPage() {
                                         alt="couverture de livre"
                                       />
                                       <button className="button" type="button">Supprimer le livre</button>
+                                      <button className="button" type="button">J'ai donné ce livre</button>
                                     </div>
-                                    <div>
+                                    <div className="bookItem">
                                       <p>
                                         100 ans de solitude
                                       </p>
@@ -121,8 +163,9 @@ function UserPage() {
                                         alt="couverture de livre"
                                       />
                                       <button className="button" type="button">Supprimer le livre</button>
+                                      <button className="button" type="button">J'ai donné ce livre</button>
                                     </div>
-                                    <div>
+                                    <div className="bookItem">
                                       <p>
                                         bobby potter
                                       </p>
@@ -131,6 +174,7 @@ function UserPage() {
                                         alt="couverture de livre"
                                       />
                                       <button className="button" type="button">Supprimer le livre</button>
+                                      <button className="button" type="button">J'ai donné ce livre</button>
                                     </div>
                                   </main>
                                 </Accordion.Body>
@@ -157,7 +201,7 @@ function UserPage() {
           </MDBContainer>
         </section>
       </main>
-      <Footer />
+      <Footer className="footer" />
     </>
   );
 }
