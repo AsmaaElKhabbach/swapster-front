@@ -5,7 +5,7 @@ import './slogan.scss';
 function Presentation() {
   return (
     <div className="slogan">
-      <h1 className="slogan-title">Swapster: Donnez une seconde vie à la culture</h1>
+      <h1 className="slogan-title">Swapster : Donnez une seconde vie à la culture</h1>
     </div>
   );
 }

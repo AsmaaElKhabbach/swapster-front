@@ -2,10 +2,14 @@
 import './searchBar.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { changeNewSearch, setError, saveBooks } from '../../../../store/reducers/books';
-import { axiosInstance } from '../../../../api/axiosInstance';
+import { useEffect } from 'react';
+
+import { getBook } from '../../../../api/books';
+import { changeNewSearch } from '../../../../store/reducers/books';
+
 // == Component
 function SearchBar() {
   // on récupère le hook react-redux qui nous permet de modifier nos données et on le stock dans une variable
@@ -16,29 +20,17 @@ function SearchBar() {
   // grace au hook react-redux on récupère la donnée qui correspond a la valeur de la barre de recherche
   const search = useSelector((state) => state.books.userSearch);
 
+  useEffect(() => {
+    // Appeler l'API quand ma variable search est modifier
+    getBook();
+  }, [search]);
+
   // Fonction qui permet de changer la valeur de l'input rechercher
   const handleInputChange = (event) => {
     // on récupère la donnée entré par l'utilisateur dans la barre de recherche
     const newValue = event.target.value;
     // J'emet mon intention de modifier le newSearch
     dispatch(changeNewSearch(newValue));
-  };
-
-  // Fonction pour récupérer les livres rechercher
-  const getBook = () => async (dispatch) => {
-    try {
-      //  appel api à l'application back pour récupérer les livres une fois une recherche effectuée
-      const response = await axiosInstance.get(`/book/search?query=${search}`);
-      console.log(response);
-      // modification de l'action de succès pour s'inscrire
-      dispatch(saveBooks(response.data));
-    }
-    catch (axios) {
-      console.log(axios);
-      // on récupère l'erreur dans axios
-      dispatch(setError(axios.response.data));
-      alert('error');
-    }
   };
 
   // Fonction qui permet de gérer la soumission du formulaire de recherche
@@ -48,7 +40,7 @@ function SearchBar() {
     // on émet l'intention de modifier grace à l'action récupérer dans le réducer home de modifié l'input
     dispatch(getBook(search));
     console.log(search);
-    navigate(`book/search/${search}`);
+    navigate('/book/search', { replace: true });
   };
 
   return (

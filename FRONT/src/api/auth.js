@@ -86,12 +86,12 @@ export const changeUserData = () => async (dispatch, getState) => {
     const state = getState();
 
     //  appel api à l'application back pour modifier les informations de l'utilisateur
-    const response = await axiosInstance.patch('/user/me',{
-      name:state.settings.user.data.name,
+    const response = await axiosInstance.patch('/user/me', {
+      name: state.settings.user.data.name,
       city: state.settings.user.data.city,
       password: state.settings.user.data.password,
     });
-    console.log(response.data)
+    console.log(response.data);
     // faire un dispatch avec un createAction
     dispatch(saveNewUserInfo(response.data));
   }

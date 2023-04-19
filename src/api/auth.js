@@ -12,7 +12,7 @@ export const login = (email, password, callback) => async (dispatch) => {
   try {
     dispatch(setIsLoading(true));
     // appel api à l'application back pour se logger
-    const response = await axiosInstance.post('user/login', {
+    const response = await axiosInstance.post('/login', {
       email,
       password,
     });
@@ -44,58 +44,23 @@ export const login = (email, password, callback) => async (dispatch) => {
 };
 
 // Fonction pour s'inscrire
-export const signUp = (userData) => async (dispatch) => {
-  // modification de l'action de requête pour s'inscrire
-  dispatch(signUpRequest());
-  try {
-    //  appel api à l'application back pour s'inscrire
-    const response = await axiosInstance.post('user/signup', userData);
-    // modification de l'action de succès pour s'inscrire
-    dispatch(signUpSuccess(response.data));
-  }
-  catch (error) {
-    // modification de l'action d'erreur pour s'inscrire
-    dispatch(signUpFailed(error.message));
-  }
+export const signUp = (userData) => {
+  return async (dispatch) => {
+    // modification de l'action de requête pour s'inscrire
+    dispatch(signUpRequest());
+    try {
+      //  appel api à l'application back pour s'inscrire
+      const response = await axiosInstance.post("/signup", userData);
+      // modification de l'action de succès pour s'inscrire
+      dispatch(signUpSuccess (response.data));
+
+    } catch (error) {
+      // modification de l'action d'erreur pour s'inscrire
+      dispatch(signUpFailed(error.message));
+    }
+  };
 };
 
-// Fonction pour supprimer son compte
 
-export const deleteUserAccount = () => async (dispatch, getState) => {
-  try {
-    const state = getState();
-    const { token } = state.settings.user.token;
 
-    //  appel api à l'application back pour s'inscrire
-    const response = await axiosInstance.delete('/user/me', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;
-  }
-  catch (error) {
-    throw new Error(`Error deleting user account: ${error.message}`);
-  }
-};
 
-// Fonction pour modifier son compte
-
-export const modifyUserAccount = () => async (dispatch, getState) => {
-  try {
-    const state = getState();
-    const { token } = state.settings.user.token;
-
-    //  appel api à l'application back pour s'inscrire
-    const response = await axiosInstance.patch('/user/me', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    // faire un dispatch avec un createAction
-    dispatch(modifyAccount(response.data));
-  }
-  catch (error) {
-    throw new Error(`Error deleting user account: ${error.message}`);
-  }
-};

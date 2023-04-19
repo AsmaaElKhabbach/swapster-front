@@ -33,11 +33,10 @@ export const signUpSuccess = createAction('settings/signUpSucess');
 // action qui permet de gérer l'erreur lors de la création d'un compte utilisateur
 export const signUpFailed = createAction('settings/signUpFailed');
 
-
 // Action concernant la modfication des données du user
 // action qui permet de modifier le compte d'un utilisateur
 export const changeUserInfo = createAction('settings/changeUserInfo');
-export const saveNewUserInfo = createAction('settings/saveNewUserInfo')
+export const saveNewUserInfo = createAction('settings/saveNewUserInfo');
 
 // == Reducer
 const settingsReducer = createReducer(initialState, (builder) => {
@@ -78,7 +77,7 @@ const settingsReducer = createReducer(initialState, (builder) => {
     .addCase(saveNewUserInfo, (state, { payload }) => {
       state.user.data = payload;
       state.isLoggedIn = true;
-    })
+    });
 });
 
 // == Export

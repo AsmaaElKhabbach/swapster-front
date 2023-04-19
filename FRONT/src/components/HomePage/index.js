@@ -2,7 +2,7 @@
 import './homepage.scss';
 import { useSelector } from 'react-redux';
 import Header from '../Partials/Header/index';
-import LastestAdd from './Carousel/index';
+import LatestAdd from './LatestAdd/index';
 import Slogan from './Slogan/index';
 import Introduction from './Introduction';
 import Footer from '../Partials/Footer';
@@ -10,8 +10,7 @@ import Rules from './Rules';
 
 // == Component
 function HomePage() {
-  const token = useSelector((state) => state.settings.user.token);
-  console.log('montoken', token);
+  const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
   return (
     <div className="page">
       <Header />
@@ -19,8 +18,9 @@ function HomePage() {
         <Slogan />
         <Introduction />
         <Rules />
-        <LastestAdd />
-
+        {isLoggedIn && (
+          <LatestAdd />
+        )}
       </main>
       <Footer />
     </div>
