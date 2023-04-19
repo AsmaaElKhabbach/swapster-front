@@ -24,7 +24,7 @@ export default function Modal() {
     event.preventDefault();
     dispatch(modifyUserAccount());
     // dispatch(logout());
-    navigate('/profile', { replace: true });
+    navigate('/', { replace: true });
   };
   const [centredModal, setCentredModal] = useState(false);
 

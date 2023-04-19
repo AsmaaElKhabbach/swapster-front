@@ -1,7 +1,7 @@
 // == Import
 import axios from 'axios';
 import {
-  setError, setIsLoading, saveUser, signUpRequest, signUpFailed, signUpSuccess, deleteAccount,
+  setError, setIsLoading, saveUser, signUpRequest, signUpFailed, signUpSuccess, modifyAccount,
 } from '../store/reducers/settings';
 import { axiosInstance } from './axiosInstance';
 
@@ -93,7 +93,7 @@ export const modifyUserAccount = () => async (dispatch, getState) => {
       },
     });
     // faire un dispatch avec un createAction
-    return response.data;
+    dispatch(modifyAccount(response.data));
   }
   catch (error) {
     throw new Error(`Error deleting user account: ${error.message}`);
