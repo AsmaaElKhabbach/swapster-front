@@ -12,7 +12,7 @@ export const login = (email, password, callback) => async (dispatch) => {
   try {
     dispatch(setIsLoading(true));
     // appel api à l'application back pour se logger
-    const response = await axiosInstance.post('/login', {
+    const response = await axiosInstance.post('/user/login', {
       email,
       password,
     });
@@ -49,7 +49,7 @@ export const signUp = (userData) => async (dispatch) => {
   dispatch(signUpRequest());
   try {
     //  appel api à l'application back pour s'inscrire
-    const response = await axiosInstance.post('/signup', userData);
+    const response = await axiosInstance.post('/user/signup', userData);
     // modification de l'action de succès pour s'inscrire
     dispatch(signUpSuccess(response.data));
   }
