@@ -16,7 +16,7 @@ import { useDispatch } from 'react-redux';
 
 
 // == Component
-function BookCard({id, cover_page, title, resume, Category, publication_date, isbn_13, Author, editor, height, width, language, pages_number}) {
+function BookCard({id, cover_page, title, resume, category, publication_date, isbn_13, author, editor, height, width, language, pages_number}) {
   const dispatch = useDispatch();
 
   const [showAdd, setShowAdd] = useState(false);
@@ -59,9 +59,9 @@ function BookCard({id, cover_page, title, resume, Category, publication_date, is
           <Card.Text>Résumé : {resume}</Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroup.Item>Catégorie : {Category}</ListGroup.Item>
+          <ListGroup.Item>Catégorie : {category}</ListGroup.Item>
           <ListGroup.Item>ISBN : {isbn_13}</ListGroup.Item>
-          <ListGroup.Item>Auteur : {Author}</ListGroup.Item>
+          <ListGroup.Item>Auteur : {author}</ListGroup.Item>
           <ListGroup.Item>Editeur : {editor}</ListGroup.Item>
           <ListGroup.Item>Format : {width} x H{height}</ListGroup.Item>
           <ListGroup.Item>Date de publication : {publication_date}</ListGroup.Item>
@@ -100,7 +100,7 @@ function BookCard({id, cover_page, title, resume, Category, publication_date, is
 
         <Modal size="lg" show={showUsers} onHide={handleCloseUsers}>
         <Modal.Header closeButton>
-          <Modal.Title>Ajouter à ses livres à donner</Modal.Title>
+          <Modal.Title>Liste des utilisateurs qui cèdent le livre</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Table className='givers' size= "sm" striped bordered hover>
@@ -142,9 +142,9 @@ BookCard.propTypes = {
   id: PropTypes.number.isRequired,
   cover_page: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  Category: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   isbn_13: PropTypes.string.isRequired,
-  Author: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
   editor: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
   width: PropTypes.string.isRequired,

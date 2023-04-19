@@ -12,7 +12,7 @@ export const getBook = () => {
     const search = state.books.userSearch;
 
     try {
-         //  appel api à l'application back pour récupérer les livres une fois une recherche effectuée
+         // appel api à l'application back pour récupérer les livres une fois une recherche effectuée
          const response = await axiosInstance.get(`/book/search?query=${search}`)
          console.log(response)
         // modification de l'action de succès pour s'inscrire
@@ -20,7 +20,7 @@ export const getBook = () => {
   
     }catch(axios){
       dispatch(setError(axios.response))
-      alert('error')
+      alert('Aucun résultat pour cette recherche')
     }
   };
   }
@@ -53,7 +53,7 @@ export const getUsersGivenBooks = () => async (dispatch, getState) => {
 };
 
 
-// Fonction pour récupérer les livres donnés par les utilisateurs 
+// Fonction pour récupérer les livres donnés par les utilisateurs dans la page d'accueil
 export const getUsersGivenBooksHome = () => async (dispatch, getState) => {
 
   const state = getState();
