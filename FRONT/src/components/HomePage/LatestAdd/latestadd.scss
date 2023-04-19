@@ -1,0 +1,94 @@
+
+@use 'src/styles/vars';
+
+.latestadd{
+display: flex;
+flex-direction: column;
+margin: 2em 0;
+
+  &-title {
+    flex-basis: 50%;
+    margin: auto;
+    color: vars.$primary-300;
+    font-size: 2em;
+  }
+
+  &-item{
+      width: 90%;
+      display: flex; /* Utiliser flexbox pour afficher les cartes sur une même ligne */
+      flex-wrap: wrap; /* Pour afficher les cartes sur plusieurs lignes si nécessaire */
+      justify-content: space-between; /* Pour espacer les cartes horizontalement */
+      margin: 2em auto;
+  
+  }
+}
+
+.book {
+  min-height: 15%;
+  min-width: 15%;
+  flex-basis: 19%; /* Pour que chaque carte ait une largeur équivalente */
+  display: flex;
+  flex-direction: column;
+
+}
+
+.book-img{
+  flex-basis: 65%;
+  min-height: 30%;
+  max-height: 60em;
+  padding: 1em;
+  border: 1px solid vars.$text-200;
+}
+
+.book-body{
+  flex-basis: 10%;
+  min-height: 10%;
+  max-height: 5em;
+}
+
+.list-group{
+  flex-basis: 25%;
+  min-height: 10%;
+  max-height: 30em;
+}
+
+// -- Responviv -- //
+
+
+@media (max-width: 900px) {
+  .latestadd {
+    &-title {
+      font-size: 1.5em;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10em;
+    }
+  }
+
+  .book-img {
+    flex-basis: 100%;
+    min-height: 20%;
+    max-height: 30em;
+    margin-bottom: 1em;
+  }
+
+  .book-body {
+    flex-basis: 20%;
+    min-height: 10%;
+    max-height: 10em;
+  }
+
+  .list-group {
+    flex-basis: 100%;
+    min-height: 20%;
+    max-height: 15em;
+  }
+}
+
+
+
+
+

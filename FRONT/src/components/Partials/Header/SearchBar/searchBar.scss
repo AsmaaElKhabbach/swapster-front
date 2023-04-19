@@ -1,0 +1,13 @@
+.search{
+  width: 40em;
+  align-items: center;
+}
+
+// -- Responsiv -- // 
+
+@media(max-width: 900px){
+  .search{
+    width: 20em;
+    align-items: center;
+ }
+}

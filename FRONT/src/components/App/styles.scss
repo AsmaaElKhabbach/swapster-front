@@ -1,0 +1,20 @@
+@use 'src/styles/vars';
+
+.app {
+  background-color: vars.$bg;
+  font-family: SpecialElite;
+  background-color: vars.$bg;
+  background-image: url(../../assets/images/boook-bg.jpg);
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-attachment:fixed;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100vh;
+  min-width: 100%
+}
+
+main {
+  min-height: calc(100vh - 10em);
+}

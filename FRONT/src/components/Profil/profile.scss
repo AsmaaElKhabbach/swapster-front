@@ -1,0 +1,30 @@
+.sendButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  height: 20em;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  text-transform: capitalize;
+  text-decoration: underline;
+ color: #500000;
+}
+
+.button {
+  
+  margin-left: 1em;
+  background-color: #de825e;
+  border-radius: 5px;
+  border: 1px solid #500000;
+}
+
+.vh-100 {
+  position: static;
+}

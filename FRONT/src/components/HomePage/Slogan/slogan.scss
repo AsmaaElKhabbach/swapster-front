@@ -1,0 +1,26 @@
+@use 'src/styles/vars';
+
+.slogan{
+
+  padding: 1em;
+  width: 100%;
+  
+
+  &-title{
+    color: vars.$primary-300;
+    padding: 0.5em;
+    text-align: center;
+    font-weight: bold;
+    font-size: 5em;
+    margin: 2em auto;
+  }
+  
+}
+
+// -- Responsiv -- //
+
+@media(max-width: 900px){
+.slogan-title{
+font-size: 2em;
+}
+}

@@ -1,0 +1,17 @@
+@use 'reset';
+@use 'vars';
+
+// body {
+//   font-family: sans-serif;
+// }
+
+
+   @font-face {
+     font-family: 'SpecialElite';
+     src: url('../assets/fonts/SpecialElite-Regular.ttf');
+   }
+
+   body {
+     font-family: 'SpecialElite', sans-serif;
+  }
+
