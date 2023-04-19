@@ -104,7 +104,7 @@ export default function Modal() {
               <MDBBtn color="secondary" onClick={toggleShow}>
                 Fermer
               </MDBBtn>
-              <MDBBtn>Sauvegarder</MDBBtn>
+
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>

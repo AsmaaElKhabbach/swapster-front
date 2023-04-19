@@ -1,4 +1,4 @@
-
+@use 'src/styles/vars';
 .sendButton {
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
 }
 
 .texted {
-   color: #500000;
+   color: vars.$primary-300;
   }
 
 .cardBody {
@@ -18,16 +18,28 @@
   flex-direction: column;
   gap: 50xp;
   text-transform: capitalize;
-  text-decoration: underline;
-  color: #500000;
+  text-decoration: none;
+  color: vars.$primary-300;
+}
+
+.bookItem {
+  border-radius: 5px;
+  border: 1px solid vars.$primary-300;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  margin-top: 1em;
+  
 }
 
 .button {
   margin-top: 1em;
   display: flex;
-  background-color: #de825e;
+  background-color: vars.$primary-200;
   border-radius: 5px;
-  border: 1px solid #500000;
+  border: 1px solid vars.$primary-300;
+  
 }
 
 .vh-100 {

@@ -38,7 +38,7 @@ function UserPage() {
     event.preventDefault();
     dispatch(deleteUserAccount());
     dispatch(logout());
-    navigate('/profile', { replace: true });
+    navigate('/', { replace: true });
   };
 
   return (
@@ -140,7 +140,7 @@ function UserPage() {
                                 </Accordion.Header>
                                 <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
                                   <main className="cardBody">
-                                    <div>
+                                    <div className="bookItem">
                                       <p>
                                         Voyage au centre de la terre
                                       </p>
@@ -149,8 +149,9 @@ function UserPage() {
                                         alt="couverture de livre"
                                       />
                                       <button className="button" type="button">Supprimer le livre</button>
+                                      <button className="button" type="button">J'ai donné ce livre</button>
                                     </div>
-                                    <div>
+                                    <div className="bookItem">
                                       <p>
                                         100 ans de solitude
                                       </p>
@@ -159,8 +160,9 @@ function UserPage() {
                                         alt="couverture de livre"
                                       />
                                       <button className="button" type="button">Supprimer le livre</button>
+                                      <button className="button" type="button">J'ai donné ce livre</button>
                                     </div>
-                                    <div>
+                                    <div className="bookItem">
                                       <p>
                                         bobby potter
                                       </p>
@@ -169,6 +171,7 @@ function UserPage() {
                                         alt="couverture de livre"
                                       />
                                       <button className="button" type="button">Supprimer le livre</button>
+                                      <button className="button" type="button">J'ai donné ce livre</button>
                                     </div>
                                   </main>
                                 </Accordion.Body>
