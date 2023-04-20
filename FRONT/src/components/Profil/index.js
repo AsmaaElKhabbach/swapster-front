@@ -85,7 +85,11 @@ function UserPage() {
                       >
                         <div className="user">
                           {isLoggedIn && (
+<<<<<<< HEAD
                           <Nav.Link href="/profile" className="nav-link">Bienvenue {username}</Nav.Link>
+=======
+                          <Nav.Link href="/profile" className="nav-link"> {username}</Nav.Link>
+>>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
                           )}
                           {!isLoggedIn && (
                           <>
@@ -125,7 +129,13 @@ function UserPage() {
                             </span>
                           </MDBCol>
                         </MDBRow>
+<<<<<<< HEAD
                         {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
+=======
+
+                        {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
+                        
+>>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
                         <MDBContainer
                           breakpoint="lg"
                           style={{

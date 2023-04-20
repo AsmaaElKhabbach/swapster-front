@@ -1,7 +1,31 @@
+<<<<<<< HEAD
 .book{
   max-width: 25em;
   margin: 2em auto;
 }
+=======
+
+.book{
+  max-width: 30em;
+  margin: 2em auto;
+
+}
+.card{
+  
+  &-btn{
+  display: flex;
+  justify-content: space-between;
+  gap: 10%;
+}
+
+&-title{
+  font-weight: bold;
+  font-size: 2em;
+}
+}
+
+// -- Responsiv -- //
+>>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
 
 @media(max-width: 1300px){
   .book{

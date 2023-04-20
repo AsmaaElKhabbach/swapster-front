@@ -1,7 +1,11 @@
 // == Import
 import axios from 'axios';
 import {
+<<<<<<< HEAD
   setError, setIsLoading, saveUser, signUpRequest, signUpFailed, signUpSuccess, modifyAccount,
+=======
+  setError, setIsLoading, saveUser, signUpRequest, signUpFailed, signUpSuccess, saveNewUserInfo,
+>>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
 } from '../store/reducers/settings';
 import { axiosInstance } from './axiosInstance';
 
@@ -81,6 +85,7 @@ export const deleteUserAccount = () => async (dispatch, getState) => {
 
 // Fonction pour modifier son compte
 
+<<<<<<< HEAD
 export const modifyUserAccount = () => async (dispatch, getState) => {
   try {
     const state = getState();
@@ -94,6 +99,21 @@ export const modifyUserAccount = () => async (dispatch, getState) => {
     });
     // faire un dispatch avec un createAction
     dispatch(modifyAccount(response.data));
+=======
+export const changeUserData = () => async (dispatch, getState) => {
+  try {
+    const state = getState();
+
+    //  appel api à l'application back pour modifier les informations de l'utilisateur
+    const response = await axiosInstance.patch('/user/me', {
+      name: state.settings.user.data.name,
+      city: state.settings.user.data.city,
+      password: state.settings.user.data.password,
+    });
+    console.log(response.data);
+    // faire un dispatch avec un createAction
+    dispatch(saveNewUserInfo(response.data));
+>>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
   }
   catch (error) {
     throw new Error(`Error deleting user account: ${error.message}`);

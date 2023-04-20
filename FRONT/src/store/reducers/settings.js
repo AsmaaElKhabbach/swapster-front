@@ -32,8 +32,16 @@ export const signUpRequest = createAction('settings/signUpRequest');
 export const signUpSuccess = createAction('settings/signUpSucess');
 // action qui permet de gérer l'erreur lors de la création d'un compte utilisateur
 export const signUpFailed = createAction('settings/signUpFailed');
+<<<<<<< HEAD
 // action qui permet de modifier le compte d'un utilisateur
 export const modifyAccount = createAction('settings/modifyAccount');
+=======
+
+// Action concernant la modfication des données du user
+// action qui permet de modifier le compte d'un utilisateur
+export const changeUserInfo = createAction('settings/changeUserInfo');
+export const saveNewUserInfo = createAction('settings/saveNewUserInfo');
+>>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
 
 // == Reducer
 const settingsReducer = createReducer(initialState, (builder) => {
@@ -65,9 +73,21 @@ const settingsReducer = createReducer(initialState, (builder) => {
       state.user.error = payload;
     })
 
+<<<<<<< HEAD
     .addCase(modifyAccount, (state, payload) => {
       state.isLoggedIn = true;
       state.data = payload;
+=======
+    .addCase(changeUserInfo, (state, { payload }) => {
+      const { value, name } = payload;
+      state.isLoggedIn = true;
+      state.user.data[name] = value;
+    })
+
+    .addCase(saveNewUserInfo, (state, { payload }) => {
+      state.user.data = payload;
+      state.isLoggedIn = true;
+>>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
     });
 });
 
