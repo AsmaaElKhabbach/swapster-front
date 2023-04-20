@@ -193,8 +193,8 @@ function UserPage() {
                                         <p>{book.author}</p>
                                         <p>{book.editor}</p>
                                         <p>{`Format : ${book.width} x H${book.height}`}</p>
-                                        <button className="button" type="button" onClick={() => handleGiveBook(book.book_id)}>J'ai donné mon livre </button>
-                                        <button className="button" type="button" onClick={() => handleDeleteBook(book.book_id)}>Je ne souhaite plus donner mon livre</button>
+                                        <button className="btn btn-primary" type="button" onClick={() => handleGiveBook(book.book_id)}>J'ai donné mon livre </button>
+                                        <button className="btn btn-primary" type="button" onClick={() => handleDeleteBook(book.book_id)}>Je ne souhaite plus donner mon livre</button>
                                       </div>
                                     </main>
                                   </Accordion.Body>

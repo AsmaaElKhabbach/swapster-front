@@ -22,6 +22,7 @@
   text-decoration: none;
   color: vars.$primary-300;
   gap: 1em;
+  justify-content: center;
 }
 .cardImage{
   width: 15em;
@@ -36,7 +37,10 @@
   flex-direction: column;
   align-items: center;
   padding: 1em;
-  margin-top: 1em;
+  margin: 0;
+  max-width: 70%;
+  min-width: 70%;
+  text-align: center;
   
 }
 
@@ -57,6 +61,10 @@
 // -- Responsiv -- // 
 
 @media(max-width: 450px){
+  .bookItem{
+    max-width: 100%;
+  }
+
   .container{
     width: 100%;
   }
