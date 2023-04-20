@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 function BookResults() {
   //grace au hook react-redux on récupère la donnée qui correspond a la valeur des livres recherchés
    const searchResults = useSelector((state) => state.books.search.searchResults);
-  console.log(searchResults)
+   
   return (
     <div>
     <Header />

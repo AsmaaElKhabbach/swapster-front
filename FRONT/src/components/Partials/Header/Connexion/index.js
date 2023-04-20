@@ -25,7 +25,7 @@ function Connection() {
       </>
       )}
 
-    </div> // Ajout de la fermeture de la première balise div
+    </div>
   );
 }
 
