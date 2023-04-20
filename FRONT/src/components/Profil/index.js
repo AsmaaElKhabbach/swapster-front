@@ -18,18 +18,23 @@ import {
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
 import Modal from './modifyModal/index';
-import { deleteUserAccount, modifyAccount } from '../../api/auth';
+import { deleteUserAccount } from '../../api/auth';
 import { logout } from '../../store/reducers/settings';
+import { getMyBookList } from '../../api/mybooks';
 
 // == Component
 function UserPage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const username = useSelector((state) => state.settings.user.data.name);
   const usercity = useSelector((state) => state.settings.user.data.city);
   const usermail = useSelector((state) => state.settings.user.data.email);
   const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
+  const myBooks = useSelector((state) => state.mybooks.myBooksList);
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  useEffect(() => {getMyBookList()},[myBooks])
+
 
   // fonction de suppression de compte
   const handleDeleteUserAccount = (event) => {
@@ -39,6 +44,14 @@ function UserPage() {
     navigate('/', { replace: true });
   };
 
+  const handleGetBooks = (event) => {
+    event.preventDefault();
+    dispatch(getMyBookList());
+  }
+
+  const handleDeleteBook = (event) => {
+    event.preventDefault();
+  }
   return (
     <>
       <Header />
@@ -93,7 +106,6 @@ function UserPage() {
 
                         </div>
                       </MDBTypography>
-                      {/* <MDBCardText>Web Designer</MDBCardText> */}
                       <MDBIcon far icon="edit mb-5" />
                     </MDBCol>
                     <MDBCol md="8">
@@ -138,46 +150,29 @@ function UserPage() {
                           <div>
                             <Accordion defaultActiveKey={[]} alwaysOpen>
                               <Accordion.Item eventKey="0">
-                                <Accordion.Header>
-                                  Livres à donner
+                                <Accordion.Header onClick={handleGetBooks}>
+                                  Mes livres à donner
                                 </Accordion.Header>
-                                <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
+                                {myBooks.map((book) => (
+                                  <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
                                   <main className="cardBody">
                                     <div className="bookItem">
-                                      <p>
-                                        Voyage au centre de la terre
-                                      </p>
+                                      <h5>
+                                        {book.title}
+                                      </h5>
                                       <img
-                                        src="https://m.media-amazon.com/images/I/51TIY0eeh5L._SY291_BO1,204,203,200_QL40_ML2_.jpg"
-                                        alt="couverture de livre"
+                                        src={book.cover_page}
+                                        alt={`couverture du livre ${book.title}`}
                                       />
-                                      <button className="button" type="button">Supprimer le livre</button>
-                                      <button className="button" type="button">J'ai donné ce livre</button>
-                                    </div>
-                                    <div className="bookItem">
-                                      <p>
-                                        100 ans de solitude
-                                      </p>
-                                      <img
-                                        src="https://images2.medimops.eu/product/07f827/M0202023811X-large.jpg"
-                                        alt="couverture de livre"
-                                      />
-                                      <button className="button" type="button">Supprimer le livre</button>
-                                      <button className="button" type="button">J'ai donné ce livre</button>
-                                    </div>
-                                    <div className="bookItem">
-                                      <p>
-                                        bobby potter
-                                      </p>
-                                      <img
-                                        src="https://m.media-amazon.com/images/I/51CP2LpqpTL._SY291_BO1,204,203,200_QL40_ML2_.jpg"
-                                        alt="couverture de livre"
-                                      />
-                                      <button className="button" type="button">Supprimer le livre</button>
+                                      <p>{book.author}</p>
+                                      <p>{book.editor}</p>
+                                      <p>{`Format : ${book.width} x H${book.height}`}</p>
+                                      <button className="button" type="button" onClick={handleDeleteBook}>Je ne souhaite plus donner mon livre</button>
                                       <button className="button" type="button">J'ai donné ce livre</button>
                                     </div>
                                   </main>
                                 </Accordion.Body>
+                                ))}
                               </Accordion.Item>
                               <Accordion.Item eventKey="1">
                                 <Accordion.Header>Livres donnés</Accordion.Header>

@@ -51,8 +51,7 @@ export const signUp = (userData) => {
 };
 
 // Fonction pour supprimer son compte
-
-export const deleteUserAccount = () => async (dispatch, getState) => {
+export const deleteUserAccount = () => async (getState) => {
   try {
     const state = getState();
     const { token } = state.settings.user.token;
