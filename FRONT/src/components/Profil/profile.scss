@@ -1,0 +1,91 @@
+@use 'src/styles/vars';
+.sendButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  height: 20em;
+}
+
+.texted {
+   color: vars.$primary-300;
+  }
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 50xp;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: vars.$primary-300;
+}
+
+.bookItem {
+  border-radius: 5px;
+  border: 1px solid vars.$primary-300;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  margin-top: 1em;
+  
+}
+
+.button {
+  margin-top: 1em;
+  display: flex;
+  background-color: vars.$primary-200;
+  border-radius: 5px;
+  border: 1px solid vars.$primary-300;
+  
+}
+
+.vh-100 {
+  height: 100%;
+  position: static;
+}
+
+.mjboot{
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.footer {
+  bottom: 0;
+}
+
+// -- Responsiv -- // 
+
+@media(max-width: 450px){
+ .mjboot {
+  min-height: 100vh;
+  overflow-y: auto;
+ }
+  //champs
+  .mb-3 {
+    width: 100%;
+  }
+
+  .img-fluid {
+    width: 35%;
+  }
+
+  //fond 
+  .py-5 {
+    margin-bottom: 5rem;
+   }
+
+  .g-0 {
+    // background-color: red;
+    width: 100%;
+    align-items: center;
+  }
+
+  .vh-100 {
+    height: 100%;
+    position: relative;
+  }
+
+}

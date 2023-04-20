@@ -1,0 +1,66 @@
+@use 'src/styles/vars';
+
+.book {
+  flex-basis: 19%; /* Pour que chaque carte ait une largeur équivalente */
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto ;
+}
+.book-img{
+  flex-basis: 65%;
+  min-height: 30%;
+  max-height: 60em;
+  padding: 1em;
+  border: 1px solid vars.$text-200;
+}
+
+.book-body{
+  flex-basis: 20%;
+  min-height: 10%;
+
+}
+
+.list-group{
+  flex-basis: 25%;
+  min-height: 10%;
+}
+
+.card{
+  
+ &-btn{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  height: 2em;
+  margin: 0 auto !important;
+  width: 90%;
+}
+}
+
+
+// -- Responsiv -- //
+
+@media(max-width: 1300px){
+ 
+  .book-img {
+    flex-basis: 100%;
+    min-height: 20%;
+    max-height: 30em;
+    margin-bottom: 1em;
+  }
+
+  .book-body {
+    flex-basis: 20%;
+    min-height: 10%;
+    max-height: 10em;
+  }
+
+  .list-group {
+    flex-basis: 100%;
+    min-height: 20%;
+    max-height: 15em;
+  }
+}

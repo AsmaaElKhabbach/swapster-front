@@ -13,11 +13,10 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { addBookToList, getUsersGivenBooks } from '../../api/books';
 import { useDispatch } from 'react-redux';
-import { saveBooksToGivenBooksList } from '../../store/reducers/books';
 
 
 // == Component
-function BookCard({id, cover_page, title, resume, Category, publication_date, isbn_13, Author, editor, height, width, language, pages_number}) {
+function BookCard({id, cover_page, title, resume, category, publication_date, isbn_13, author, editor, height, width, language, pages_number}) {
   const dispatch = useDispatch();
 
   const [showAdd, setShowAdd] = useState(false);
@@ -54,25 +53,31 @@ function BookCard({id, cover_page, title, resume, Category, publication_date, is
   return (
     <>
       <Card className="book">
-        <Card.Img variant="top" src={`${cover_page}`} />
-        <Card.Body>
+        <Card.Img className='book-img' variant="top" src={`${cover_page}`} />
+        <Card.Body className='book-body'>
           <Card.Title>{title}</Card.Title>
           <Card.Text>Résumé : {resume}</Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroup.Item>Catégorie : {Category}</ListGroup.Item>
+          <ListGroup.Item>Catégorie : {category}</ListGroup.Item>
           <ListGroup.Item>ISBN : {isbn_13}</ListGroup.Item>
-          <ListGroup.Item>Auteur : {Author}</ListGroup.Item>
+          <ListGroup.Item>Auteur : {author}</ListGroup.Item>
           <ListGroup.Item>Editeur : {editor}</ListGroup.Item>
           <ListGroup.Item>Format : {width} x H{height}</ListGroup.Item>
           <ListGroup.Item>Date de publication : {publication_date}</ListGroup.Item>
           <ListGroup.Item>Langue : {language}</ListGroup.Item>
           <ListGroup.Item>Nombre de page : {pages_number}</ListGroup.Item>
+          <ListGroup.Item>
+            <Button className='card-btn' onClick={handleShowAdd}>Donner le livre</Button>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <Button className='card-btn' onClick={handleShowUsers}>Voir les donneurs</Button>
+          </ListGroup.Item>
         </ListGroup>
-        <Card.Body className='card-btn'>
+        {/* <Card.Body className='card-btn'>
         <Button onClick={handleShowAdd}>Donner le livre</Button>
         <Button onClick={handleShowUsers}>Voir les donneurs</Button>
-        </Card.Body>
+        </Card.Body> */}
     </Card>
 
     <Modal size="lg" show={showAdd} onHide={handleCloseAdd}>
@@ -101,7 +106,7 @@ function BookCard({id, cover_page, title, resume, Category, publication_date, is
 
         <Modal size="lg" show={showUsers} onHide={handleCloseUsers}>
         <Modal.Header closeButton>
-          <Modal.Title>Ajouter à ses livres à donner</Modal.Title>
+          <Modal.Title>Liste des utilisateurs qui cèdent le livre</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Table className='givers' size= "sm" striped bordered hover>
@@ -143,9 +148,9 @@ BookCard.propTypes = {
   id: PropTypes.number.isRequired,
   cover_page: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  Category: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   isbn_13: PropTypes.string.isRequired,
-  Author: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
   editor: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
   width: PropTypes.string.isRequired,

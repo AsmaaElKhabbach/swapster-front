@@ -1,24 +1,12 @@
-//= = Import
+//== Import
 import { createAction, createReducer } from '@reduxjs/toolkit';
 
 // == State
 const initialState = {
-  userSearch: '',
-  search: {
-    searchResults: [],
+  userSearch:"",
+  search:{
+    searchResults:[],
     error: null,
-<<<<<<< HEAD
-    isLoading: false,
-  },
-
-  myBooks: [],
-};
-
-//= = Action
-// action qui permet changer l'input de recherche
-export const changeNewSearch = createAction('books/changeNewSearch');
-// actionn qui permet de sauvegardé le résultat de la recherche
-=======
     isLoading: false
   },
 
@@ -32,31 +20,11 @@ export const changeNewSearch = createAction('books/changeNewSearch');
 // action qui permet changer l'input de recherche
 export const changeNewSearch = createAction('books/changeNewSearch');
 // actionn qui permet de sauvegarder le résultat de la recherche 
->>>>>>> bookpage
 export const saveBooks = createAction('books/saveBooks');
 // action qui permet de gérer le chargement des données venant de l'api
 export const setIsLoading = createAction('books/setIsLoading');
 // action qui permet de gérer les erreurs de connexion
 export const setError = createAction('books/setError');
-<<<<<<< HEAD
-//
-export const saveMyBooks = createAction('books/saveMyBooks');
-
-// == Reducer
-const booksReducer = createReducer(initialState, (builder) => {
-  builder
-    .addCase(changeNewSearch, (state, { payload }) => {
-      state.userSearch = payload;
-    })
-    .addCase(saveBooks, (state, { payload }) => {
-      state.search.searchResults = payload;
-      state.search.isLoading = true;
-      state.search.error = payload;
-    })
-    .addCase(saveMyBooks, (state, { payload }) => {
-      state.myBooks = payload;
-    });
-=======
 // action qui permet de sauvegarder la liste des utilisateurs qui donnent un livre 
 export const saveBooksGivenByUsers = createAction('books/saveBooksGivenByUsers');
 // action qui permet de sauvegarder un livre a donné 
@@ -93,7 +61,6 @@ const booksReducer = createReducer(initialState, (builder) => {
   .addCase(saveLatestBookAdded, (state, { payload }) => {
     state.latestBooksAdded = state.latestBooksAdded.concat(payload);
   })
->>>>>>> bookpage
 });
 
 // == Export
