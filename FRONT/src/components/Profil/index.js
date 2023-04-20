@@ -186,6 +186,7 @@ function UserPage() {
                                           {book.title}
                                         </h5>
                                         <img
+                                          className='cardImage'
                                           src={book.cover_page}
                                           alt={`couverture du livre ${book.title}`}
                                         />
@@ -211,6 +212,7 @@ function UserPage() {
                                           {book.title}
                                         </h5>
                                         <img
+                                          className='cardImage'
                                           src={book.cover_page}
                                           alt={`couverture du livre ${book.title}`}
                                         />
