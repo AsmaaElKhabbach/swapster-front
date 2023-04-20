@@ -29,7 +29,7 @@ export const login = (email, password, callback) => async (dispatch) => {
     console.log(axios);
     // on récupère l'erreur dans axios
     dispatch(setError(axios.response.data));
-    alert('error');
+    alert('Email ou mot de passe incorrect');
   }
 };
 

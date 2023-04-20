@@ -76,7 +76,7 @@ margin: 2em 0;
   }
 
   .book-body {
-    flex-basis: 20%;
+    flex-basis: 25%;
     min-height: 10%;
     max-height: 10em;
   }
@@ -85,6 +85,10 @@ margin: 2em 0;
     flex-basis: 100%;
     min-height: 20%;
     max-height: 15em;
+  }
+
+  .list-group-item{
+    min-height: 3em;
   }
 }
 
