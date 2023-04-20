@@ -1,6 +1,6 @@
 // == Import
 import './profile.scss';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Nav from 'react-bootstrap/Nav';
 import { useSelector, useDispatch } from 'react-redux';
@@ -14,13 +14,12 @@ import {
   MDBTypography,
   MDBIcon, MDBBtn,
 } from 'mdb-react-ui-kit';
-// import { setIsLoading } from '../../store/reducers/settings';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
 import Modal from './modifyModal/index';
 import { deleteUserAccount } from '../../api/auth';
 import { logout } from '../../store/reducers/settings';
-import { getMyBookList } from '../../api/mybooks';
+import { deleteBook, getMyBookList } from '../../api/mybooks';
 
 // == Component
 function UserPage() {
@@ -33,7 +32,15 @@ function UserPage() {
   const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
   const myBooks = useSelector((state) => state.mybooks.myBooksList);
 
-  useEffect(() => {getMyBookList()},[myBooks])
+  const [numBooks, setNumBooks] = useState(myBooks.length);
+
+  useEffect(() => {
+    dispatch(getMyBookList());
+  },[dispatch]);
+
+  useEffect(() => {
+    setNumBooks(myBooks.length);
+  }, [myBooks]);
 
 
   // fonction de suppression de compte
@@ -49,8 +56,9 @@ function UserPage() {
     dispatch(getMyBookList());
   }
 
-  const handleDeleteBook = (event) => {
-    event.preventDefault();
+  const handleDeleteBook = async (bookId) => {
+    await dispatch(deleteBook(bookId));
+    dispatch(getMyBookList());
   }
   return (
     <>
@@ -119,7 +127,7 @@ function UserPage() {
                           </MDBCol>
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Livres à donner</MDBTypography>
-                            <MDBCardText className="texted">12</MDBCardText>
+                            <MDBCardText className="texted">{numBooks}</MDBCardText>
                           </MDBCol>
                         </MDBRow>
 
@@ -154,7 +162,7 @@ function UserPage() {
                                   Mes livres à donner
                                 </Accordion.Header>
                                 {myBooks.map((book) => (
-                                  <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
+                                  <Accordion.Body key={book.id} style={{ backgroundColor: '#f5f0e6' }}>
                                   <main className="cardBody">
                                     <div className="bookItem">
                                       <h5>
@@ -167,8 +175,8 @@ function UserPage() {
                                       <p>{book.author}</p>
                                       <p>{book.editor}</p>
                                       <p>{`Format : ${book.width} x H${book.height}`}</p>
-                                      <button className="button" type="button" onClick={handleDeleteBook}>Je ne souhaite plus donner mon livre</button>
-                                      <button className="button" type="button">J'ai donné ce livre</button>
+                                      <button className="button" type="button">J'ai donné mon livre </button>
+                                      <button className="button" type="button" onClick={() => handleDeleteBook(book.book_id)}>Je ne souhaite plus donner mon livre</button>
                                     </div>
                                   </main>
                                 </Accordion.Body>

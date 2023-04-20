@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 import { axiosInstance } from './axiosInstance';
-import { saveMyBooksList } from "../store/reducers/mybooks";
+import { setIsLoading, setError, saveMyBooksList } from "../store/reducers/mybooks";
 
 // == Middlewares 
 
@@ -11,6 +11,7 @@ export const getMyBookList = () => {
   return async (dispatch, getState) => {
     const state= getState()
 
+    dispatch(setIsLoading(true))
     try {
          // appel api à l'application back pour récupérer les livres à donner
          const response = await axiosInstance.get('/book/my')
@@ -22,28 +23,34 @@ export const getMyBookList = () => {
       dispatch(setError(axios.response))
       alert('Aucun livre dans la liste')
     }
+    finally{
+      dispatch(setIsLoading(false))
+    }
   };
 };
 
-// Fonction qui permet de supprimer un livre de la liste à donné de l'utilisateur
-export const deleteMyBook = () => {
+export const deleteBook = (bookId) => {
   return async (dispatch, getState) => {
-    const state= getState();
+    const state = getState();
+    dispatch(setIsLoading(true));
 
-    const bookId = state.mybooks.myBooksList.map((book) => (book.id));
+    const { token } = state.settings.user.token;
+    console.log(token)
 
     try {
-         // appel api à l'application back pour récupérer les livres à donner
-         const response = await axiosInstance.get('/book/my')
-         console.log(response)
-        // modification de l'action de succès pour s'inscrire
-        dispatch(saveMyBooksList(response.data));
-  
-    }catch(axios){
-      dispatch(setError(axios.response))
-      alert('Aucun livre dans la liste')
+      const response = await axiosInstance.delete(`/book/${bookId}/my`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response)
+      return response.data
+    } catch (error) {
+      dispatch(setError(error.response));
+      // alert('Erreur lors de la suppression du livre');
+    } finally {
+      dispatch(setIsLoading(false));
     }
-  };
+};  
 };
 
-  // /book/:bookId/my
