@@ -1,7 +1,7 @@
 // == Import
 import axios from 'axios';
 import {
-  setError, setIsLoading, saveUser, signUpRequest, signUpFailed, signUpSuccess,
+  setError, setIsLoading, saveUser, signUpRequest, signUpFailed, signUpSuccess, saveNewUserInfo,
 } from '../store/reducers/settings';
 import { axiosInstance } from './axiosInstance';
 
@@ -12,7 +12,7 @@ export const login = (email, password, callback) => async (dispatch) => {
   try {
     dispatch(setIsLoading(true));
     // appel api à l'application back pour se logger
-    const response = await axiosInstance.post('/user/login', {
+    const response = await axiosInstance.post('user/login', {
       email,
       password,
     });
@@ -20,16 +20,6 @@ export const login = (email, password, callback) => async (dispatch) => {
     // mise en place du token pour la connexion
     axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
     dispatch(setIsLoading(false));
-    // ajout du stockage du token
-    // localStorage.setItem('token', response.data.token);
-    // localStorage.setItem('userId', response.data.id);
-    dispatch(saveUser({
-      logged: true,
-      token: response.data.token,
-      pseudo: response.data.pseudo,
-    }));
-    console.log(response);
-
     // enregistrement des données de l'utilisateur dans le state reducer settings
     dispatch(saveUser(response.data));
     // fonction de callback pour rediriger l'utilisateur vers la page d'accueil
@@ -49,7 +39,7 @@ export const signUp = (userData) => async (dispatch) => {
   dispatch(signUpRequest());
   try {
     //  appel api à l'application back pour s'inscrire
-    const response = await axiosInstance.post('/user/signup', userData);
+    const response = await axiosInstance.post('user/signup', userData);
     // modification de l'action de succès pour s'inscrire
     dispatch(signUpSuccess(response.data));
   }
@@ -57,22 +47,6 @@ export const signUp = (userData) => async (dispatch) => {
     // modification de l'action d'erreur pour s'inscrire
     dispatch(signUpFailed(error.message));
   }
-};
-export const signUp = (userData) => {
-  return async (dispatch) => {
-    // modification de l'action de requête pour s'inscrire
-    dispatch(signUpRequest());
-    try {
-      //  appel api à l'application back pour s'inscrire
-      const response = await axiosInstance.post("user/signup", userData);
-      // modification de l'action de succès pour s'inscrire
-      dispatch(signUpSuccess (response.data));
-
-    } catch (error) {
-      // modification de l'action d'erreur pour s'inscrire
-      dispatch(signUpFailed(error.message));
-    }
-  };
 };
 
 // Fonction pour supprimer son compte

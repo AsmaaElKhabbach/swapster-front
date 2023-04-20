@@ -28,7 +28,7 @@ function App() {
         <Route path="/profile" element={<UserPage />} />
         <Route path="/legalnotice" element={<LegalNotice />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="*" element={<Error />} />
+        {/* <Route path="*" element={<Error />} /> */}
       </Routes>
     </div>
   );

@@ -10,7 +10,7 @@ const store = configureStore({
   reducer: {
     books: booksReducer,
     settings: settingsReducer,
-    mybooks: mybooksReducer
+    mybooks: mybooksReducer,
   },
   // on rajoute un middleware qui va permettre la connexion d'un utilisateur
   middleware: (getDefaultMiddleware) => getDefaultMiddleware()

@@ -21,16 +21,16 @@ function Header() {
               className="my-2 my-lg-0 nav-container"
               navbarScroll
             >
-            <LinkContainer to="/">
-            <Navbar.Brand>
-                <img
-                  alt="swapsterlogo"
-                  src={swapsterLogo}
-                  className="logo"
-                />
-              </Navbar.Brand>
-            </LinkContainer>
-             
+              <LinkContainer to="/">
+                <Navbar.Brand>
+                  <img
+                    alt="swapsterlogo"
+                    src={swapsterLogo}
+                    className="logo"
+                  />
+                </Navbar.Brand>
+              </LinkContainer>
+
               <SearchBar />
               <div className="nav-connect">
                 <Connexion />
