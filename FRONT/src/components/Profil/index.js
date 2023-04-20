@@ -12,7 +12,8 @@ import {
   MDBCardText, MDBCardBody,
   MDBCardImage,
   MDBTypography,
-  MDBIcon, MDBBtn,
+  MDBIcon,
+  MDBBtn,
 } from 'mdb-react-ui-kit';
 // import { setIsLoading } from '../../store/reducers/settings';
 import Header from '../Partials/Header/index';

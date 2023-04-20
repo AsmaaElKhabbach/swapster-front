@@ -2,6 +2,7 @@
 import './homepage.scss';
 import { useSelector } from 'react-redux';
 import Header from '../Partials/Header/index';
+import Carrousel from './Carrousel';
 import LatestAdd from './LatestAdd/index';
 import Slogan from './Slogan/index';
 import Introduction from './Introduction';
@@ -18,8 +19,11 @@ function HomePage() {
         <Slogan />
         <Introduction />
         <Rules />
+          <Carrousel />
         {isLoggedIn && (
+          <>
           <LatestAdd />
+          </>
         )}
       </main>
       <Footer />
