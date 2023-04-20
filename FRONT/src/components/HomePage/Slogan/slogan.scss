@@ -2,7 +2,14 @@
 
 .slogan{
 
+<<<<<<< HEAD
   margin: 20%;
+=======
+<<<<<<< HEAD
+  margin: 20%;
+=======
+>>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
+>>>>>>> 8056f35e3d3766b87740a588ea098c6c86c643b2
   padding: 1em;
   width: 100%;
   
@@ -11,7 +18,17 @@
     color: vars.$primary-300;
     padding: 0.5em;
     text-align: center;
+<<<<<<< HEAD
     font-size: 2em;
+=======
+<<<<<<< HEAD
+    font-size: 2em;
+=======
+    font-weight: bold;
+    font-size: 5em;
+    margin: 2em auto;
+>>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
+>>>>>>> 8056f35e3d3766b87740a588ea098c6c86c643b2
   }
   
 }
@@ -20,6 +37,14 @@
 
 @media(max-width: 900px){
 .slogan-title{
+<<<<<<< HEAD
 font-size: 1.5em;
+=======
+<<<<<<< HEAD
+font-size: 1.5em;
+=======
+font-size: 2em;
+>>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
+>>>>>>> 8056f35e3d3766b87740a588ea098c6c86c643b2
 }
 }

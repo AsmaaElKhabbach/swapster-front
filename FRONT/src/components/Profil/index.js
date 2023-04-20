@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Nav from 'react-bootstrap/Nav';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   MDBCol,
   MDBContainer,
@@ -17,7 +18,9 @@ import {
 // import { setIsLoading } from '../../store/reducers/settings';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
-import { getMyBook } from '../../api/books';
+import Modal from './modifyModal/index';
+import { deleteUserAccount, modifyAccount } from '../../api/auth';
+import { logout } from '../../store/reducers/settings';
 
 // == Component
 function UserPage() {
@@ -25,18 +28,26 @@ function UserPage() {
   const usercity = useSelector((state) => state.settings.user.data.city);
   const usermail = useSelector((state) => state.settings.user.data.email);
   const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getMyBook());
-  // }, []);
+  const token = useSelector((state) => state.settings.user.token);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // fonction de suppression de compte
+  const handleDeleteUserAccount = (event) => {
+    event.preventDefault();
+    dispatch(deleteUserAccount());
+    dispatch(logout());
+    navigate('/', { replace: true });
+  };
 
   return (
     <>
       <Header />
-      <main className='mjboot'>
+      <main className="mjboot">
         <section
-          className="vh-100" 
-          >
+          className="vh-100"
+        >
           <MDBContainer className="py-5 h-100">
             <MDBRow className="justify-content-center align-items-center h-100">
               <MDBCol lg="6" className="mb-4 mb-lg-0 ">
@@ -67,11 +78,22 @@ function UserPage() {
                         tag="h5"
                         style={{
                           color: '#500000',
+                          display: 'flex',
+                          alignItems: 'center',
+                          flexDirection: 'column',
                         }}
                       >
                         <div className="user">
                           {isLoggedIn && (
+<<<<<<< HEAD
                           <Nav.Link href="/profile" className="nav-link">Bienvenue {username}</Nav.Link>
+=======
+<<<<<<< HEAD
+                          <Nav.Link href="/profile" className="nav-link">Bienvenue {username}</Nav.Link>
+=======
+                          <Nav.Link href="/profile" className="nav-link"> {username}</Nav.Link>
+>>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
+>>>>>>> 8056f35e3d3766b87740a588ea098c6c86c643b2
                           )}
                           {!isLoggedIn && (
                           <>
@@ -91,11 +113,11 @@ function UserPage() {
                         <MDBRow className="pt-1">
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Localisation</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="text" placeholder={usercity} /></MDBCardText>
+                            <MDBCardText className="texted">{usercity}</MDBCardText>
                           </MDBCol>
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Livres à donner</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="number" placeholder="12" /></MDBCardText>
+                            <MDBCardText className="texted">12</MDBCardText>
                           </MDBCol>
                         </MDBRow>
 
@@ -104,11 +126,24 @@ function UserPage() {
                         <MDBRow className="pt-1">
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Email</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="email" placeholder={usermail} /></MDBCardText>
-                            <MDBBtn className="sendButton">Envoyer un message</MDBBtn>
+                            <MDBCardText className="texted">{usermail}</MDBCardText>
+                            <span className="buttonContainer">
+                              <button onClick={handleDeleteUserAccount} type="button" className="button">Supprimer mon compte</button>
+                              <Modal />
+                            </span>
                           </MDBCol>
                         </MDBRow>
+<<<<<<< HEAD
                         {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
+=======
+<<<<<<< HEAD
+                        {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
+=======
+
+                        {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
+                        
+>>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
+>>>>>>> 8056f35e3d3766b87740a588ea098c6c86c643b2
                         <MDBContainer
                           breakpoint="lg"
                           style={{
@@ -126,7 +161,7 @@ function UserPage() {
                                 </Accordion.Header>
                                 <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
                                   <main className="cardBody">
-                                    <div>
+                                    <div className="bookItem">
                                       <p>
                                         Voyage au centre de la terre
                                       </p>
@@ -135,8 +170,9 @@ function UserPage() {
                                         alt="couverture de livre"
                                       />
                                       <button className="button" type="button">Supprimer le livre</button>
+                                      <button className="button" type="button">J'ai donné ce livre</button>
                                     </div>
-                                    <div>
+                                    <div className="bookItem">
                                       <p>
                                         100 ans de solitude
                                       </p>
@@ -145,8 +181,9 @@ function UserPage() {
                                         alt="couverture de livre"
                                       />
                                       <button className="button" type="button">Supprimer le livre</button>
+                                      <button className="button" type="button">J'ai donné ce livre</button>
                                     </div>
-                                    <div>
+                                    <div className="bookItem">
                                       <p>
                                         bobby potter
                                       </p>
@@ -155,6 +192,7 @@ function UserPage() {
                                         alt="couverture de livre"
                                       />
                                       <button className="button" type="button">Supprimer le livre</button>
+                                      <button className="button" type="button">J'ai donné ce livre</button>
                                     </div>
                                   </main>
                                 </Accordion.Body>
