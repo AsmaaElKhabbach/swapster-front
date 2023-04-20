@@ -19,7 +19,7 @@ import Footer from '../Partials/Footer/index';
 import Modal from './modifyModal/index';
 import { deleteUserAccount } from '../../api/auth';
 import { logout } from '../../store/reducers/settings';
-import { deleteBook, getMyBookList } from '../../api/mybooks';
+import { deleteBook, getMyBookList, getMyGivedBookList, giveBook } from '../../api/mybooks';
 
 // == Component
 function UserPage() {
@@ -31,6 +31,7 @@ function UserPage() {
   const usermail = useSelector((state) => state.settings.user.data.email);
   const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
   const myBooks = useSelector((state) => state.mybooks.myBooksList);
+  const myGivedBooks = useSelector((state) => state.mybooks.myGivedBooksList);
 
   const [numBooks, setNumBooks] = useState(myBooks.length);
 
@@ -51,15 +52,30 @@ function UserPage() {
     navigate('/', { replace: true });
   };
 
+  // Fonction pour récupérer la liste des livres à donner 
   const handleGetBooks = (event) => {
     event.preventDefault();
     dispatch(getMyBookList());
   }
 
+  // Fonction de suppression d'un livre 
   const handleDeleteBook = async (bookId) => {
     await dispatch(deleteBook(bookId));
     dispatch(getMyBookList());
   }
+
+  // Fonction pour récupérer la liste des livres donnés 
+  const handleGetGivedBooks = (event) => {
+    event.preventDefault();
+    dispatch(getMyGivedBookList());
+  }
+
+  // Fonction de basculement de statut du livre "à donner " à "donné"
+  const handleGiveBook = async (bookId) => {
+    await dispatch(giveBook(bookId));
+    dispatch(getMyBookList())
+  }
+
   return (
     <>
       <Header />
@@ -175,7 +191,7 @@ function UserPage() {
                                       <p>{book.author}</p>
                                       <p>{book.editor}</p>
                                       <p>{`Format : ${book.width} x H${book.height}`}</p>
-                                      <button className="button" type="button">J'ai donné mon livre </button>
+                                      <button className="button" type="button" onClick={() => handleGiveBook(book.book_id)}>J'ai donné mon livre </button>
                                       <button className="button" type="button" onClick={() => handleDeleteBook(book.book_id)}>Je ne souhaite plus donner mon livre</button>
                                     </div>
                                   </main>
@@ -183,12 +199,27 @@ function UserPage() {
                                 ))}
                               </Accordion.Item>
                               <Accordion.Item eventKey="1">
-                                <Accordion.Header>Livres donnés</Accordion.Header>
-                                <Accordion.Body style={{
-                                  backgroundColor: '#f5f0e6',
-
-                                }}
-                                />
+                                <Accordion.Header onClick={handleGetGivedBooks}>
+                                 Livres donnés
+                                </Accordion.Header>
+                                {myGivedBooks.map((book) => (
+                                  <Accordion.Body key={book.id} style={{ backgroundColor: '#f5f0e6' }}>
+                                  <main className="cardBody">
+                                    <div className="bookItem">
+                                      <h5>
+                                        {book.title}
+                                      </h5>
+                                      <img
+                                        src={book.cover_page}
+                                        alt={`couverture du livre ${book.title}`}
+                                      />
+                                      <p>{book.author}</p>
+                                      <p>{book.editor}</p>
+                                      <p>{`Format : ${book.width} x H${book.height}`}</p>
+                                    </div>
+                                  </main>
+                                </Accordion.Body>
+                                ))}
                               </Accordion.Item>
 
                             </Accordion>
