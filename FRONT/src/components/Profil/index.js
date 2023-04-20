@@ -1,10 +1,10 @@
 // == Import
-// == Import
 import './profile.scss';
 import React, { useEffect } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Nav from 'react-bootstrap/Nav';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   MDBCol,
   MDBContainer,
@@ -17,26 +17,49 @@ import {
 // import { setIsLoading } from '../../store/reducers/settings';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
-import { getMyBook } from '../../api/books';
+import Modal from './modifyModal/index';
+import { deleteUserAccount } from '../../api/auth';
+import { logout } from '../../store/reducers/settings';
+import { getMyBookList } from '../../api/mybooks';
 
 // == Component
 function UserPage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const username = useSelector((state) => state.settings.user.data.name);
   const usercity = useSelector((state) => state.settings.user.data.city);
   const usermail = useSelector((state) => state.settings.user.data.email);
   const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getMyBook());
-  // }, []);
+  const myBooks = useSelector((state) => state.mybooks.myBooksList);
 
+  useEffect(() => {
+    getMyBookList();
+  }, [myBooks]);
+
+  // fonction de suppression de compte
+  const handleDeleteUserAccount = (event) => {
+    event.preventDefault();
+    dispatch(deleteUserAccount());
+    dispatch(logout());
+    navigate('/', { replace: true });
+  };
+
+  const handleGetBooks = (event) => {
+    event.preventDefault();
+    dispatch(getMyBookList());
+  };
+
+  const handleDeleteBook = (event) => {
+    event.preventDefault();
+  };
   return (
     <>
       <Header />
-      <main className='mjboot'>
+      <main className="mjboot">
         <section
-          className="vh-100" 
-          >
+          className="vh-100"
+        >
           <MDBContainer className="py-5 h-100">
             <MDBRow className="justify-content-center align-items-center h-100">
               <MDBCol lg="6" className="mb-4 mb-lg-0 ">
@@ -67,11 +90,14 @@ function UserPage() {
                         tag="h5"
                         style={{
                           color: '#500000',
+                          display: 'flex',
+                          alignItems: 'center',
+                          flexDirection: 'column',
                         }}
                       >
                         <div className="user">
                           {isLoggedIn && (
-                          <Nav.Link href="/profile" className="nav-link">Bienvenue {username}</Nav.Link>
+                          <Nav.Link href="/profile" className="nav-link"> {username}</Nav.Link>
                           )}
                           {!isLoggedIn && (
                           <>
@@ -81,7 +107,6 @@ function UserPage() {
 
                         </div>
                       </MDBTypography>
-                      {/* <MDBCardText>Web Designer</MDBCardText> */}
                       <MDBIcon far icon="edit mb-5" />
                     </MDBCol>
                     <MDBCol md="8">
@@ -91,11 +116,11 @@ function UserPage() {
                         <MDBRow className="pt-1">
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Localisation</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="text" placeholder={usercity} /></MDBCardText>
+                            <MDBCardText className="texted">{usercity}</MDBCardText>
                           </MDBCol>
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Livres à donner</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="number" placeholder="12" /></MDBCardText>
+                            <MDBCardText className="texted">12</MDBCardText>
                           </MDBCol>
                         </MDBRow>
 
@@ -104,11 +129,16 @@ function UserPage() {
                         <MDBRow className="pt-1">
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Email</MDBTypography>
-                            <MDBCardText className="text-muted"><input type="email" placeholder={usermail} /></MDBCardText>
-                            <MDBBtn className="sendButton">Envoyer un message</MDBBtn>
+                            <MDBCardText className="texted">{usermail}</MDBCardText>
+                            <span className="buttonContainer">
+                              <button onClick={handleDeleteUserAccount} type="button" className="button">Supprimer mon compte</button>
+                              <Modal />
+                            </span>
                           </MDBCol>
                         </MDBRow>
+
                         {/* DEBUT DE LA PARTIE STATUT/DONNER DES LIVRES */}
+
                         <MDBContainer
                           breakpoint="lg"
                           style={{
@@ -121,43 +151,29 @@ function UserPage() {
                           <div>
                             <Accordion defaultActiveKey={[]} alwaysOpen>
                               <Accordion.Item eventKey="0">
-                                <Accordion.Header>
-                                  Livres à donner
+                                <Accordion.Header onClick={handleGetBooks}>
+                                  Mes livres à donner
                                 </Accordion.Header>
-                                <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
-                                  <main className="cardBody">
-                                    <div>
-                                      <p>
-                                        Voyage au centre de la terre
-                                      </p>
-                                      <img
-                                        src="https://m.media-amazon.com/images/I/51TIY0eeh5L._SY291_BO1,204,203,200_QL40_ML2_.jpg"
-                                        alt="couverture de livre"
-                                      />
-                                      <button className="button" type="button">Supprimer le livre</button>
-                                    </div>
-                                    <div>
-                                      <p>
-                                        100 ans de solitude
-                                      </p>
-                                      <img
-                                        src="https://images2.medimops.eu/product/07f827/M0202023811X-large.jpg"
-                                        alt="couverture de livre"
-                                      />
-                                      <button className="button" type="button">Supprimer le livre</button>
-                                    </div>
-                                    <div>
-                                      <p>
-                                        bobby potter
-                                      </p>
-                                      <img
-                                        src="https://m.media-amazon.com/images/I/51CP2LpqpTL._SY291_BO1,204,203,200_QL40_ML2_.jpg"
-                                        alt="couverture de livre"
-                                      />
-                                      <button className="button" type="button">Supprimer le livre</button>
-                                    </div>
-                                  </main>
-                                </Accordion.Body>
+                                {myBooks.map((book) => (
+                                  <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
+                                    <main className="cardBody">
+                                      <div className="bookItem">
+                                        <h5>
+                                          {book.title}
+                                        </h5>
+                                        <img
+                                          src={book.cover_page}
+                                          alt={`couverture du livre ${book.title}`}
+                                        />
+                                        <p>{book.author}</p>
+                                        <p>{book.editor}</p>
+                                        <p>{`Format : ${book.width} x H${book.height}`}</p>
+                                        <button className="button" type="button" onClick={handleDeleteBook}>Je ne souhaite plus donner mon livre</button>
+                                        <button className="button" type="button">J'ai donné ce livre</button>
+                                      </div>
+                                    </main>
+                                  </Accordion.Body>
+                                ))}
                               </Accordion.Item>
                               <Accordion.Item eventKey="1">
                                 <Accordion.Header>Livres donnés</Accordion.Header>

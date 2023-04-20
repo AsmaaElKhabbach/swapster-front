@@ -58,3 +58,59 @@ export const signUp = (userData) => async (dispatch) => {
     dispatch(signUpFailed(error.message));
   }
 };
+export const signUp = (userData) => {
+  return async (dispatch) => {
+    // modification de l'action de requête pour s'inscrire
+    dispatch(signUpRequest());
+    try {
+      //  appel api à l'application back pour s'inscrire
+      const response = await axiosInstance.post("user/signup", userData);
+      // modification de l'action de succès pour s'inscrire
+      dispatch(signUpSuccess (response.data));
+
+    } catch (error) {
+      // modification de l'action d'erreur pour s'inscrire
+      dispatch(signUpFailed(error.message));
+    }
+  };
+};
+
+// Fonction pour supprimer son compte
+export const deleteUserAccount = () => async (getState) => {
+  try {
+    const state = getState();
+    const { token } = state.settings.user.token;
+
+    //  appel api à l'application back pour s'inscrire
+    const response = await axiosInstance.delete('/user/me', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  }
+  catch (error) {
+    throw new Error(`Error deleting user account: ${error.message}`);
+  }
+};
+
+// Fonction pour modifier son compte
+
+export const changeUserData = () => async (dispatch, getState) => {
+  try {
+    const state = getState();
+
+    //  appel api à l'application back pour modifier les informations de l'utilisateur
+    const response = await axiosInstance.patch('/user/me', {
+      name: state.settings.user.data.name,
+      city: state.settings.user.data.city,
+      password: state.settings.user.data.password,
+    });
+    console.log(response.data);
+    // faire un dispatch avec un createAction
+    dispatch(saveNewUserInfo(response.data));
+  }
+  catch (error) {
+    throw new Error(`Error deleting user account: ${error.message}`);
+  }
+};

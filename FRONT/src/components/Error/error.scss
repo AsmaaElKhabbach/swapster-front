@@ -23,4 +23,29 @@ img {
 a:hover {
    color: vars.$accent-200 ;
 }
+@use 'src/styles/vars';
+
+.page-content {
+  background: rgb(255,250,240);
+  background: linear-gradient(90deg, rgba(255,250,240,1) 0%, rgba(246,188,165,1) 100%);
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+.error-content {
+  text-align: center;
+}
+
+img {
+  max-width: 100%; 
+}
+
+a:hover {
+   color: vars.$accent-200 ;
+}
 

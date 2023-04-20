@@ -22,7 +22,7 @@ export const saveUser = createAction('settings/saveUser');
 export const setIsLoading = createAction('settings/setIsLoading');
 // action qui permet de gérer les erreurs de connexion
 export const setError = createAction('settings/setError');
-// action qui permet de gérer la déconnexion de l'utilisateur, la suppression de ses données dans l'initial state
+// action qui permet de gérer la déconnexion de l'utilisateur
 export const logout = createAction('settings/logout');
 
 // Action concernant l'inscription
@@ -32,6 +32,11 @@ export const signUpRequest = createAction('settings/signUpRequest');
 export const signUpSuccess = createAction('settings/signUpSucess');
 // action qui permet de gérer l'erreur lors de la création d'un compte utilisateur
 export const signUpFailed = createAction('settings/signUpFailed');
+
+// Action concernant la modfication des données du user
+// action qui permet de modifier le compte d'un utilisateur
+export const changeUserInfo = createAction('settings/changeUserInfo');
+export const saveNewUserInfo = createAction('settings/saveNewUserInfo');
 
 // == Reducer
 const settingsReducer = createReducer(initialState, (builder) => {
@@ -61,6 +66,17 @@ const settingsReducer = createReducer(initialState, (builder) => {
     .addCase(signUpFailed, (state, { payload }) => {
       state.user.isLoading = false;
       state.user.error = payload;
+    })
+
+    .addCase(changeUserInfo, (state, { payload }) => {
+      const { value, name } = payload;
+      state.isLoggedIn = true;
+      state.user.data[name] = value;
+    })
+
+    .addCase(saveNewUserInfo, (state, { payload }) => {
+      state.user.data = payload;
+      state.isLoggedIn = true;
     });
 });
 

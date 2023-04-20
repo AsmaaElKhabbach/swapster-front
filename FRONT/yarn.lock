@@ -5469,7 +5469,6 @@ react-redux@^8.0.5:
     react-is "^18.0.0"
     use-sync-external-store "^1.0.0"
 
-<<<<<<< HEAD
 react-router-bootstrap@^0.26.2:
   version "0.26.2"
   resolved "https://registry.yarnpkg.com/react-router-bootstrap/-/react-router-bootstrap-0.26.2.tgz#255ffb662b77141624d89d97105ba4f93863e664"
@@ -5477,8 +5476,6 @@ react-router-bootstrap@^0.26.2:
   dependencies:
     prop-types "^15.7.2"
 
-=======
->>>>>>> ec1610291d50a2555a141bb3f81007b6a3a93c88
 react-router-dom@^6.10.0:
   version "6.10.0"
   resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.10.0.tgz"
