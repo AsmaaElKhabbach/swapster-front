@@ -27,13 +27,10 @@ function LatestAdd() {
 
   // on récupère les livre qui ont été ajouter dans le state
   const books = useSelector((state) => state.books.latestBooksAdded);
-  const bookId= books.map((book) => (book.id));
-
-
+  
   // on créer une variable dans le state qui permet de gèrer l'affcihage de la modal
     const [showUsers, setShowUsers] = useState(false);
-
-
+    
   // Fonction qui permet de gérer la fermeture de la modal
   const handleCloseUsers = () => setShowUsers(false);
 
@@ -53,7 +50,7 @@ function LatestAdd() {
       </div>
       <div className='latestadd-item'>
         {books.map((book) => (
-          <Card className='book' key={book.id}>
+          <Card className='book' key={book.book_id}>
           <Card.Img className='book-img' variant="top" src={`${book.cover_page}`} />
           <Card.Body className='book-body'>
             <Card.Title>{book.title}</Card.Title>
