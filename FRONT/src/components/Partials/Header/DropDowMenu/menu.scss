@@ -1,0 +1,14 @@
+@use 'src/styles/vars';
+
+.dropMenu {
+  background-color: vars.$primary;
+  padding: 0;
+}
+// -- Responsiv -- // 
+
+@media(max-width: 900px){
+  .dropdown-menu.show {
+    width: 2rem;
+
+  }
+}
