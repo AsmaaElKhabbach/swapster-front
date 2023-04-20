@@ -1,4 +1,7 @@
 @use 'src/styles/vars';
+.container{
+  width: 80%;
+}
 .sendButton {
   display: flex;
   align-items: center;
@@ -15,11 +18,10 @@
 
 .cardBody {
   display: flex;
-  flex-direction: column;
-  gap: 50xp;
   text-transform: capitalize;
   text-decoration: none;
   color: vars.$primary-300;
+  gap: 1em;
 }
 .cardImage{
   width: 15em;
@@ -35,15 +37,6 @@
   align-items: center;
   padding: 1em;
   margin-top: 1em;
-  
-}
-
-.button {
-  margin-top: 1em;
-  display: flex;
-  background-color: vars.$primary-200;
-  border-radius: 5px;
-  border: 1px solid vars.$primary-300;
   
 }
 
@@ -64,6 +57,10 @@
 // -- Responsiv -- // 
 
 @media(max-width: 450px){
+  .container{
+    width: 100%;
+  }
+
  .mjboot {
   min-height: 100vh;
   overflow-y: auto;

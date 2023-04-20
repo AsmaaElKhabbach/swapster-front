@@ -86,7 +86,7 @@ function UserPage() {
         >
           <MDBContainer className="py-5 h-100">
             <MDBRow className="justify-content-center align-items-center h-100">
-              <MDBCol lg="6" className="mb-4 mb-lg-0 ">
+              <MDBCol lg="6" className="mb-4 mb-lg-0 container">
                 <MDBCard
                   className="mb-3"
                   style={{
@@ -154,8 +154,8 @@ function UserPage() {
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Email</MDBTypography>
                             <MDBCardText className="texted">{usermail}</MDBCardText>
-                            <span className="buttonContainer">
-                              <button onClick={handleDeleteUserAccount} type="button" className="button">Supprimer mon compte</button>
+                            <span >
+                              <button onClick={handleDeleteUserAccount} type="button" className="btn btn-primary">Supprimer mon compte</button>
                               <Modal />
                             </span>
                           </MDBCol>
