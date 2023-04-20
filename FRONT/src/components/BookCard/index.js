@@ -53,8 +53,8 @@ function BookCard({id, cover_page, title, resume, category, publication_date, is
   return (
     <>
       <Card className="book">
-        <Card.Img variant="top" src={`${cover_page}`} />
-        <Card.Body>
+        <Card.Img className='book-img' variant="top" src={`${cover_page}`} />
+        <Card.Body className='book-body'>
           <Card.Title>{title}</Card.Title>
           <Card.Text>Résumé : {resume}</Card.Text>
         </Card.Body>
@@ -67,11 +67,17 @@ function BookCard({id, cover_page, title, resume, category, publication_date, is
           <ListGroup.Item>Date de publication : {publication_date}</ListGroup.Item>
           <ListGroup.Item>Langue : {language}</ListGroup.Item>
           <ListGroup.Item>Nombre de page : {pages_number}</ListGroup.Item>
+          <ListGroup.Item>
+            <Button className='card-btn' onClick={handleShowAdd}>Donner le livre</Button>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <Button className='card-btn' onClick={handleShowUsers}>Voir les donneurs</Button>
+          </ListGroup.Item>
         </ListGroup>
-        <Card.Body className='card-btn'>
+        {/* <Card.Body className='card-btn'>
         <Button onClick={handleShowAdd}>Donner le livre</Button>
         <Button onClick={handleShowUsers}>Voir les donneurs</Button>
-        </Card.Body>
+        </Card.Body> */}
     </Card>
 
     <Modal size="lg" show={showAdd} onHide={handleCloseAdd}>

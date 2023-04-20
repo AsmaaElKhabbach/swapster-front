@@ -204,7 +204,7 @@ function UserPage() {
           </MDBContainer>
         </section>
       </main>
-      <Footer className="footer" />
+      <Footer />
     </>
   );
 }

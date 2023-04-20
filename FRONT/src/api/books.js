@@ -6,7 +6,7 @@ import { setError, saveBooksGivenByUsers, saveBooks, saveBooksToGivenBooksList, 
 // == Middlewares
 
 // Fonction pour récupérer les livres rechercher 
-export const getBook = () => {
+export const getBook = (navigate) => {
   return async (dispatch, getState) => {
     const state= getState()
     const search = state.books.userSearch;
@@ -20,7 +20,8 @@ export const getBook = () => {
   
     }catch(axios){
       dispatch(setError(axios.response))
-      alert('Aucun résultat pour cette recherche')
+      // alert('Aucun résultat pour cette recherche')
+      navigate('*')
     }
   };
   }

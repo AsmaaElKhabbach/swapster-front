@@ -1,15 +1,20 @@
 .books{
-  max-width: fit-content;
   margin: 5em auto;
+  align-items: center;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 1em;
+  padding: 4em;
+  overflow-y: auto;
 }
 
 @media(max-width: 1300px){
   .books{
+    padding: 0;
     margin: 2em auto;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    gap: 15em;
   }
 }

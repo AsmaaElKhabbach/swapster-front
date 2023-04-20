@@ -38,7 +38,7 @@ function SearchBar() {
     // on stop le comportement par défaut de rechargement de la page
     event.preventDefault();
     // on émet l'intention de modifier grace à l'action récupérer dans le réducer home de modifié l'input
-    dispatch(getBook(search));
+    dispatch(getBook(navigate));
     console.log(search)
     navigate('/book/search', { replace: true })
   }
