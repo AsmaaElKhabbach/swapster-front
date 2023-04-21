@@ -21,7 +21,6 @@ function HomePage() {
         <Rules />
         {isLoggedIn && (
           <LatestAdd />
-          </>
         )}
       </main>
       <Footer />

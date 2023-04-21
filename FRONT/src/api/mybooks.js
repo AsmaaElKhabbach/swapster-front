@@ -26,7 +26,7 @@ export const getMyBookList = () => async (dispatch, getState) => {
       dispatch(setIsLoading(false))
     }
   };
-};
+
 
 // Fonction qui permet la supression d'un livre de la liste à donner 
 export const deleteBook = (bookId) => {
