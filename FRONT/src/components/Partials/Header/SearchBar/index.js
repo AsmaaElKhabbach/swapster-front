@@ -1,4 +1,4 @@
-// == Import 
+// == Import
 import './searchBar.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 
 // == Component
 function SearchBar() {
-  // on récupère le hook react-redux qui nous permet de modifier nos données et on le stock dans une variable 
+  // on récupère le hook react-redux qui nous permet de modifier nos données et on le stock dans une variable
   const dispatch = useDispatch();
   // on récupère le hook react-router-dom afin de rediriger l'utilisateur
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ function SearchBar() {
   useEffect(() => {
     // Appeler l'API quand ma variable search est modifier
     getBook();
-  }, [search]); 
+  }, [search]);
 
   // Fonction qui permet de changer la valeur de l'input rechercher
   const handleInputChange = (event) => {
@@ -57,14 +57,13 @@ function SearchBar() {
     // on stop le comportement par défaut de rechargement de la page
     event.preventDefault();
     // on émet l'intention de modifier grace à l'action récupérer dans le réducer home de modifié l'input
-    dispatch(getBook(search));
-    console.log(search)
-    navigate('/book/search', { replace: true })
-  }
-
+    dispatch(getBook(navigate));
+    console.log(search);
+    navigate('/book/search', { replace: true });
+  };
 
   return (
-    <div className='search'>
+    <div className="search">
       <Form className="d-flex" onSubmit={handleSubmit}>
         <Form.Control
           value={search}
@@ -74,7 +73,7 @@ function SearchBar() {
           className="me-2"
           aria-label="Search"
         />
-        <Button type= 'submit' variant="danger">Rechercher</Button>
+        <Button type="submit" variant="danger">Rechercher</Button>
       </Form>
 
     </div>

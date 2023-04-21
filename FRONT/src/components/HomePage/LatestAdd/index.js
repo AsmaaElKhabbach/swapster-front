@@ -25,11 +25,10 @@ function LatestAdd() {
 
   // on récupère les livre qui ont été ajouter dans le state
   const books = useSelector((state) => state.books.latestBooksAdded);
-  const bookId = books.map((book) => (book.id));
-
+  
   // on créer une variable dans le state qui permet de gèrer l'affcihage de la modal
-  const [showUsers, setShowUsers] = useState(false);
-
+    const [showUsers, setShowUsers] = useState(false);
+    
   // Fonction qui permet de gérer la fermeture de la modal
   const handleCloseUsers = () => setShowUsers(false);
 
@@ -49,19 +48,19 @@ function LatestAdd() {
       </div>
       <div className="latestadd-item">
         {books.map((book) => (
-          <Card className="book" key={book.id}>
-            <Card.Img className="book-img" variant="top" src={`${book.cover_page}`} />
-            <Card.Body className="book-body">
-              <Card.Title>{book.title}</Card.Title>
-            </Card.Body>
-            <ListGroup className="list-group-flush">
-              <ListGroup.Item>Catégorie : {book.category}</ListGroup.Item>
-              <ListGroup.Item>ISBN : {book.isbn_13}</ListGroup.Item>
-              <ListGroup.Item>Auteur : {book.author}</ListGroup.Item>
-              <ListGroup.Item>Editeur : {book.editor}</ListGroup.Item>
-              <ListGroup.Item>Format : {book.width} x H{book.height}</ListGroup.Item>
-              <ListGroup.Item><Button onClick={handleShowUsers}>Voir les donneurs</Button></ListGroup.Item>
-            </ListGroup>
+          <Card className='book' key={book.book_id}>
+          <Card.Img className='book-img' variant="top" src={`${book.cover_page}`} />
+          <Card.Body className='book-body'>
+            <Card.Title>{book.title}</Card.Title>
+          </Card.Body>
+          <ListGroup className="list-group-flush">
+            <ListGroup.Item>Catégorie : {book.category}</ListGroup.Item>
+            <ListGroup.Item>ISBN : {book.isbn_13}</ListGroup.Item>
+            <ListGroup.Item>Auteur : {book.author}</ListGroup.Item>
+            <ListGroup.Item>Editeur : {book.editor}</ListGroup.Item>
+            <ListGroup.Item>Format : {book.width} x H{book.height}</ListGroup.Item>
+            <ListGroup.Item><Button onClick={handleShowUsers}>Voir les donneurs</Button></ListGroup.Item>
+          </ListGroup>
           </Card>
         ))}
       </div>

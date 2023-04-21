@@ -1,6 +1,6 @@
 // == Import
 import './profile.scss';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Nav from 'react-bootstrap/Nav';
 import { useSelector, useDispatch } from 'react-redux';
@@ -15,13 +15,14 @@ import {
   MDBIcon,
   MDBBtn,
 } from 'mdb-react-ui-kit';
-// import { setIsLoading } from '../../store/reducers/settings';
 import Header from '../Partials/Header/index';
 import Footer from '../Partials/Footer/index';
 import Modal from './modifyModal/index';
 import { deleteUserAccount } from '../../api/auth';
 import { logout } from '../../store/reducers/settings';
-import { getMyBookList } from '../../api/mybooks';
+import {
+  deleteBook, getMyBookList, getMyGivedBookList, giveBook,
+} from '../../api/mybooks';
 
 // == Component
 function UserPage() {
@@ -33,9 +34,16 @@ function UserPage() {
   const usermail = useSelector((state) => state.settings.user.data.email);
   const isLoggedIn = useSelector((state) => state.settings.isLoggedIn);
   const myBooks = useSelector((state) => state.mybooks.myBooksList);
+  const myGivedBooks = useSelector((state) => state.mybooks.myGivedBooksList);
+
+  const [numBooks, setNumBooks] = useState(myBooks.length);
 
   useEffect(() => {
-    getMyBookList();
+    dispatch(getMyBookList());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setNumBooks(myBooks.length);
   }, [myBooks]);
 
   // fonction de suppression de compte
@@ -46,14 +54,30 @@ function UserPage() {
     navigate('/', { replace: true });
   };
 
+  // Fonction pour récupérer la liste des livres à donner
   const handleGetBooks = (event) => {
     event.preventDefault();
     dispatch(getMyBookList());
   };
 
-  const handleDeleteBook = (event) => {
-    event.preventDefault();
+  // Fonction de suppression d'un livre
+  const handleDeleteBook = async (bookId) => {
+    await dispatch(deleteBook(bookId));
+    dispatch(getMyBookList());
   };
+
+  // Fonction pour récupérer la liste des livres donnés
+  const handleGetGivedBooks = (event) => {
+    event.preventDefault();
+    dispatch(getMyGivedBookList());
+  };
+
+  // Fonction de basculement de statut du livre "à donner " à "donné"
+  const handleGiveBook = async (bookId) => {
+    await dispatch(giveBook(bookId));
+    dispatch(getMyBookList());
+  };
+
   return (
     <>
       <Header />
@@ -63,7 +87,7 @@ function UserPage() {
         >
           <MDBContainer className="py-5 h-100">
             <MDBRow className="justify-content-center align-items-center h-100">
-              <MDBCol lg="6" className="mb-4 mb-lg-0 ">
+              <MDBCol lg="6" className="mb-4 mb-lg-0 container">
                 <MDBCard
                   className="mb-3"
                   style={{
@@ -121,7 +145,7 @@ function UserPage() {
                           </MDBCol>
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Livres à donner</MDBTypography>
-                            <MDBCardText className="texted">12</MDBCardText>
+                            <MDBCardText className="texted">{numBooks}</MDBCardText>
                           </MDBCol>
                         </MDBRow>
 
@@ -131,8 +155,8 @@ function UserPage() {
                           <MDBCol size="6" className="mb-3">
                             <MDBTypography tag="h6">Email</MDBTypography>
                             <MDBCardText className="texted">{usermail}</MDBCardText>
-                            <span className="buttonContainer">
-                              <button onClick={handleDeleteUserAccount} type="button" className="button">Supprimer mon compte</button>
+                            <span >
+                              <button onClick={handleDeleteUserAccount} type="button" className="btn btn-primary">Supprimer mon compte</button>
                               <Modal />
                             </span>
                           </MDBCol>
@@ -156,33 +180,50 @@ function UserPage() {
                                   Mes livres à donner
                                 </Accordion.Header>
                                 {myBooks.map((book) => (
-                                  <Accordion.Body style={{ backgroundColor: '#f5f0e6' }}>
+                                  <Accordion.Body key={book.id} style={{ backgroundColor: '#f5f0e6' }}>
                                     <main className="cardBody">
                                       <div className="bookItem">
                                         <h5>
                                           {book.title}
                                         </h5>
                                         <img
+                                          className='cardImage'
                                           src={book.cover_page}
                                           alt={`couverture du livre ${book.title}`}
                                         />
                                         <p>{book.author}</p>
                                         <p>{book.editor}</p>
                                         <p>{`Format : ${book.width} x H${book.height}`}</p>
-                                        <button className="button" type="button" onClick={handleDeleteBook}>Je ne souhaite plus donner mon livre</button>
-                                        <button className="button" type="button">J'ai donné ce livre</button>
+                                        <button className="btn btn-primary" type="button" onClick={() => handleGiveBook(book.book_id)}>J'ai donné mon livre </button>
+                                        <button className="btn btn-primary" type="button" onClick={() => handleDeleteBook(book.book_id)}>Je ne souhaite plus donner mon livre</button>
                                       </div>
                                     </main>
                                   </Accordion.Body>
                                 ))}
                               </Accordion.Item>
                               <Accordion.Item eventKey="1">
-                                <Accordion.Header>Livres donnés</Accordion.Header>
-                                <Accordion.Body style={{
-                                  backgroundColor: '#f5f0e6',
-
-                                }}
-                                />
+                                <Accordion.Header onClick={handleGetGivedBooks}>
+                                  Livres donnés
+                                </Accordion.Header>
+                                {myGivedBooks.map((book) => (
+                                  <Accordion.Body key={book.id} style={{ backgroundColor: '#f5f0e6' }}>
+                                    <main className="cardBody">
+                                      <div className="bookItem">
+                                        <h5>
+                                          {book.title}
+                                        </h5>
+                                        <img
+                                          className='cardImage'
+                                          src={book.cover_page}
+                                          alt={`couverture du livre ${book.title}`}
+                                        />
+                                        <p>{book.author}</p>
+                                        <p>{book.editor}</p>
+                                        <p>{`Format : ${book.width} x H${book.height}`}</p>
+                                      </div>
+                                    </main>
+                                  </Accordion.Body>
+                                ))}
                               </Accordion.Item>
 
                             </Accordion>
@@ -198,7 +239,7 @@ function UserPage() {
           </MDBContainer>
         </section>
       </main>
-      <Footer className="footer" />
+      <Footer />
     </>
   );
 }

@@ -8,7 +8,7 @@ import {
 // == Middlewares
 
 // Fonction pour récupérer les livres rechercher
-export const getBook = () => async (dispatch, getState) => {
+export const getBook = (navigate) => async (dispatch, getState) => {
   const state = getState();
   const search = state.books.userSearch;
 
@@ -21,7 +21,8 @@ export const getBook = () => async (dispatch, getState) => {
   }
   catch (axios) {
     dispatch(setError(axios.response));
-    alert('Aucun résultat pour cette recherche');
+    // alert('Aucun résultat pour cette recherche')
+    navigate('*');
   }
 };
 

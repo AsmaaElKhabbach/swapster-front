@@ -19,9 +19,7 @@ function HomePage() {
         <Slogan />
         <Introduction />
         <Rules />
-          <Carrousel />
         {isLoggedIn && (
-          <>
           <LatestAdd />
           </>
         )}
