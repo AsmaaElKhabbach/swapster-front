@@ -52,13 +52,13 @@ function BookCard({
 
   return (
     <>
-      <Card className="book">
-        <Card.Img className="book-img" variant="top" src={`${cover_page}`} />
-        <Card.Body className="book-body">
+      <Card className="result">
+        <Card.Img className="result-img" variant="top" src={`${cover_page}`} />
+        <Card.Body className="result-body">
           <Card.Title>{title}</Card.Title>
           <Card.Text>Résumé : {resume}</Card.Text>
         </Card.Body>
-        <ListGroup className="list-group-flush">
+        <ListGroup className=" result-info list-group-flush">
           <ListGroup.Item>Catégorie : {category}</ListGroup.Item>
           <ListGroup.Item>ISBN : {isbn_13}</ListGroup.Item>
           <ListGroup.Item>Auteur : {author}</ListGroup.Item>

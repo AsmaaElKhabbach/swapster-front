@@ -56,7 +56,7 @@ function UserPage() {
   // Fonction pour récupérer la liste des livres à donner
   const handleGetBooks = (event) => {
     event.preventDefault();
-    dispatch(getMyBookList());
+    dispatch(getMyBookList(navigate));
   };
 
   // Fonction de suppression d'un livre

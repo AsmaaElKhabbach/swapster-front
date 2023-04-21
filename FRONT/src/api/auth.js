@@ -46,6 +46,7 @@ export const signUp = (userData) => async (dispatch) => {
   catch (error) {
     // modification de l'action d'erreur pour s'inscrire
     dispatch(signUpFailed(error.message));
+     alert('L\'inscription a échouée merci de retenter votre inscription');
   }
 };
 
@@ -63,8 +64,9 @@ export const deleteUserAccount = () => async (getState) => {
     });
     return response.data;
   }
-  catch (error) {
-    throw new Error(`Error deleting user account: ${error.message}`);
+  catch (axios) {
+    dispatch(setError(axios.response.data));
+    alert('Malheureusement votre compte n\'a pu être supprimer.')
   }
 };
 
@@ -84,7 +86,8 @@ export const changeUserData = () => async (dispatch, getState) => {
     // faire un dispatch avec un createAction
     dispatch(saveNewUserInfo(response.data));
   }
-  catch (error) {
-    throw new Error(`Error deleting user account: ${error.message}`);
+  catch (axios) {
+    dispatch(setError(axios.response.data));
+    alert('La modification a échouée.')
   }
 };

@@ -48,7 +48,6 @@ export const getUsersGivenBooks = () => async (dispatch, getState) => {
       console.log(axios);
       // on récupère l'erreur dans axios
       dispatch(setError(axios.response.data));
-      alert('error');
     }
   });
 };
@@ -72,7 +71,6 @@ export const getUsersGivenBooksHome = () => async (dispatch, getState) => {
       console.log(axios);
       // on récupère l'erreur dans axios
       dispatch(setError(axios.response.data));
-      alert('error');
     }
   });
 };
@@ -93,7 +91,7 @@ export const addBookToList = (id, bookCondition) => async (dispatch, getState) =
     console.log(axios);
     // on récupère l'erreur dans axios
     dispatch(setError(axios.response.data));
-    alert('error');
+    alert('Ce livre est déjà présent dans votre liste à donner');
   }
 };
 
@@ -109,7 +107,7 @@ export const getLatestBookAdded = () => async (dispatch) => {
     console.log(axios);
     // on récupère l'erreur dans axios
     dispatch(setError(axios.response.data));
-    alert('Error retrieving latest books added');
+    alert('Aucun livre dernièrement ajouté.');
     return [];
   }
 };

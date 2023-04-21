@@ -2,6 +2,10 @@
 .container{
   width: 80%;
 }
+.accordion-body{
+  height: 50em;
+}
+
 .sendButton {
   display: flex;
   align-items: center;
@@ -41,6 +45,7 @@
   max-width: 70%;
   min-width: 70%;
   text-align: center;
+  height: 45em;
   
 }
 

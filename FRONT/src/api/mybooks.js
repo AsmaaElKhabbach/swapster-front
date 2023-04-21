@@ -7,7 +7,7 @@ import { setIsLoading, setError, saveMyBooksList, saveMyGivedBooksList, addBookt
 // == Middlewares 
 
 // Fonction pour récupérer les livres à donner de l'utilisateur
-export const getMyBookList = () => {
+export const getMyBookList = (navigate) => {
   return async (dispatch, getState) => {
     const state= getState()
 
@@ -21,7 +21,7 @@ export const getMyBookList = () => {
   
     }catch(axios){
       dispatch(setError(axios.response))
-      alert('Aucun livre dans la liste')
+      navigate('/profile')
     }
     finally{
       dispatch(setIsLoading(false))
@@ -46,7 +46,7 @@ export const deleteBook = (bookId) => {
       return response.data
     } catch (error) {
       dispatch(setError(error.response));
-      // alert('Erreur lors de la suppression du livre');
+      alert('Erreur lors de la suppression du livre');
     } finally {
       dispatch(setIsLoading(false));
     }
@@ -71,7 +71,6 @@ export const getMyGivedBookList = () => {
     }catch(axios){
       console.log(axios)
       dispatch(setError(axios.response))
-      alert('Aucun livre dans la liste')
     }
     finally{
       dispatch(setIsLoading(false))
@@ -79,7 +78,7 @@ export const getMyGivedBookList = () => {
   };
 };
 
-// Fonction qui permet d'ajoouter un livre à la liste donné
+// Fonction qui permet d'ajouter un livre à la liste donné
 export const giveBook = (bookId) => {
   return async (dispatch, getState) => {
     const state = getState();
@@ -103,7 +102,6 @@ export const giveBook = (bookId) => {
 
     } catch (error) {
       dispatch(setError(error.response));
-      // alert('Erreur lors de la suppression du livre');
     } finally {
       dispatch(setIsLoading(false));
     }
