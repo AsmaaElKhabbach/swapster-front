@@ -16,12 +16,13 @@ function HomePage() {
     <div className="page">
       <Header />
       <main>
+      <Carrousel />
         <Slogan />
         <Introduction />
         <Rules />
-        {isLoggedIn && (
+        {/* {isLoggedIn && (
           <LatestAdd />
-        )}
+        )} */}
       </main>
       <Footer />
     </div>

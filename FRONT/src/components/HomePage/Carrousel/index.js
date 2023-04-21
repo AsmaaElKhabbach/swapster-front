@@ -4,6 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
+import Accordion from 'react-bootstrap/Accordion';
 
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getLatestBookAdded, getUsersGivenBooksHome } from '../../../api/books';
 
 import EmailTo from '../../EmailTo';
+import './styles.scss'
 
 function Carrousel() {
   const dispatch = useDispatch();
