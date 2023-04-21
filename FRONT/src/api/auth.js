@@ -79,8 +79,10 @@ export const changeUserData = () => async (dispatch, getState) => {
     //  appel api à l'application back pour modifier les informations de l'utilisateur
     const response = await axiosInstance.patch('/user/me', {
       name: state.settings.user.data.name,
+      email: state.settings.user.data.email,
       city: state.settings.user.data.city,
       password: state.settings.user.data.password,
+      passwordConfirm: state.settings.user.data.passwordConfirm,
     });
     console.log(response.data);
     // faire un dispatch avec un createAction
@@ -88,6 +90,7 @@ export const changeUserData = () => async (dispatch, getState) => {
   }
   catch (axios) {
     dispatch(setError(axios.response.data));
+    console.log(axios.response.data)
     alert('La modification a échouée.')
   }
 };

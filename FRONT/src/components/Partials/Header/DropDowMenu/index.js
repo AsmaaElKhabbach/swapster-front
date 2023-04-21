@@ -32,17 +32,10 @@ function DropdownMenu() {
           <LinkContainer to="/">
             <NavDropdown.Item>Accueil</NavDropdown.Item>
           </LinkContainer>
-          <LinkContainer to="/login">
-            <NavDropdown.Item>Se connecter</NavDropdown.Item>
-          </LinkContainer>
-          <LinkContainer to="/signup">
-            <NavDropdown.Item>S'inscrire</NavDropdown.Item>
-          </LinkContainer>
-
-          <NavDropdown.Divider />
           <LinkContainer to="/profile">
             <NavDropdown.Item>Profil</NavDropdown.Item>
           </LinkContainer>
+          <NavDropdown.Divider />
           <LinkContainer to="/">
             <NavDropdown.Item onClick={handleLogout}>Déconnection</NavDropdown.Item>
           </LinkContainer>
@@ -53,6 +46,7 @@ function DropdownMenu() {
           <LinkContainer to="/">
             <NavDropdown.Item>Accueil</NavDropdown.Item>
           </LinkContainer>
+          <NavDropdown.Divider />
           <LinkContainer to="/login">
             <NavDropdown.Item>Se connecter</NavDropdown.Item>
           </LinkContainer>

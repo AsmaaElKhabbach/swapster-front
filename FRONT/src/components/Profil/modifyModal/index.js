@@ -79,6 +79,17 @@ export default function Modal() {
                   name="city"
                   wrapperClass="mb-4"
                   placeholder="Nouvelle localisation"
+                  value={user.email}
+                  onChange={handleInputChange}
+                  size="lg"
+                  id="form3"
+                  type="text"
+                />
+                <MDBInput
+                  className="changeForm__form-input"
+                  name="city"
+                  wrapperClass="mb-4"
+                  placeholder="Nouvelle localisation"
                   value={user.city}
                   onChange={handleInputChange}
                   size="lg"
@@ -91,6 +102,17 @@ export default function Modal() {
                   wrapperClass="mb-4"
                   placeholder="Nouveau mot de passe"
                   value={user.password}
+                  onChange={handleInputChange}
+                  size="lg"
+                  id="form4"
+                  type="password"
+                />
+                <MDBInput
+                  className="changeForm__form-password"
+                  name="password"
+                  wrapperClass="mb-4"
+                  placeholder="Nouveau mot de passe"
+                  value={user.passwordConfirm}
                   onChange={handleInputChange}
                   size="lg"
                   id="form4"
