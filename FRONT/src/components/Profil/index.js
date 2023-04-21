@@ -5,6 +5,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Nav from 'react-bootstrap/Nav';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 import {
   MDBCol,
   MDBContainer,
@@ -121,7 +122,10 @@ function UserPage() {
                       >
                         <div className="user">
                           {isLoggedIn && (
-                          <Nav.Link href="/profile" className="nav-link"> {username}</Nav.Link>
+                          
+                            <LinkContainer to="/profile">
+                              <Nav.Link>Bienvenue {username}</Nav.Link>
+                            </LinkContainer>
                           )}
                           {!isLoggedIn && (
                           <>

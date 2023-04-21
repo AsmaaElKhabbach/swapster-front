@@ -23,6 +23,7 @@
   flex-basis: 30%;
   min-height: 10%;
   height: 6em;
+  overflow-y: auto;
 
 }
 
@@ -48,21 +49,24 @@
 // -- Responsiv -- //
 
 @media(max-width: 1300px){
- 
-  .book-img {
+ .result{
+  max-width: 20em;
+  min-width: 22em;
+ }
+  .result-img {
     flex-basis: 100%;
     min-height: 20%;
     max-height: 30em;
     margin-bottom: 1em;
   }
 
-  .book-body {
+  .result-body {
     flex-basis: 20%;
     min-height: 10%;
     max-height: 10em;
   }
 
-  .list-group {
+  .result-group {
     flex-basis: 100%;
     min-height: 20%;
     max-height: 15em;
